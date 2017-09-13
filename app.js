@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 var config = require('./config/config');
 var optionData = require('./config/data');
 var index = require('./routes/index');
-var test = require('./routes/test');
 var news = require('./routes/news');
 var staff = require('./routes/staff');
 
@@ -50,7 +49,6 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', index);
-app.use('/test', test);
 app.use('/article', news);
 app.use('/news', news);
 app.use('/staff', staff);

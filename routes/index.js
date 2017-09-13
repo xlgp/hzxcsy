@@ -7,7 +7,7 @@ var router = express.Router();
  * 首页
  */
 router.get('/', (req, res, next) => {
-  console.log(gConfig, optionData);
+  
   res.render('index', {
     carcousels:optionData.carcousels,
     buss:optionData.buss,

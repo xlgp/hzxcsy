@@ -34,7 +34,7 @@ router.get('/:page(\\d+)', (req, res, next) => {
  * 详情查询
  */
 router.get('/item/:id(\\d+)', (req, res, next) => {
-    console.log(req.params);
+    
     let list = {
         code:0,
         total:25,

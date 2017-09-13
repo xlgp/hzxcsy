@@ -42,7 +42,6 @@
 <script src="/layui/layui.js"></script>
 <script>
     layui.cache.host = '';
-    // layui.config({version: "1504772541919"}).extend({  'fly': '//res.layui.com/lay/modules/fly/index'}).use('fly');
 </script>
 <script>
     //注意：导航 依赖 element 模块，否则无法进行功能性操作
@@ -75,7 +74,7 @@
                 window.location.href = pathname + obj.curr;
                 return;
             }
-        }); console.log($('#staff-page').data('total'));
+        });
         laypage.render({
             elem: 'staff-page' //注意，这里的 test1 是 ID，不用加 # 号
             ,count: $('#staff-page').data('total')

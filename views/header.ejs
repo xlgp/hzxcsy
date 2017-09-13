@@ -5,7 +5,7 @@
             <%try{%>
             <img src="<%= XC.LOGO_IMG%>"/>
             <%}catch(err){
-                console.log(err.message);
+                console.error(err.message);
              }%>
         </a>
         <ul class="layui-nav xc-nav" lay-filter="">
@@ -25,7 +25,7 @@
                 <%}%>
             </li>
             <%}}catch(err){
-                console.log(err.message);
+                console.error(err.message);
              }%>
         </ul>
     </div>
