@@ -1,0 +1,69 @@
+<%- include header %>
+<div class="xc-ban-titile layui-hide-xs" style="background-image: url('/upload/banner/commen/banner_news.jpg');">
+	<h1 class="txtcenter"><span>综合资讯 / News</span></h1>
+</div>
+<div class="layui-container site-content">
+    <article class="xc-section article-content-box">
+        <%try{
+            let article=articleObj.article;
+            %>  
+        <div class="layui-row txtcenter">
+            <h1 id="article-title" class="site-big-title article-title"><%=article.title%></h1>
+            <div class="text-center layui-word-aux">
+                <input id="article_id" type="hidden" value="1">
+                <span><i class="layui-icon">&#xe637;</i> 时间：<%=article.createTime%></span>
+                <span><i class="layui-icon">&#xe612;</i> 作者：<%=article.user%></span>
+                <span><i class="layui-icon">&#xe63c;</i> 浏览量：<span id="pv" data-pv="25"><%=article.pv%></span></span>
+            </div>
+        </div>
+        <hr class="layui-bg-gray">
+        <div class="article-content"><%-article.content%></div>
+        <hr class="layui-bg-gray">
+        <div class="bdsharebuttonbox xc-share-box" data-tag="share_1">
+                <div class="bdsharebuttonbox" data-tag="share_1">
+                    <a class="bds_mshare" data-cmd="mshare"></a>
+                    <a class="bds_qzone" data-cmd="qzone" href="#"></a>
+                    <a class="bds_tsina" data-cmd="tsina"></a>
+                    <a class="bds_baidu" data-cmd="baidu"></a>
+                    <a class="bds_renren" data-cmd="renren"></a>
+                    <a class="bds_tqq" data-cmd="tqq"></a>
+                    <a class="bds_more" data-cmd="more">更多</a>
+                    <a class="bds_count" data-cmd="count"></a>
+                </div>
+                <script>
+                    window._bd_share_config = {
+                    common : {
+                    bdText : document.getElementById('article-title').innerText,
+                    bdDesc : '自定义分享摘要',  
+                    bdUrl : window.location.href,   
+                    bdPic : '自定义分享图片'
+                    },
+                    share : [{
+                    "bdSize" : 16
+                    }],
+                    slide : [{
+                    bdImg : 0,
+                    bdPos : "right",
+                    bdTop : 300
+                    }]
+                    }
+                    
+                    //以下为js加载部分
+                    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+                    </script>                        
+        </div>
+        <div class="layui-row">
+            <%let other = articleObj.other;%>
+            <div class="layui-col-md6">
+                <div class="layui-elip" style="text-align: left;"><%-other[0]%></div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-elip" style="text-align: right;"><%-other[1]%></div>
+            </div>
+        </div>
+        <% }catch(err){
+            console.error(err.message);
+        }%> 
+    </article>
+</div>
+<%- include footer %>

@@ -1,0 +1,99 @@
+<footer class="">
+    <div class="linear-line"></div>
+    <div class="layui-container">
+        <div class="layui-row layui-show-md-block layui-hide-sm">
+            <div class="layui-col-md4 layui-col-sm6">
+                    <h3 class="xc-item-title">联系我们</h3>
+                    <% try{%>
+                    <p><%= XC.CELL%></p>
+                    <p><%= XC.EMAIL%></p>
+                    <p><%= XC.ADDRESS%></p>
+                    <%}catch(err){
+                        console.error(err.message);
+                     }%>
+            </div>
+            <div class="layui-col-md4 layui-col-sm6">
+                <div class="layui-col-md6">
+                    <h3 class="xc-item-title">经营业务</h3>
+                    <p><a href="javascript:void(0);">4S店</a></p>
+                    <p><a href="javascript:void(0);">修理厂</a></p>
+                    <p><a href="javascript:void(0);">网络销售平台</a></p>
+                    <p><a href="javascript:void(0);">配件仓储与配送</a></p>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <h2 class="txtright">
+                    <img src="/upload/commen/csh_weixin_516.jpg" width="129" height="129">
+                    <img src="/upload/commen/xc_weixin_258.jpg" width="129" height="129">
+                </h2>
+            </div>
+        </div>
+        <div class="layui-row txtcenter">
+            <% try{%>
+            <p>Copyright © 2017 Hangzhou Xiechuang Industries Co.,Ltd All Rights Reserved</p>
+            <p>杭州协创实业有限公司版权所有|网站备案/许可证号：<%= XC.ICP %></p>
+            <%}catch(err){
+                console.error(err.message);
+             }%>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="/layui/layui.js"></script>
+<script>
+    layui.cache.host = '';
+    // layui.config({version: "1504772541919"}).extend({  'fly': '//res.layui.com/lay/modules/fly/index'}).use('fly');
+</script>
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use(['element', 'carousel', 'laypage', 'util', 'jquery'], function(){
+        var element = layui.element,
+            laypage = layui.laypage,
+            carousel = layui.carousel,
+            util = layui.util,
+            $ = layui.$;
+
+        //建造实例
+        carousel.render({
+            elem: '#xc-carousel'
+            ,width: '100%' //设置容器宽度
+            ,height: '500px'
+        });
+         //执行一个laypage实例
+        laypage.render({
+            elem: 'news-page' //注意，这里的 test1 是 ID，不用加 # 号
+            ,count: $('#news-page').data('total') //数据总数，从服务端得到
+            ,theme:'#f70909'
+            ,curr:(() => {
+                let params = window.location.pathname.split('/');
+                return params[params.length-1];
+            })()
+            ,jump: function(obj, first){
+                if(first){return;}
+                let pathname = window.location.pathname;
+                pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
+                window.location.href = pathname + obj.curr;
+                return;
+            }
+        }); console.log($('#staff-page').data('total'));
+        laypage.render({
+            elem: 'staff-page' //注意，这里的 test1 是 ID，不用加 # 号
+            ,count: $('#staff-page').data('total')
+            ,theme:'#f70909'
+            ,curr:(() => {
+                let params = window.location.pathname.split('/');
+                return params[params.length-1];
+            })()
+            ,jump: function(obj, first){ 
+                if(first){return;}
+                let pathname = window.location.pathname;
+                pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
+                window.location.href = pathname + obj.curr;r
+                return;
+            }
+        });
+        util.fixbar({showHeight:100});
+      
+    });
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<%- include head.ejs %>
+<header class="layui-header xc-header">
+    <div class="layui-container">
+        <a class="logo" href="/">
+            <%try{%>
+            <img src="<%= XC.LOGO_IMG%>"/>
+            <%}catch(err){
+                console.log(err.message);
+             }%>
+        </a>
+        <ul class="layui-nav xc-nav" lay-filter="">
+            <%try{
+                for(let i = 0; i < navs.data.length; i++){
+            %>
+            <li class="layui-nav-item">
+                <a href="<%=navs.data[i].url%>" target="<%=navs.data[i].target%>"><%=navs.data[i].name%></a>
+                <%if(navs.data[i].children){
+                    let subnavs = navs.data[i].children;
+                %>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <%for(let j = 0; j < subnavs.length; j++){%>
+                    <dd><a href="<%=subnavs[j].url%>" target="<%=subnavs[j].target%>"><%=subnavs[j].name%></a></dd>
+                    <%}%>
+                </dl>
+                <%}%>
+            </li>
+            <%}}catch(err){
+                console.log(err.message);
+             }%>
+        </ul>
+    </div>
+</header>

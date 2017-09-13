@@ -1,0 +1,61 @@
+<%- include header %>
+    <div class="xc-ban-titile layui-hide-xs" style="background-image: url('/upload/banner/commen/banner_staff.jpg');">
+        <h1 class="txtcenter"><span>员工风采 / Spirit</span></h1>
+    </div>
+    <div class="layui-container site-content">
+        <div class="xc-section">
+            <p class="text-indent-2em" style="margin-top:40px"></p>
+        </div>
+        
+            <%try{
+                let data = staffs.data;
+                if(staffs.code !== 0){window.location.href='/404';}
+                if(staffs.type === 'groups'){%>
+                    <div class="layui-row layui-col-space10 xc-section">
+                    <%
+                for(let i = 0; i < data.length; i++){
+            %>
+            <div class="layui-col-md4 layui-col-sm6">
+                <div class="group-box">
+                    <div class="s-icon">图集</div><a href="/staff/item/<%=data[i].id%>">
+                        <img src="<%=data[i].coverImgPath %>"></a>
+                    <div class="caption txtcenter">
+                        <div class="layui-elip layui-word-aux"><%=data[i].name%></div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+            </div>
+            <div id="staff-page" class="layui-row txtcenter xc-section" data-total='1'></div>
+            <%}else{%>
+                <h4 class="txtcenter"><%=staffs.title%></h4>
+				<div class="imgContainer">
+					<!--大图-->
+					<div class="detailImg" >
+						<a id="detailImg-pre">&lt;</a>
+						<div id="detailImg-box" class="box"></div>
+						<a id="detailImg-next">&gt;</a> 
+					</div>
+					<!--小图-->
+					<div class="smallImg"> 
+						<a id="smallImg-pre"></a>
+						<div id="smallImg-box" class="box">
+							<ul id="smallImg-ul" class="imgUl"></ul>
+						</div>
+						<a id="smallImg-next"></a> 
+					</div>
+                </div>
+            <%}}catch(err){console.log(err.message);}%>
+        
+        
+    </div>
+    <%- include footer %>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/xc-galleryview.js"></script>
+    <script type="text/javascript">
+        try {
+            XCGV.init(<%- JSON.stringify(staffs.data)%>);  
+        } catch (error) {
+            console.error(error.message);
+        } 
+    </script>

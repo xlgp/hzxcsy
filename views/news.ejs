@@ -1,0 +1,29 @@
+<%- include header %>
+<div class="xc-ban-titile layui-hide-xs" style="background-image: url('/upload/banner/commen/banner_news.jpg');">
+	<h1 class="txtcenter"><span>综合资讯 / News</span></h1>
+</div>
+<div class="layui-container site-content">
+   <% try{ 
+       let data = news.data;
+       for(let i = 0; i < news.total; i++){
+    %>
+    <div class="layui-row xc-section">
+        <div class="layui-col-md5 xc-news-img" style="background-image: url(<%= data[i].itemImgSrc%>);">
+            <a href="<%= data[i].url%>" class="xc-news-date">
+                <span><%= data[i].createTime %></span>
+            </a>
+        </div>
+        <div class="layui-col-md7">
+            <div class="xc-panel site-text">
+                <h3 class="xc-news-heading layui-elip"><a href="<%= data[i].url%>"><%= data[i].title%></a></h3>
+                <p class="lead text-indent-2em"><%= data[i].summary%></p>
+            </div>
+        </div>
+        <hr class="layui-bg-gray">
+    </div>
+   <% }}catch(err){
+       console.error(err.message);
+    }%>
+    <div id="news-page" class="txtcenter" data-total='1'></div>
+</div>
+<%- include footer %>

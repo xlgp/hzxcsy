@@ -1,0 +1,15 @@
+<div class="layui-carousel" id="xc-carousel" style="height:500px">
+    <div carousel-item>
+        <% try{
+            let data = carcousels.data;
+            for(let i = 0; i < carcousels.total; i++){
+        %>
+        <div style="background-image:url('<%=data[i].itemImgSrc%>');">
+            <h1 class="banner-title"><%=data[i].bannerTitle%></h1>
+            <p class="banner-detail"><%=data[i].bannerDetail%></p>
+        </div>
+        <% }}catch(err){
+            console.log(err.message);
+         }%>
+    </div>
+</div>
