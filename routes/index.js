@@ -2,12 +2,13 @@ var express = require('express');
 var optionData = require('../config/data');
 var gConfig = require('../config/config');
 var router = express.Router();
+var logger = require('../middlename/xclog.js').logger('index');
 
 /**
  * 首页
  */
 router.get('/', (req, res, next) => {
-  console.log(gConfig, optionData);
+  
   res.render('index', {
     carcousels:optionData.carcousels,
     buss:optionData.buss,
