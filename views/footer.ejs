@@ -23,8 +23,8 @@
             </div>
             <div class="layui-col-md4">
                 <h2 class="txtright">
-                    <img src="/upload/commen/csh_weixin_516.jpg" width="129" height="129">
-                    <img src="/upload/commen/xc_weixin_258.jpg" width="129" height="129">
+                    <img src="/public/upload/commen/csh_weixin_516.jpg" width="129" height="129">
+                    <img src="/public/upload/commen/xc_weixin_258.jpg" width="129" height="129">
                 </h2>
             </div>
         </div>
@@ -39,18 +39,57 @@
     </div>
 </footer>
 </body>
-<script src="/layui/layui.js"></script>
+<script src="/public/layui/layui.js"></script>
 <script>
     layui.cache.host = '';
-    // layui.config({version: "1504772541919"}).extend({  'fly': '//res.layui.com/lay/modules/fly/index'}).use('fly');
+    function getCookie(c_name)
+    {
+    if (document.cookie.length>0)
+    {
+    c_start=document.cookie.indexOf(c_name + "=")
+    if (c_start!=-1)
+        { 
+        c_start=c_start + c_name.length+1 
+        c_end=document.cookie.indexOf(";",c_start)
+        if (c_end==-1) c_end=document.cookie.length
+        return unescape(document.cookie.substring(c_start,c_end))
+        } 
+    }
+    return ""
+    }
+
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+
+        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    console.log(document.cookie);
+}
+
+function checkCookie()
+{
+isload=getCookie('isload')
+if (isload!=null && isload!="")
+  {alert('Welcome again '+isload+'!')}
+else 
+  {
+  isload=prompt('Please enter your name:',"")
+  if (isload!=null && isload!="")
+    {
+    setCookie('isload',isload,365)
+    }
+  }
+}
 </script>
 <script>
     //注意：导航 依赖 element 模块，否则无法进行功能性操作
-    layui.use(['element', 'carousel', 'laypage', 'util', 'jquery'], function(){
+    layui.use(['element', 'carousel', 'laypage', 'util', 'jquery', 'layer'], function(){
         var element = layui.element,
             laypage = layui.laypage,
             carousel = layui.carousel,
             util = layui.util,
+            layer = layui.layer,
             $ = layui.$;
 
         //建造实例
@@ -75,7 +114,7 @@
                 window.location.href = pathname + obj.curr;
                 return;
             }
-        }); console.log($('#staff-page').data('total'));
+        });
         laypage.render({
             elem: 'staff-page' //注意，这里的 test1 是 ID，不用加 # 号
             ,count: $('#staff-page').data('total')
@@ -93,7 +132,16 @@
             }
         });
         util.fixbar({showHeight:100});
-      
+        
+        //设置提示框
+        if (document.cookie==null || document.cookie==""){
+            layer.open({
+                title: '友情提示'
+                ,type:0
+                ,content: '本版本为测试版本,若想访问公司官网,请前往:<br><a href="http://node.hzxcsy.xlgp.me/" target="_black">http://node.hzxcsy.xlgp.me/</a>'
+                });
+                setCookie('isload','yes',365)  
+        }   
     });
     </script>
 </html>
