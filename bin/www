@@ -6,13 +6,18 @@
 
 var app = require('../app');
 var debug = require('debug')('hzxcsy:server');
+var config = require('../config/config');
 var http = require('http');
 
+/**
+ * Set environment
+ */
+app.set('env', config.env||'production');
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8888');
+var port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
 /**

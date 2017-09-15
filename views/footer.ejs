@@ -23,8 +23,8 @@
             </div>
             <div class="layui-col-md4">
                 <h2 class="txtright">
-                    <img src="/upload/commen/csh_weixin_516.jpg" width="129" height="129">
-                    <img src="/upload/commen/xc_weixin_258.jpg" width="129" height="129">
+                    <img src="/public/upload/commen/csh_weixin_516.jpg" width="129" height="129">
+                    <img src="/public/upload/commen/xc_weixin_258.jpg" width="129" height="129">
                 </h2>
             </div>
         </div>
@@ -39,60 +39,6 @@
     </div>
 </footer>
 </body>
-<script src="/layui/layui.js"></script>
-<script>
-    layui.cache.host = '';
-</script>
-<script>
-    //注意：导航 依赖 element 模块，否则无法进行功能性操作
-    layui.use(['element', 'carousel', 'laypage', 'util', 'jquery'], function(){
-        var element = layui.element,
-            laypage = layui.laypage,
-            carousel = layui.carousel,
-            util = layui.util,
-            $ = layui.$;
-
-        //建造实例
-        carousel.render({
-            elem: '#xc-carousel'
-            ,width: '100%' //设置容器宽度
-            ,height: '500px'
-        });
-         //执行一个laypage实例
-        laypage.render({
-            elem: 'news-page' //注意，这里的 test1 是 ID，不用加 # 号
-            ,count: $('#news-page').data('total') //数据总数，从服务端得到
-            ,theme:'#f70909'
-            ,curr:(() => {
-                let params = window.location.pathname.split('/');
-                return params[params.length-1];
-            })()
-            ,jump: function(obj, first){
-                if(first){return;}
-                let pathname = window.location.pathname;
-                pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
-                window.location.href = pathname + obj.curr;
-                return;
-            }
-        });
-        laypage.render({
-            elem: 'staff-page' //注意，这里的 test1 是 ID，不用加 # 号
-            ,count: $('#staff-page').data('total')
-            ,theme:'#f70909'
-            ,curr:(() => {
-                let params = window.location.pathname.split('/');
-                return params[params.length-1];
-            })()
-            ,jump: function(obj, first){ 
-                if(first){return;}
-                let pathname = window.location.pathname;
-                pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
-                window.location.href = pathname + obj.curr;r
-                return;
-            }
-        });
-        util.fixbar({showHeight:100});
-      
-    });
-    </script>
+<script src="/public/layui/layui.js"></script>
+<script src="/public/js/xc.js"></script>
 </html>

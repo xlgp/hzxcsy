@@ -29,24 +29,32 @@
 	cursor: pointer;
 }
 .box {
-	/*width: 684px;*/
 	margin: 0 30px;
 	overflow: hidden;
+	position: relative;
+    text-align: center;
+}
+.box:after {
+    content: '员工风采';
+    color: #aaa;
+	z-index: -1;
+	width: 100%;
+	left: 0;
+	font-size: 22px;
+    position: absolute;
+    line-height: 400px;
 }
 .detailImg,
 .smallImg {
 	position: relative;
 }
-/*detailImg*/
 #detailImg-box {
-	/*min-height: 200px;*/
 	height: 400px
 }
 .detailImg {
 	text-align: center;
 }
 .detailImg img {
-	/*max-width: 684px;*/
 }
 .detailImg p {
 	text-align: left;
@@ -92,6 +100,14 @@
 	overflow: hidden;
 	vertical-align: middle;
 	margin: 5px auto;
+	background-color: #f6f6f6;
+	text-align: center;
+}
+.smallImg li a:after {
+    content: '缩略图';
+    text-align: center;
+    font-size: 12px;
+    color: #acacac;
 }
 .smallImg img {
 	width: 70px;

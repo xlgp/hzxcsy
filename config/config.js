@@ -3,7 +3,7 @@ module.exports = {
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
         //网站Logo
-        LOGO_IMG:'/upload/commen/logo.png',
+        LOGO_IMG:'/public/upload/commen/logo.png',
         //公司邮箱
         EMAIL:'hangzhouxcsy@126.com',
         //公司电话
@@ -14,6 +14,8 @@ module.exports = {
         ICP:'浙ICP备17017268号-1',
     },
     port:8888,
+    // development, production
+    env:'development',
     //session
     session:{
         key:'xc_session',
@@ -22,7 +24,7 @@ module.exports = {
     },
     mongodb:{
         url:'mongodb://localhost:27017/hzxcsytest',
-    }
+    },
 }
 
 
