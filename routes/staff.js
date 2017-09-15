@@ -7,9 +7,6 @@ var router = express.Router();
  * 列表查询
  */
 router.get('/:page(\\d+)', (req, res, next) => {
-    /**
-     * haoyang huansu dui dingdan
-     */
     let list = {
         code:0,
         total:5,

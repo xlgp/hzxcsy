@@ -12,7 +12,7 @@ var http = require('http');
 /**
  * Set environment
  */
-app.set('env', config.env);
+app.set('env', config.env||'production');
 /**
  * Get port from environment and store in Express.
  */
