@@ -92,7 +92,7 @@ var NavsModel = mongoose.model('navs', navsSchema);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  next(new Error('Test Page'));
 });
 
 module.exports = router;
