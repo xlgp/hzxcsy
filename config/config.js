@@ -15,7 +15,8 @@ module.exports = {
     },
     port:8888,
     // development, production
-    env:'development',
+    // env:'development',
+    env:['development', 'production'][0],
     //session
     session:{
         key:'xc_session',

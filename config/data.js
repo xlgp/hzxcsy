@@ -116,11 +116,11 @@ let news = {
     ]
 };
 let carcousels = {
-    total:6,
+    total:2,
     attr:['itemImgSrc', 'bannerTitle', 'bannerDetail'],
     data:[
         {
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504781372459&di=26fe78cd3cd1475a52d2e46371ea2ee3&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201311%2F26%2F214859xqqh2n0zegz3q6sb.jpg',
+            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505471119574&di=d797058d436eb928466b24b9ca2a6fcd&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Ff%2F542907641edf2.jpg',
             bannerTitle:'杭州协创实业有限公司',
             bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
         },{

@@ -3,7 +3,6 @@
  @Name: 
 
  */
-
 layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], function(exports){
     
     var $ = layui.jquery,
@@ -36,6 +35,12 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
           });
           setCookie('isload','yes',365)  
     }
+    //footer固定在底部
+    let pageheight = $(document).height() - $('body').height(); console.log(pageheight);
+    if(pageheight > 0){
+      $('footer').before('<div style="height:'+pageheight+'px"></div>');
+    }
+    //footer固定在底部 end
 
     var xc = {
       json: function(url, data, success, options){
