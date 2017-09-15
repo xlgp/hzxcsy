@@ -3,7 +3,7 @@
     <div class="layui-container">
         <a class="logo" href="/">
             <%try{%>
-            <img src="<%= XC.LOGO_IMG%>"/><span class="layui-show-md-inline-block layui-hide-sm"><%= XC.GLOBAL_TITLE;%></span>
+            <img src="<%= STATIC_HOST + XC.LOGO_IMG%>"/><span class="layui-show-md-inline-block layui-hide-sm"><%= XC.GLOBAL_TITLE;%></span>
             <%}catch(err){
                 console.error(err.message);
              }%>

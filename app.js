@@ -22,6 +22,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.locals.XC = config.XC;
+//静态资源服务器域名
+app.locals.STATIC_HOST = config.STATIC_HOST;
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

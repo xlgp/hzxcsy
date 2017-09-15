@@ -1,5 +1,5 @@
 <%- include header %>
-<div class="xc-ban-titile layui-hide-xs" style="background-image: url('/public/upload/banner/commen/banner_contact.jpg');">
+<div class="xc-ban-titile layui-hide-xs" style="background-image: url('<%=STATIC_HOST%>/public/upload/banner/commen/banner_contact.jpg');">
 	<h1 class="txtcenter"><span>联系我们 / Contact</span></h1>
 </div>
 <div class="layui-container xc-section">
@@ -27,7 +27,7 @@
     <div class="xc-section">
         <div id="amap-container" class="layui-hide-xs" style="height:400px;">
             <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=cd74d160d2bc29712cf306b9db4815d0"></script>
-            <script type="text/javascript" src="/public/js/xc-amap.js"></script>
+            <script type="text/javascript" src="<%=STATIC_HOST%>/public/js/xc-amap.js"></script>
             <script type="text/javascript">
                 '<%try {%>'
                     XCAMap.createAMap('amap-container',{email:'<%= XC.EMAIL%>', address:'<%= XC.ADDRESS%>', tel:'<%= XC.CELL%>',img_path:'<%= XC.LOGO_IMG%>'});
