@@ -50,7 +50,7 @@
             <div class="<%=_class %>">
                 <% for(let i = 0; i < len; i++) {%>
                 <div class="layui-row xc-news-large xc-news-i-box">
-                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-img" style="background-image: url(<%=data[i].itemImgSrc%>);">
+                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
                         <a class="xc-news-i-title text-right" href="<%=data[i].url%>"><%=data[i].title%></a>
                         <span class="xc-news-i-date" style="right: 0"><%=data[i].createTime%></span>
                     </div>
@@ -63,7 +63,7 @@
             <% if(news.total > 2){ %>
              <div class="layui-col-md4">
                     <div class="xc-news-i-box">
-                        <div class="xc-news-i-img" style="background-image: url(<%=data[2].itemImgSrc%>);height: 157.5px;">
+                        <div class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);height: 157.5px;">
                             <a class="xc-news-i-title text-right" href="<%=data[2].url%>"><%=data[2].title%></a>
                             <span class="xc-news-i-date" style="right: 0"><%=data[2].createTime%></span>
                         </div>
