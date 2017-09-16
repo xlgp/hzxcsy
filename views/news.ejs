@@ -8,7 +8,7 @@
        for(let i = 0; i < news.total; i++){
     %>
     <div class="layui-row xc-section">
-        <div class="layui-col-md5 xc-news-img" style="background-image: url(<%= data[i].itemImgSrc%>);">
+        <div class="layui-col-md5 xc-news-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
             <a href="<%= data[i].url%>" class="xc-news-date">
                 <span><%= data[i].createTime %></span>
             </a>

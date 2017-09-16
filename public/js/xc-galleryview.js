@@ -14,11 +14,10 @@
 
 var XCGV = XCGV || {};
 window.XCGV =XCGV;
-
 XCGV.init = function(pimg){
 	img = pimg;
 	len = img.length;
-	$('#detailImg-box').append('<img src=\"'+img[i].src+'\">');
+	$('#detailImg-box').append('<img src=\"'+window.STATIC_HOST+img[i].src+'\">');
 	//大图	
 	$('#detailImg-next').click(function(){
 		++i;
@@ -152,7 +151,7 @@ function smallImg_click(a,_a,len,i){
 	s_html(_a,c);
 }
 function s_html(_a,c){
-	h='<li class=\"smallImg_'+(_a+1)+'\"><a><img src=\"'+img[_a].smallSrc+'\"></a></li>';
+	h='<li class=\"smallImg_'+(_a+1)+'\"><a><img src=\"'+window.STATIC_HOST+img[_a].smallSrc+'\"></a></li>';
 	return h;
 }
 })()

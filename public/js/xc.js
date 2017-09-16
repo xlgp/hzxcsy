@@ -3,6 +3,7 @@
  @Name: 
 
  */
+
 layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], function(exports){
     
     var $ = layui.jquery,
@@ -36,7 +37,7 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
           setCookie('isload','yes',365)  
     }
     //footer固定在底部
-    let pageheight = $(document).height() - $('body').height(); console.log(pageheight);
+    let pageheight = $(document).height() - $('body').height();
     if(pageheight > 0){
       $('footer').before('<div style="height:'+pageheight+'px"></div>');
     }

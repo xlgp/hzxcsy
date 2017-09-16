@@ -19,7 +19,7 @@ module.exports = {
         ICP:'浙ICP备17017268号-1',
     },
     port:8888,
-    env:['development', 'production'][1],
+    env:['development', 'production'][0],
     //session
     session:{
         key:'xc_session',

@@ -18,7 +18,7 @@
             <div class="layui-col-md4 layui-col-sm6">
                 <div class="group-box">
                     <div class="s-icon">图集</div><a href="/staff/item/<%=data[i].id%>">
-                        <img src="<%=data[i].coverImgPath %>"></a>
+                        <img src="<%=STATIC_HOST + data[i].coverImgPath %>"></a>
                     <div class="caption txtcenter">
                         <div class="layui-elip layui-word-aux"><%=data[i].name%></div>
                     </div>
@@ -51,6 +51,7 @@
     </div>
     <%- include footer %>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.STATIC_HOST = '<%=STATIC_HOST%>';</script>
     <script type="text/javascript" src="<%=STATIC_HOST%>/public/js/xc-galleryview.js"></script>
     <script type="text/javascript">
         try {
