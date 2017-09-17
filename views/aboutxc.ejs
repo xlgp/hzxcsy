@@ -42,7 +42,7 @@
             let data = cooperators.data;
             for(let i = 0; i < data.length; i++){%>
                 <div class="layui-col-xs6 layui-col-sm4 layui-col-md2 xc-firends-box">
-                    <img class="" alt="<%= data[i].name %>" style="width: 100%; height: 100%" src="<%= data[i].img_src %>" data-holder-rendered="true">
+                    <img class="" alt="<%= data[i].name %>" style="width: 100%; height: 100%" src="<%=STATIC_HOST + data[i].img_src %>" data-holder-rendered="true">
                     <a class="xc-pos-abs txtcenter xc-firends-text" href="<%= data[i].url %>" target="_blank"><%= data[i].name %></a>
                 </div> 
         <% }}catch(err){
