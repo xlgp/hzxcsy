@@ -17,7 +17,7 @@ module.exports = {
         //公司地址
         ADDRESS:'浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
         //网站ICP
-        ICP:'浙ICP备17017268号-1',
+        ICP:'<a href="http://www.miitbeian.gov.cn" target="_blank">浙ICP备17017268号-1</a>',
     },
     port:8888,
     //session
