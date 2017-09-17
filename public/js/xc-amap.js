@@ -31,7 +31,7 @@ setConfig(paramter);
  content.push('<div class="info-point"></div>');
  content.push('<div class="info-head">杭州协创实业有限公司</div>');
  content.push('<div class="info-body">');
- content.push('<img src="'+config['img_path']+'" width="64px" height="64px">');
+ content.push('<img src="'+config['img_path']+'" width="" height="64px">');
  content.push('<div>联系方式：'+config['tel']+'</div>');
  content.push('<div>邮箱：'+config['email']+'</div>');
  content.push('<div>地址：'+config['address']+'</div>');

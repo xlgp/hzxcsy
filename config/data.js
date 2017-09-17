@@ -120,31 +120,14 @@ let carcousels = {
     attr:['itemImgSrc', 'bannerTitle', 'bannerDetail'],
     data:[
         {
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505471119574&di=d797058d436eb928466b24b9ca2a6fcd&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Ff%2F542907641edf2.jpg',
+            itemImgSrc:'/public/upload/banner/20170330/1.jpg',
             bannerTitle:'杭州协创实业有限公司',
             bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
         },{
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504896848707&di=ea096de8d227ab198b3dd71021ff328e&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F6%2F5518adba4b5bc.jpg',
+            itemImgSrc:'/public/upload/banner/20170330/2.jpg',
             bannerTitle:'网络销售平台',
             bannerDetail:'诚信汽车零配件综合服务平台'
-        },{
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504781372456&di=86cdb61d30ce3a0be9dcce8027dfc70b&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2Fallimg%2F111122%2F1-111122001133.jpg',
-            bannerTitle:'杭州协创实业有限公司',
-            bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
-        },{
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504781372457&di=098ffa0f91566dd5a6673e8e6adfc679&imgtype=0&src=http%3A%2F%2Fwww.bz55.com%2Fuploads%2Fallimg%2F111208%2F1_111208093644_1.jpg',
-            bannerTitle:'网络销售平台',
-            bannerDetail:'诚信汽车零配件综合服务平台'
-        },{
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504897062080&di=544106a80925321fb256cc35b6dd9011&imgtype=0&src=http%3A%2F%2Fwww.bz55.com%2Fuploads%2Fallimg%2F150831%2F139-150S1164622.jpg',
-            bannerTitle:'杭州协创实业有限公司',
-            bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
-        },{
-            itemImgSrc:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505150014062&di=a3e9f882f0dd19c773a130e2d99b280c&imgtype=0&src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F911%2F031516125939%2F160315125939-4.jpg',
-            bannerTitle:'网络销售平台',
-            bannerDetail:'诚信汽车零配件综合服务平台'
-        },
-        
+        },        
     ],
 };
 
