@@ -4,7 +4,7 @@
             let data = carcousels.data;
             for(let i = 0; i < carcousels.total; i++){
         %>
-        <div style="background-image:url('<%=data[i].itemImgSrc%>');">
+        <div style="background-image:url('<%=STATIC_HOST + data[i].itemImgSrc%>');">
             <h1 class="banner-title"><%=data[i].bannerTitle%></h1>
             <p class="banner-detail"><%=data[i].bannerDetail%></p>
         </div>
