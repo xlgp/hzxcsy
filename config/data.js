@@ -49,7 +49,7 @@ const buss = {
             title:'配件仓储与配送',
             detail:'提供高效的物流配送服务',
         },{
-            bg_img_src : '/public/upload/commen/4S.jpg',
+            bg_img_src : '/public/upload/commen/4-sg.png',
             title:'4S店',
             detail:'集汽车销售、维修、配件和信息服务为一体',
         },{

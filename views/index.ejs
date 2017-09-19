@@ -52,7 +52,7 @@
                 <div class="layui-row xc-news-large xc-news-i-box">
                     <div class="layui-col-md6 layui-col-sm6 xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
                         <a class="xc-news-i-title text-right" href="<%=data[i].url%>"><%=data[i].title%></a>
-                        <span class="xc-news-i-date" style="right: 0"><%=data[i].createTime%></span>
+                        <span class="xc-news-i-date" style="right: 0"><%= data[i].createTime.split(' ')[0]%></span>
                     </div>
                     <div class="layui-col-md6 layui-col-sm6 xc-news-i-content">
                         <div class="text-indent-2em"><%=data[i].summary%></div>
@@ -65,7 +65,7 @@
                     <div class="xc-news-i-box">
                         <div class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);height: 157.5px;">
                             <a class="xc-news-i-title text-right" href="<%=data[2].url%>"><%=data[2].title%></a>
-                            <span class="xc-news-i-date" style="right: 0"><%=data[2].createTime%></span>
+                            <span class="xc-news-i-date" style="right: 0"><%=data[2].createTime.split(' ')[0]%></span>
                         </div>
                     <div class="xc-height100 xc-news-small">
                         <div class="xc-news-i-content text-indent-2em"><%=data[2].summary%></div>

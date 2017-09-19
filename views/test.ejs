@@ -1,0 +1,12 @@
+<%- include header %>
+<div class="layui-container xc-section">
+    <div class="txtcenter xc-panel">
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            <input type="text" name="title"><br>
+            <input type="file" name="file" multiple="multiple"><br>
+            <input type="submit" value="Upload">
+            </form>
+    </div>
+</div>
+
+<%- include footer %>

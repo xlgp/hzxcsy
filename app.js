@@ -14,6 +14,7 @@ var optionData = require('./config/data');
 var index = require('./routes/index');
 var news = require('./routes/news');
 var staff = require('./routes/staff');
+var upload = require('./routes/upload');
 
 var app = express();
 
@@ -51,8 +52,9 @@ navs:导航菜单
 app.use(function (req, res, next) {
   // res.locals.user = req.session.user;
   res.locals.navs = optionData.navs;
-  
-  if (req.cookies.isload) {
+  if(req.app.get('env') != 'development'){
+    res.cookie('isload', 'yes');
+  }else if (req.cookies.isload) {
     res.cookie('isload', req.cookies.isload);
   }
   next();
@@ -64,10 +66,9 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', index);
-app.use('/article', news);
-app.use('/news', news);
+app.use(['/article','/news'], news);
 app.use('/staff', staff);
-
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

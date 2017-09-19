@@ -3,8 +3,8 @@ module.exports = {
      * 静态资源服务器
      * 
      */
-    STATIC_HOST:['', 'http://static.hzxcsy.com.cn'][1],
-    env:['development', 'production'][1],
+    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][0],
+    env:['development', 'production'][0],
     XC:{
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
