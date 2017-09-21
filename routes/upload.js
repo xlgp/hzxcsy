@@ -3,37 +3,55 @@ var express = require('express'),
     logger = require('../middlename/xclog.js').logger('upload'),
     util = require('util'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    xcutil = require('../middlename/xcutil.js'),
+    uploadDirList =require('../config/config.js').uploadDirList;
     formidable = require('formidable');
 
 router.get('/test', (req, res, next) => {
-    res.redirect(404);
     res.render('test');
+}); 
+router.get('/', (req,res, next) => {
+    res.status(403);
+    next();
 });
 
-router.post('/', (req, res, next) => {
-    logger.info('upload post');
-    res.redirect(404);
-    return;
-    var form = new formidable.IncomingForm();
-    form.uploadDir = './public/upload/other/';
-    form.parse(req, (err, fields, files) => {
-        if (err) {
-            logger.error(err);
-            throw err;
+router.post('/:type(\\w+)', (req, res, next) => {
+    xcutil.getDir(uploadDirList[req.params.type], (err, dirpath) => {
+        if (err) { 
+            logger.error(err.message);
+            res.status(500).json({code:1, msg:'上传失败'});
+            return;
         }
-        fs.rename(files.file.path,
-            form.uploadDir + path.basename(files.file.name, path.extname(files.file.name))+
-            new Date().getTime() + path.extname(files.file.name),
-            (err) => {
-                if (err) {
-                    logger.error(err);
-                    throw err;
-                }
-                res.send(util.inspect({fields: fields, files: files}));
-            });
-        
-    });
+        var form = new formidable.IncomingForm();
+        form.uploadDir = dirpath + '/';
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                logger.error(err.message);
+                res.status(500).json({code:2, msg:err.message});
+                return;
+            } 
+            let filepath = form.uploadDir + path.basename(files.file.name, path.extname(files.file.name))+'_'+
+                xcutil.getYmdhms() + xcutil.getRandom() + path.extname(files.file.name);
+            fs.rename(files.file.path, filepath, (err) => {
+                    if (err) {
+                        logger.error(err.message);
+                        res.status(500).json({code:2, msg:err.message});
+                        return;
+                    }
+                    data = {
+                        src:filepath,
+                        originName:files.file.name,
+                        type:files.file.type,
+                        size:files.file.size
+                    };
+                    //将数据存入数据库
+                    // function save();
+                    res.status(200).json({code:0, msg:'', data:data});
+                });
+            
+        });
+    });    
 });
 
 module.exports = router;

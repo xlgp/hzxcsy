@@ -374,7 +374,7 @@ footer a:hover{
     }
     .xc-news-i-img::before, .xc-news-img::before {
         content: '';
-        background-image: url(/public/upload/new/defualt-news-logo.jpg);
+        background-image: url(/public/upload/news/defualt-news-logo.jpg);
         position: absolute;
         width: 100%;
         height: 100%;

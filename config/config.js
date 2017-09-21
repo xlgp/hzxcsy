@@ -3,8 +3,8 @@ module.exports = {
      * 静态资源服务器
      * 
      */
-    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][1],
-    env:['development', 'production'][1],
+    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][0],
+    env:['development', 'production'][0],
     XC:{
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
@@ -28,6 +28,20 @@ module.exports = {
     },
     mongodb:{
         url:'mongodb://localhost:27017/hzxcsytest',
+    },
+    uploadDirList : {
+        //员工相册的图片路径
+        gallery:'./public/upload/gallery',
+        //系统banner的图片路径
+        banner:'./public/upload/banner',
+        //系统基本信息所需的图片路径
+        commen:'./public/upload/commen',
+        //合作者，即服务品牌的图片路径
+        cooperator:'./public/upload/cooperator',
+        //新闻的图片路径
+        news:'./public/upload/new',
+        //其他的的图片路径
+        other:'./public/upload/other',
     },
 }
 
