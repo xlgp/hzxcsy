@@ -1,14 +1,14 @@
-var express = require('express');
-var optionData = require('../config/data');
-var gConfig = require('../config/config');
-var router = express.Router();
-var logger = require('../middlename/xclog.js').logger('index');
+let express = require('express'),
+    optionData = require('../config/data'),
+    gConfig = require('../config/config'),
+    router = express.Router(),
+    xcmodule = require('../module/xc.module.js'),
+    logger = require('../middlename/xclog.js').logger('index');
 
 /**
  * 首页
  */
 router.get('/', (req, res, next) => {
-  
   res.render('index', {
     carcousels:optionData.carcousels,
     buss:optionData.buss,

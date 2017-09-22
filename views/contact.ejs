@@ -40,8 +40,9 @@
     </div>
     <div class="xc-section">
         <% try{
-            var _div = '';
-            for(let i = 0; i < cangku.total; i++){
+            var _div = '',
+                len  = cangku.data.length;
+            for(let i = 0; i < len; i++){
                 let _tmpdiv = [
                     '<div class="layui-col-md6 layui-col-sm6" data-index="'+i+'">',
                     '<div class="panel panel-default text-left">',
@@ -53,7 +54,7 @@
                     '</div>',
                 ];
                 _div += _tmpdiv.join('');
-                if(i%2 == 1 || i == cangku.total - 1){
+                if(i%2 == 1 || i == len - 1){
                     _div = '<div class="layui-row layui-col-space12">' + _div + '</div>';
         %>        
         <%- _div %>

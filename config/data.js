@@ -2,7 +2,16 @@
  * 合作伙伴
  */
 const cooperators = {
+    /**
+     * total:合作伙伴数量,number,可选
+     */
     total:7,
+    /**
+     * 合作伙伴的对象属性
+     * name:合作伙伴的名称,字符串,必须
+     * url:合作伙伴的官方链接,字符串,可选
+     * img_src:合作伙伴的官方logo,必须
+     */
     attr:['name', 'url', 'img_src'],
     data:[
       {
@@ -41,7 +50,16 @@ const cooperators = {
  * 经营业务
  */
 const buss = {
+    /**
+     * total:经营业务数量,number, 可选
+     */
     total:4,
+    /**
+     * 经营业务的对象属性
+     * bg_img_src:业务图片地址,字符串,必须
+     * title:业务名称,字符串,必须
+     * detail:业务简介,字符串,可选
+     */
     attr:['bg_img_src', 'title', 'detail'],
     data:[
         {
@@ -67,6 +85,9 @@ const buss = {
  * 资讯摘要
  */
 let news = {
+    /**
+     * total:经营业务数量,number, 可选
+     */
     total:3,
     attr:['id', 'title', 'summary', 'createTime' ,'itemImg', 'url'],
     data:[
@@ -115,8 +136,21 @@ let news = {
         },
     ]
 };
+
+/**
+ * 首页轮播模块
+ */
 let carcousels = {
+    /**
+     * total:轮播项数量,number,可选
+     */
     total:2,
+    /**
+     * 轮播项属性
+     * itemImgSrc:背景大图的地址,字符串,必须
+     * bannerTitle:轮播项的大标题,字符串,可选
+     * bannerDetail:轮播项的简单描述,字符串,可选,通常与bannerTitle配合使用
+     */
     attr:['itemImgSrc', 'bannerTitle', 'bannerDetail'],
     data:[
         {
@@ -128,20 +162,22 @@ let carcousels = {
             itemImgSrc:'/public/upload/banner/20170330/1.jpg',
             bannerTitle:'杭州协创实业有限公司',
             bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
-        },
-        // {
-        //     itemImgSrc:'/public/upload/banner/20170330/2.jpg',
-        //     bannerTitle:'网络销售平台',
-        //     bannerDetail:'诚信汽车零配件综合服务平台'
-        // },        
+        }    
     ],
 };
 
-let staffs = {
-
-};
+/**
+ * 导航模块
+ */
 let navs = {
-    // total:1,
+    /**
+     * 导航模块的属性
+     * id:导航项的id,number,必须
+     * name:导航项的名称,字符串,必须
+     * url:导航项的链接,字符串,必须,默认:javascript:;
+     * target:导航项的打开方式,字符串,必须,默认:''
+     * children:子导航项,array,字符串,可选
+     */
     attr:['id', 'name', 'url', 'target'],
     data:[
         {
@@ -168,9 +204,22 @@ let navs = {
     ],
 };
 
+/**
+ * 仓库模块
+ */
 let cangku = {
+    /**
+     * total:仓库模块的数量,number,可选
+     */
     total:1,
-    attr:[],
+    /**
+     * 仓库模块属性:
+     * name:仓库名称,字符串,必须
+     * address:仓库地址,字符串,必须
+     * phone:仓库联系电话,字符串,可选
+     * email:仓库电子邮箱,字符串,可选
+     */
+    attr:['name','address', 'phone', 'email'],
     data:[
         {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
         phone:'联系电话：400-827-3666', email:'电子邮箱：hangzhouxcsy@126.com'},

@@ -56,6 +56,7 @@ app.use(function (req, res, next) {
     res.cookie('isload', 'yes');
   }else if (req.cookies.isload) {
     res.cookie('isload', req.cookies.isload);
+    app.use('/test', require('./test/test.js'));
   }
   next();
 },(req, res, next)=>{ 
@@ -70,6 +71,9 @@ app.use(['/article','/news'], news);
 app.use('/staff', staff);
 app.use('/upload', upload);
 
+app.use('/404', (req, res, next) => {
+  next();
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

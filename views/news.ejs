@@ -4,8 +4,9 @@
 </div>
 <div class="layui-container site-content">
    <% try{ 
-       let data = news.data;
-       for(let i = 0; i < news.total; i++){
+        let data = news.data,
+            len = data.length;
+       for(let i = 0; i < len; i++){
     %>
     <div class="layui-row xc-section">
         <div class="layui-col-md5 xc-news-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">

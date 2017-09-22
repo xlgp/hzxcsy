@@ -35,4 +35,7 @@ module.exports = {
 		num = num || 4;
 		return Math.floor(Math.random()*Math.pow(10,num));
 	},
+	isfunction:(callback)=>{
+		return callback && typeof callback === 'function';
+	},
 };
