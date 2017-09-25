@@ -4,7 +4,7 @@
 
  */
 
-layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], function(exports){
+layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'upload'], function(exports){
     
     var $ = layui.jquery,
       layer = layui.layer,
@@ -12,6 +12,7 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
       device = layui.device(),
       laypage = layui.laypage,
       util = layui.util,
+      upload = layui.upload,
       carousel = layui.carousel;
     
     //阻止IE7以下访问
@@ -95,6 +96,7 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
       elem: 'staff-page' //注意，这里的 test1 是 ID，不用加 # 号
       ,count: $('#staff-page').data('total')
       ,theme:'#f70909'
+      ,limit:9
       ,curr:(() => {
           let params = window.location.pathname.split('/');
           return params[params.length-1];
@@ -108,7 +110,19 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
       }
   });
   util.fixbar({showHeight:100}); 
-
+  //文件上传
+  var Upload = upload.render({
+    elem: '#test1'
+    ,url: '/upload/other'
+    ,multiple: true
+    ,done: function(res, index, upload){ //上传后的回调
+      //如果上传失败
+      if(res.code > 0){
+        return layer.msg('上传失败');
+      }
+      console.log(res, index);
+    }
+  })
   });
   
   

@@ -114,7 +114,7 @@ function img_info(i){
 		title=img[i].title,
 		$main=$('#detailImg-box');
 	$main.find('a').attr({'href':href,'class':'detailImg_'+(i+1)});
-	$main.find('img').attr({'alt':alt,'src':src});
+	$main.find('img').attr({'alt':alt,'src':window.STATIC_HOST+src});
 	$main.find('p').text(title);
 }
 function s_a_r(o,c){

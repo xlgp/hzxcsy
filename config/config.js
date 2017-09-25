@@ -4,6 +4,7 @@ module.exports = {
      * 
      */
     STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][1],
+    //环境
     env:['development', 'production'][1],
     XC:{
         //网站名称
@@ -29,6 +30,9 @@ module.exports = {
     mongodb:{
         url:'mongodb://localhost:27017/hzxcsytest',
     },
+    /**
+     * 图片上传路径
+     */
     uploadDirList : {
         //员工相册的图片路径
         gallery:'./public/upload/gallery',
