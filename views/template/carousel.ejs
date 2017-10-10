@@ -1,0 +1,18 @@
+<div class="layui-carousel" id="xc-carousel" style="height:500px">
+    <div carousel-item>
+        <% try{
+            let data = carcousel.data,
+                len = data.length;
+            for(let i = 0; i < len; i++){
+        %>
+        <a style="background-image:url('<%=STATIC_HOST + data[i].itemImgSrc%>');" href="<%=data[i].url.href%>" target="<%=data[i].url.target%>">
+            
+                <h1 class="banner-title"><%=data[i].bannerTitle%></h1>
+                <p class="banner-detail"><%=data[i].bannerDetail%></p>
+            
+        </a>
+        <% }}catch(err){
+            console.error(err.message);
+         }%>
+    </div>
+</div>

@@ -5,6 +5,58 @@
             <i class="layui-icon">&#xe67c;</i>上传图片
           </button>
     </div>
+    <div class="xc-panel">
+        <div class="layui-tab">
+            <ul class="layui-tab-title">
+              <li class="layui-this">网站设置</li>
+              <li>用户管理</li>
+              <li>权限分配</li>
+              <li>商品管理</li>
+              <li>订单管理</li>
+            </ul>
+            <div class="layui-tab-content">
+              <div class="layui-tab-item layui-show">内容1</div>
+              <div class="layui-tab-item">内容2</div>
+              <div class="layui-tab-item">内容3</div>
+              <div class="layui-tab-item">内容4</div>
+              <div class="layui-tab-item">内容5</div>
+            </div>
+          </div>
+    </div>
 </div>
-
+    <!-- <% 
+            try{
+                let data = news.data;
+                let len = data.length > 2 ? 2 : data.length;
+                let _class = data.length > 2 ? 'layui-col-md8' : 'layui-col-md12';
+            %>
+            <div class="<%=_class %>">
+                <% for(let i = 0; i < len; i++) {%>
+                <div class="layui-row xc-news-large xc-news-i-box">
+                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
+                        <a class="xc-news-i-title text-right" href="<%=data[i].url%>"><%=data[i].title%></a>
+                        <span class="xc-news-i-date" style="right: 0"><%= data[i].createTime.split(' ')[0]%></span>
+                    </div>
+                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-content">
+                        <div class="text-indent-2em"><%=data[i].summary%></div>
+                    </div>
+                </div>
+                <% }%>
+             </div>
+            <% if(data.length > 2){ %>
+             <div class="layui-col-md4">
+                    <div class="xc-news-i-box">
+                        <div class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);height: 157.5px;">
+                            <a class="xc-news-i-title text-right" href="<%=data[2].url%>"><%=data[2].title%></a>
+                            <span class="xc-news-i-date" style="right: 0"><%=data[2].createTime.split(' ')[0]%></span>
+                        </div>
+                    <div class="xc-height100 xc-news-small">
+                        <div class="xc-news-i-content text-indent-2em"><%=data[2].summary%></div>
+                    </div>
+                </div>
+            </div>
+            <% }%>
+            <% }catch(err){
+                console.error(err.message);
+             }%> -->
 <%- include footer %>

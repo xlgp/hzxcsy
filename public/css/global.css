@@ -1,4 +1,4 @@
-html, body{
+html, body, h1, h2, h3{
   font-size: 16px;
   color: #333;
   line-height: 24px;
@@ -16,7 +16,7 @@ html, body{
 }
 .xc-header{
   background-color: #FFFFFF;
-  height: 59px;
+  height: 75px;
   border-bottom: 1px solid rgb(247, 9, 9);
 }
 .xc-header .xc-nav{
@@ -27,8 +27,8 @@ html, body{
   position: absolute;
 }
 .logo img{
-  height: 50px;
-  margin-top: 4px;
+  height: 68px;
+  margin-top: 2px;
 }
 .logo span{
   font-size: 20px;
@@ -38,10 +38,11 @@ html, body{
   width: 200px;
 }
 .xc-nav * {
-  font-size: 16px;
+  font-size: 18px;
 }
 .xc-nav .layui-nav-item {
   margin: 0 25px;
+  line-height: 76px;
 }
 .xc-nav .layui-nav-item a{
   color: #333;
@@ -55,12 +56,14 @@ html, body{
 .xc-nav .layui-nav-more{
   border-color: rgb(247, 9, 9) transparent transparent;
   border-top-color: rgba(247, 9, 9,.7);
+  top: 36px;
 }
 .xc-nav .layui-nav-mored{
   border-color: transparent transparent rgb(247, 9, 9);
+  top: 30px;
 }
 .xc-nav .layui-nav-child{
-  top: 59px;
+  top: 76px;
   border-radius: 0;
   background-color: rgba(255, 255, 255, 0.85);
 }
@@ -147,6 +150,9 @@ background-color: rgb(247,9,9);
 	background-position: center;
 	background-size: cover;
 }
+#xc-carousel, .xc-ban-titile{
+  border-bottom: 1px solid rgb(247, 9, 9);
+}
 .xc-ban-titile h1{
 	margin: 0 auto;
 	line-height: 250px;
@@ -210,16 +216,15 @@ background-color: rgb(247,9,9);
 
 footer{
     padding: 10px 0;
-    background: #0e0d0d;
+    background: #f8f8f8;
     clear: both;
     position: relative;
     font-size: 14px;
 }
 footer *{
-	color: #828282;
+	color: #454545;
   text-decoration: none;
   font-size:14px;
-  line-height: 22px;
 }
 footer .xc-item-title{
   font-size: 24px;
@@ -228,6 +233,17 @@ footer .xc-item-title{
 footer a:hover{
 	color: #828282;
 	text-decoration: none;
+}
+
+.xc-link{
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+.xc-link:hover{
+  color: rgb(247, 9, 9);
 }
 .linear-line{
 	background: linear-gradient(90deg, rgb(247,7,9), rgb(2,2,2), rgb(247,7,9),rgb(2,2,2), rgb(247,7,9)) rgb(247,7,9);
@@ -334,7 +350,8 @@ footer a:hover{
     }
     .xc-buss-content{
       overflow: hidden;
-      margin: 0 20px;
+      margin: 20px 0 0 0;
+      height: 120px;
     }
     .xc-buss-title{
       opacity: 1; background-color: rgba(0,0,0, .7); 
@@ -347,7 +364,9 @@ footer a:hover{
       -webkit-transition: all 0.6s;
     }
     .xc-news-i-box{
-      box-shadow: 0 6px 12px rgba(0,0,0,.175);
+      position: relative;
+      height: 150px;
+      overflow: hidden;
     }
     .xc-news-large{
       background: #fff;
@@ -365,12 +384,13 @@ footer a:hover{
       margin-bottom: 15px;
     }
     .xc-news-i-img{
-      height: 150px;
+      height: 140px;
       background-size: cover;
       background-position: center; 
-      position: relative;
+      position: absolute;
       color: #fff;
       overflow: hidden;
+      width: 180px;
     }
     .xc-news-i-img::before, .xc-news-img::before {
         content: '';
@@ -388,13 +408,8 @@ footer a:hover{
     }
     
     .xc-news-i-title{
-      position: absolute;font-size: 16px;
-      bottom: 0;
-      display: block;
-      padding: 0 10px;
-      height: 40px; line-height: 40px; 
-      background-color: rgba(0,0,0,.4);
-      width: 100%;left: 0;
+      font-size: 24px;
+      padding: 0 0 10px 0;
     }
     .xc-news-i-title, .xc-news-i-title:hover {
       color: #fff;
@@ -407,13 +422,8 @@ footer a:hover{
     
     }
     .xc-news-i-content{
-      height: 150px;
+      margin-left: 185px;
       overflow: hidden;
-    }
-    .xc-news-i-content > *{
-      padding: 15px 0 0 15px;
-      overflow: hidden;
-      line-height: 1.428em;
     }
     .InfoWindow-box{
       text-align: left;
@@ -458,7 +468,7 @@ footer a:hover{
     .layui-carousel>[carousel-item]>*{
       background-position: center;
       background-size: cover;
-      background-color: #ac2f2f;
+      background-color: #c83737;
     }
     .banner-title{
       font-size: 70px;

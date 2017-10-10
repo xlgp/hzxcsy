@@ -1,83 +1,44 @@
 <%- include header %>
-<%- include carousel %>
-<div class="layui-container">
-        <div class="layui-row xc-section">
-            <h1 class="site-big-title txtcenter layui-word-aux"><span>公司简介 / About US</span></h1>
-            <div class="layui-col-md6">
-                <div class="xc-img-box" style="background-image: url(<%=STATIC_HOST%>/public/upload/commen/jianjie.jpg);
+    <!-- 轮播模块 -->
+    <%- include template/carousel %>
+    <!-- 轮播模块 end-->
+        <div class="layui-container">
+            <!-- 公司简介模块 -->
+            <div class="layui-row xc-section">
+                <h1 class="site-big-title layui-word-aux"><span>公司简介 / About Us</span></h1>
+                <div class="layui-col-md6">
+                    <div class="xc-img-box" style="background-image: url(<%=STATIC_HOST%>/public/upload/commen/jianjie.jpg);
                 height: 275px;position: static;"></div>
-            </div>
-            <div class="layui-col-md6">
-                <div class="xc-panel">
-                    <div class="site-text">
-                        <p class="text-indent-2em">杭州协创实业有限公司是一家以汽车备件仓储管理，物流配送服务，汽车备件信息技术服务为主营业务，辅以整车销售的集团控股公司。 其实际管理和控股多家公司给全国各大主机厂提供专业的区域售后备件仓储与物流配送服务。</p>
-                        <p class="text-indent-2em">公司以“诚信、专业、服务、创新”为经营理念。倾力打造个性化服务品牌，为汽车厂家提供全方位、专业化的售后备件服务。</p>
-                    </div>
-                    <div class="txtcenter" style="margin-top:15px;"><a href="/aboutxc" class="layui-btn xc-btn-red">详情</a></div>
                 </div>
-            </div>
-        </div>
-        <div class="layui-row xc-section layui-col-space12">
-            <h1 class="site-big-title txtcenter layui-word-aux"><span>经营业务 / Business</span></h1>
-            <% try{
-                let data = buss.data,
-                    len  = data.length;
-                for(let i = 0; i < len; i++){
-            %>
-            <div class="layui-col-md3 layui-col-sm6">
-                <div class="xc-buss-box">
-                    <div class="xc-buss-wapper">
-                        <div class="xc-buss-bg" style="background-image: url(<%=STATIC_HOST +  data[i].bg_img_src%>)"></div>
-                        <div class="xc-buss-content-box">
-                                <div class="xc-buss-content-title"><%= data[i].title%></div>
-                                <div class="xc-buss-content text-indent-2em"><%= data[i].detail%></div>
+                <div class="layui-col-md6">
+                    <div class="xc-panel">
+                        <div class="site-text">
+                            <p class="text-indent-2em">杭州协创实业有限公司是一家以汽车备件仓储管理，物流配送服务，汽车备件信息技术服务为主营业务，辅以整车销售的集团控股公司。 其实际管理和控股多家公司给全国各大主机厂提供专业的区域售后备件仓储与物流配送服务。</p>
+                            <p class="text-indent-2em">公司以“诚信、专业、服务、创新”为经营理念。倾力打造个性化服务品牌，为汽车厂家提供全方位、专业化的售后备件服务。</p>
                         </div>
-                        <div class="xc-buss-title"><%= data[i].title%></div>
+                        <div class="txtcenter" style="margin-top:15px;"><a href="/aboutxc" class="layui-btn xc-btn-red">详情</a></div>
                     </div>
                 </div>
             </div>
-            <% }}catch(err){
-                console.error(err.message);
-             }%>
-        </div>
-        <div class="layui-row xc-section layui-col-space12">
-            <h1 class="site-big-title txtcenter layui-word-aux"><span>综合资讯 / News</span></h1>
-            <% 
-            try{
-                let data = news.data;
-                let len = data.length > 2 ? 2 : data.length;
-                let _class = data.length > 2 ? 'layui-col-md8' : 'layui-col-md12';
-            %>
-            <div class="<%=_class %>">
-                <% for(let i = 0; i < len; i++) {%>
-                <div class="layui-row xc-news-large xc-news-i-box">
-                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
-                        <a class="xc-news-i-title text-right" href="<%=data[i].url%>"><%=data[i].title%></a>
-                        <span class="xc-news-i-date" style="right: 0"><%= data[i].createTime.split(' ')[0]%></span>
-                    </div>
-                    <div class="layui-col-md6 layui-col-sm6 xc-news-i-content">
-                        <div class="text-indent-2em"><%=data[i].summary%></div>
-                    </div>
-                </div>
-                <% }%>
-             </div>
-            <% if(data.length > 2){ %>
-             <div class="layui-col-md4">
-                    <div class="xc-news-i-box">
-                        <div class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);height: 157.5px;">
-                            <a class="xc-news-i-title text-right" href="<%=data[2].url%>"><%=data[2].title%></a>
-                            <span class="xc-news-i-date" style="right: 0"><%=data[2].createTime.split(' ')[0]%></span>
-                        </div>
-                    <div class="xc-height100 xc-news-small">
-                        <div class="xc-news-i-content text-indent-2em"><%=data[2].summary%></div>
-                    </div>
+            <!-- 公司简介模块 end-->
+            <!-- 业务模块 -->
+            <div class="xc-section">
+                <%- include template/buss_index %>
+            </div>
+            <!-- 业务模块 end-->
+            <!-- 资讯模块 -->
+            <div class="xc-section ">
+                <%- include template/news_index %>
+            </div>
+            <!-- 资讯模块 end-->
+            <!-- 商城模块 -->
+            <div class="xc-section ">
+                <h1 class="site-big-title layui-word-aux"><span>商城 / Shopping</span></h1>
+                <div class="txtcenter xc-news-img" style="height:350px;">
+                    <a class="layui-btn xc-btn-red" style="margin-top:200px;width:250px;" href="http://carsociety.cn/" target="_blank">详情</a>
                 </div>
             </div>
-            <% }%>
-            <% }catch(err){
-                console.error(err.message);
-             }%>
+            <!-- 商城模块 end-->
         </div>
-</div>
 
-<%- include footer %>
+        <%- include footer %>

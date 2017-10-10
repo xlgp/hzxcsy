@@ -4,7 +4,9 @@
 
  */
 
-layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'upload'], function(exports){
+'use strict';
+
+layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'upload', 'form'], function(exports){
     
     var $ = layui.jquery,
       layer = layui.layer,
@@ -12,12 +14,13 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       device = layui.device(),
       laypage = layui.laypage,
       util = layui.util,
+      form = layui.form,
       upload = layui.upload,
       carousel = layui.carousel;
     
-    //阻止IE7以下访问
-    if(device.ie && device.ie < 8){
-      layer.alert('如果您非得使用ie浏览本网站，那么请使用ie8+');
+    //阻止IE8以下访问
+    if(device.ie && device.ie < 9){ 
+      layer.alert('如果您非得使用ie浏览本网站，那么请使用ie9+');
     }
     
     function setCookie(c_name,value,expiredays)
@@ -38,7 +41,7 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
           setCookie('isload','yes',365)  
     }
     //footer固定在底部
-    let pageheight = $(document).height() - $('body').height();
+    var pageheight = $(document).height() - $('body').height();
     if(pageheight > 0){
       $('footer').before('<div style="height:'+pageheight+'px"></div>');
     }
@@ -80,13 +83,13 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       elem: 'news-page' //注意，这里的 test1 是 ID，不用加 # 号
       ,count: $('#news-page').data('total') //数据总数，从服务端得到
       ,theme:'#f70909'
-      ,curr:(() => {
-          let params = window.location.pathname.split('/');
+      ,curr:(function() {
+          var params = window.location.pathname.split('/');
           return params[params.length-1];
       })()
       ,jump: function(obj, first){
           if(first){return;}
-          let pathname = window.location.pathname;
+          var pathname = window.location.pathname;
           pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
           window.location.href = pathname + obj.curr;
           return;
@@ -97,13 +100,13 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       ,count: $('#staff-page').data('total')
       ,theme:'#f70909'
       ,limit:9
-      ,curr:(() => {
-          let params = window.location.pathname.split('/');
+      ,curr:(function() {
+          var params = window.location.pathname.split('/');
           return params[params.length-1];
       })()
       ,jump: function(obj, first){ 
           if(first){return;}
-          let pathname = window.location.pathname;
+          var pathname = window.location.pathname;
           pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
           window.location.href = pathname + obj.curr;r
           return;

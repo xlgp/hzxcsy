@@ -1,7 +1,7 @@
 /**
  * 合作伙伴
  */
-const cooperators = {
+const cooperator = {
     /**
      * total:合作伙伴数量,number,可选
      */
@@ -13,6 +13,16 @@ const cooperators = {
      * img_src:合作伙伴的官方logo,必须
      */
     attr:['name', 'url', 'img_src'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'合作伙伴',
+    /**
+     * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
       {
         name:'海马汽车',
@@ -47,49 +57,84 @@ const cooperators = {
     ],
 };
 /**
- * 经营业务
+ * 主营业务
  */
 const buss = {
     /**
-     * total:经营业务数量,number, 可选
+     * total:主营业务数量,number, 可选
      */
     total:4,
     /**
-     * 经营业务的对象属性
+     * 主营业务的对象属性
      * bg_img_src:业务图片地址,字符串,必须
      * title:业务名称,字符串,必须
      * detail:业务简介,字符串,可选
+     * url:业务链接,字符串,可选
      */
-    attr:['bg_img_src', 'title', 'detail'],
+    attr:['bg_img_src', 'title', 'detail', 'url'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'主营业务',
+    /**
+     * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
         {
             bg_img_src : '/public/upload/commen/122_300_225.jpg',
             title:'配件仓储与配送',
             detail:'提供高效的物流配送服务',
+            url:'/yewu',
         },{
             bg_img_src : '/public/upload/commen/4-sg.png',
             title:'4S店',
             detail:'集汽车销售、维修、配件和信息服务为一体',
+            url:'/yewu',
         },{
             bg_img_src : '/public/upload/commen/xiulichang_300_225.jpg',
             title:'修理厂',
             detail:'先进的维修服务理念，满足维修企业和车主对于高水平汽车维修服务的要求',
+            url:'/yewu',
         },{
             bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
             title:'网络销售平台',
             detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
-        }
+            url:'/yewu',
+        },{
+            bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
+            title:'网络销售平台',
+            detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
+            url:'/yewu',
+        },{
+            bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
+            title:'网络销售平台',
+            detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
+            url:'/yewu',
+        },
         ]
 };
 /**
- * 资讯摘要
+ * 资讯
  */
 let news = {
     /**
      * total:经营业务数量,number, 可选
      */
-    total:3,
+    total:4,
     attr:['id', 'title', 'summary', 'createTime' ,'itemImg', 'url'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'资讯',
+    /**
+     * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
         {
             id:1,
@@ -97,7 +142,7 @@ let news = {
             status:0,
             catoId:2,
             user:'admin',
-            url:'/article/'+1,
+            url:{href:'/article/'+1,target:''},
             createTime:'2017-07-26 10:32:41',
             // catoId:'59b780a518affa79112cd9f1',
             itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
@@ -110,10 +155,10 @@ let news = {
             status:0,
             catoId:1,
             user:'admin',
-            url:'/article/'+2,
+            url:{href:'/article/'+2,target:''},
             createTime:'2017-07-26 10:32:41',
             // catoId:'59b780a518affa79112cd9f1',
-            itemImgSrc:'/public/upload/news/20170726/201707261039494617.jpeg',
+            itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
             title:'杭州协创实业有限公司与海马汽车签署战略合作协议',
             summary:'金秋是收获的季节。在这样一个收获的美好季节里，'+
                     '杭州协创实业有限公司与海马汽车于2016年11月20日在郑州签署战略合作协议，'+
@@ -126,10 +171,24 @@ let news = {
             status:0,
             catoId:1,
             user:'admin',
-            url:'/article/'+3,
+            url:{href:'/article/'+3,target:''},
             createTime:'2017-07-26 10:32:41',
             catoId:'59b780a518affa79112cd9f1',
-            itemImgSrc:'/public/upload/news/20170502/1.jpg',
+            itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
+            title:'杭州神辇网络科技有限公司荣升新一届中国汽车维修工委会副主任单位',
+            summary:'2016年秋，杭州神辇网络科技有限公司，成为新一届中国汽车维修行业协会配件工委会（下称“汽车维修工委会”）的副主任委员单位。我司打造的“车社会”一站式服务中心作为首家加入汽车维修工委会的从事汽车原厂配件垂直营销平台及一站式服务中心的公司，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。',
+            content:'<p style="">车社会-汽车后市场服务平台 网址：www.carsociety.cn</p><p style="text-align: center;"><img class="img-responsive" style="width: 100%; max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/1.jpg"><br></p><p style=""><br></p><p style=" text-indent: 32px; line-height: 24px;"><span style="  line-height: 24px;">201</span><span style="  line-height: 24px;">6</span><span style="  line-height: 24px;">年</span><span style="  line-height: 24px;">秋</span><span style="  line-height: 24px;">，杭州神辇</span><span style="  line-height: 24px;">网络科技</span><span style="  line-height: 24px;">有限公司，成为</span><span style="  line-height: 24px;">新一届</span><span style=" line-height: 24px; ">中国汽车维修行业协会配件工委会</span><span style="  line-height: 24px;">（下称</span><span style="  line-height: 24px;">“汽车维修工委会”）的副主任委员单位。汽车工委会的副主任委员单位还有长春华众离合器有限公司、国美控股集团有限公司、华维泰（北京）汽车零部件有限公司、华汽投资控股有限公司等</span><span style=" line-height: 24px; font-family: Calibri;">10</span><span style="  line-height: 24px;">余家单位。</span></p><p style="line-height: 24px;text-align: center;"><span style="  line-height: 24px;"><img class="img-responsive" style="width: 100%;max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/640.jpeg"><br></span></p><p style=" text-indent: 29px; line-height: 24px;"><span style="  "><span style="">杭州神辇网络科技有限公司打造的</span>“车社会”一站式服务中心</span><span style=" "><span style=" ">作为</span></span><span style="  "><span style="">首</span></span><span style=" "><span style=" ">家加入</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">维修工委会的从事</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">及一站式服务中心</span></span><span style=" "><span style=" ">的</span></span><span style="  "><span style="">公司</span></span><span style=" "><span style=" ">，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。</span></span><span style="  ">“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">将各车型的信息精准地投入到</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">中</span></span><span style="  "><span style="">。汽车终端客户</span></span><span style="  "><span style="">根据自己的爱车，通过</span>“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">可以选择质优实价的原厂配件，同时还可以选择</span></span><span style="  ">“车社会”一站式服务中心</span><span style="  "><span style="">为</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">进行安装</span></span><span style="  "><span style="">、维修保养等</span></span><span style="  "><span style="">服务。</span></span></p><p style=""><br></p>'
+        },
+        {
+            id:4,
+            pv:0,
+            status:0,
+            catoId:2,
+            user:'admin',
+            url:{href:'/article/'+4,target:''},
+            createTime:'2017-07-26 10:32:41',
+            catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
             title:'杭州神辇网络科技有限公司荣升新一届中国汽车维修工委会副主任单位',
             summary:'2016年秋，杭州神辇网络科技有限公司，成为新一届中国汽车维修行业协会配件工委会（下称“汽车维修工委会”）的副主任委员单位。我司打造的“车社会”一站式服务中心作为首家加入汽车维修工委会的从事汽车原厂配件垂直营销平台及一站式服务中心的公司，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。',
             content:'<p style="">车社会-汽车后市场服务平台 网址：www.carsociety.cn</p><p style="text-align: center;"><img class="img-responsive" style="width: 100%; max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/1.jpg"><br></p><p style=""><br></p><p style=" text-indent: 32px; line-height: 24px;"><span style="  line-height: 24px;">201</span><span style="  line-height: 24px;">6</span><span style="  line-height: 24px;">年</span><span style="  line-height: 24px;">秋</span><span style="  line-height: 24px;">，杭州神辇</span><span style="  line-height: 24px;">网络科技</span><span style="  line-height: 24px;">有限公司，成为</span><span style="  line-height: 24px;">新一届</span><span style=" line-height: 24px; ">中国汽车维修行业协会配件工委会</span><span style="  line-height: 24px;">（下称</span><span style="  line-height: 24px;">“汽车维修工委会”）的副主任委员单位。汽车工委会的副主任委员单位还有长春华众离合器有限公司、国美控股集团有限公司、华维泰（北京）汽车零部件有限公司、华汽投资控股有限公司等</span><span style=" line-height: 24px; font-family: Calibri;">10</span><span style="  line-height: 24px;">余家单位。</span></p><p style="line-height: 24px;text-align: center;"><span style="  line-height: 24px;"><img class="img-responsive" style="width: 100%;max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/640.jpeg"><br></span></p><p style=" text-indent: 29px; line-height: 24px;"><span style="  "><span style="">杭州神辇网络科技有限公司打造的</span>“车社会”一站式服务中心</span><span style=" "><span style=" ">作为</span></span><span style="  "><span style="">首</span></span><span style=" "><span style=" ">家加入</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">维修工委会的从事</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">及一站式服务中心</span></span><span style=" "><span style=" ">的</span></span><span style="  "><span style="">公司</span></span><span style=" "><span style=" ">，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。</span></span><span style="  ">“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">将各车型的信息精准地投入到</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">中</span></span><span style="  "><span style="">。汽车终端客户</span></span><span style="  "><span style="">根据自己的爱车，通过</span>“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">可以选择质优实价的原厂配件，同时还可以选择</span></span><span style="  ">“车社会”一站式服务中心</span><span style="  "><span style="">为</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">进行安装</span></span><span style="  "><span style="">、维修保养等</span></span><span style="  "><span style="">服务。</span></span></p><p style=""><br></p>'
@@ -140,7 +199,7 @@ let news = {
 /**
  * 首页轮播模块
  */
-let carcousels = {
+let carcousel = {
     /**
      * total:轮播项数量,number,可选
      */
@@ -150,16 +209,28 @@ let carcousels = {
      * itemImgSrc:背景大图的地址,字符串,必须
      * bannerTitle:轮播项的大标题,字符串,可选
      * bannerDetail:轮播项的简单描述,字符串,可选,通常与bannerTitle配合使用
+     * url:链接,字符串,可选
      */
-    attr:['itemImgSrc', 'bannerTitle', 'bannerDetail'],
+    attr:['itemImgSrc', 'bannerTitle', 'bannerDetail', 'url'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'轮播',
+    /**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
         {
             itemImgSrc:'/public/upload/banner/20170330/2.jpg',
+            url:{href:'javascript:;',target:''},
             // bannerTitle:'网络销售平台',
             // bannerDetail:'诚信汽车零配件综合服务平台'
         },
         {
             itemImgSrc:'/public/upload/banner/20170330/1.jpg',
+            url:'',
+            url:{href:'/aboutxc',target:'_blank'},
             bannerTitle:'杭州协创实业有限公司',
             bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
         }    
@@ -179,27 +250,35 @@ let navs = {
      * children:子导航项,array,字符串,可选
      */
     attr:['id', 'name', 'url', 'target'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'导航',
+    /**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
         {
-            id:1,name:'企业动态',url:'javascript:;',target:'',children:[
-                {id:11,name:'最新动态',url:'/news/1/1',target:'',},
-                {id:12,name:'行业动态',url:'/news/2/1',target:'',},
+            id:1,name:'企业动态',url:{href:'javascript:;',target:''},children:[
+                {id:11,name:'最新动态',url:{href:'/news/1/1',target:''},},
+                {id:12,name:'行业动态',url:{href:'/news/2/1',target:''},},
             ],
         },
         {
-            id:2,name:'关于协创',url:'javascript:;',target:'',children:[
-                {id:21,name:'公司简介',url:'/aboutxc',target:'',},
-                {id:22,name:'员工风采',url:'/staff/1',target:'',},
+            id:2,name:'关于协创',url:{href:'javascript:;',target:''},children:[
+                {id:21,name:'公司简介',url:{href:'/aboutxc',target:''},},
+                {id:22,name:'员工风采',url:{href:'/staff/1',target:''},},
             ],
         },
         {
-            id:3,name:'联系我们',url:'javascript:;',target:'',children:[
-                {id:31,name:'联系协创',url:'/contact',target:''},
-                {id:32,name:'诚聘英才',url:'/joinus',target:''}
+            id:3,name:'联系我们',url:{href:'javascript:;',target:''},children:[
+                {id:31,name:'联系协创',url:{href:'/contact',target:''}},
+                {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}}
             ]
         },
         {
-            id:4,name:'官网商城',url:'http://carsociety.cn/',target:'_blank',
+            id:4,name:'官网商城',url:{href:'http://carsociety.cn/',target:'_blank'},
         }
     ],
 };
@@ -220,6 +299,14 @@ let cangku = {
      * email:仓库电子邮箱,字符串,可选
      */
     attr:['name','address', 'phone', 'email'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'仓库',
+    /**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
     data:[
         {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
         phone:'联系电话：400-827-3666', email:'电子邮箱：hangzhouxcsy@126.com'},
@@ -230,11 +317,86 @@ let cangku = {
     ]
 };
 
-module.exports = {
-    cooperators:cooperators,
-    carcousels:carcousels,
+/**
+ * 友情链接
+ */
+let friendLink={
+    /**
+     * total:友情链接数量,number,可选
+     */
+    total:8,
+    /**
+     * 友情链接属性
+     * name:名称,字符串,必须
+     * url:链接网址,字符串,必须
+     * target:链接打开方式,字符串,可选,默认_blank
+     */
+    atrr:['name','url','target',],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'友情链接',
+    /**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
+    data:[
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+    ],
+};
+
+/**
+ * 二维码信息
+ */
+let qrCode = {
+    /**
+     * total:二维码数量,number,可选
+     */
+    total:2,
+    /**
+     * 二维码的属性
+     * name:名称,字符串,必须
+     * imgSrc:二维码图片路径,字符串,必须
+     * title:二维码标题,字符串,可选
+     */
+    attr:['name', 'imgSrc', 'title'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'二维码信息',
+    /**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
+    data:{
+        csh:{name:'csh', imgSrc:'/public/upload/commen/csh_weixin_516.jpg', title:'车社会公众号'},
+        xc:{name:'xc', imgSrc:'/public/upload/commen/xc_weixin_258.jpg', title:'协创公众号'}
+    }
+}
+
+/**
+ * 
+ */
+let list = {
+    cooperator:cooperator,
+    friendLink:friendLink,
+    carcousel:carcousel,
+    commonSense:news,
+    otherNews:news,
     cangku:cangku,
+    qrCode:qrCode,
     buss:buss,
     news:news,
     navs:navs,
+};
+
+module.exports = (item) => {
+    return list[item] || {};
 };

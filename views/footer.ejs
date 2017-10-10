@@ -1,5 +1,4 @@
 <footer class="">
-    <div class="linear-line"></div>
     <div class="layui-container">
         <div class="layui-row layui-show-md-block layui-hide-sm">
             <div class="layui-col-md4 layui-col-sm6">
@@ -13,19 +12,34 @@
                      }%>
             </div>
             <div class="layui-col-md4 layui-col-sm6">
-                <div class="layui-col-md6">
-                    <h3 class="xc-item-title">经营业务</h3>
-                    <p><a href="javascript:void(0);">4S店</a></p>
-                    <p><a href="javascript:void(0);">修理厂</a></p>
-                    <p><a href="javascript:void(0);">网络销售平台</a></p>
-                    <p><a href="javascript:void(0);">配件仓储与配送</a></p>
-                </div>
-            </div>
+                    <h3 class="xc-item-title">友情链接</h3>
+                    <% try{
+                        let data = friendLink.data;
+                        for(let i = 0; i < data.length; i++){
+                    %>
+                    <a class="xc-link" href="<%=data[i].url.href%>" target="<%=data[i].url.target%>"><%=data[i].name%></a>
+                    <%}}catch(err){
+                        console.error(err.message);
+                    }%>
+            </div> 
             <div class="layui-col-md4">
                 <h2 class="txtright">
-                    <img src="<%=STATIC_HOST%>/public/upload/commen/csh_weixin_516.jpg" width="129" height="129">
-                    <img src="<%=STATIC_HOST%>/public/upload/commen/xc_weixin_258.jpg" width="129" height="129">
+                    <% try{
+                        let data = qrCode.data;
+                        %>
+                    <div class="layui-inline">
+                            <img src="<%=STATIC_HOST + data.csh.imgSrc%>" width="129" height="129">
+                            <p class="txtcenter"><%=data.csh.title%></p>
+                    </div>
+                    <div class="layui-inline">
+                            <img src="<%=STATIC_HOST + data.xc.imgSrc%>" width="129" height="129">
+                            <p class="txtcenter"><%=data.xc.title%></p>
+                    </div>
+                    <%}catch(err){
+                        console.error(err.message);
+                     }%>   
                 </h2>
+                
             </div>
         </div>
         <div class="layui-row txtcenter">
