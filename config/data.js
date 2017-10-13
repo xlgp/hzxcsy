@@ -1,5 +1,5 @@
 /**
- * 合作伙伴
+ * 服务品牌
  */
 const cooperator = {
     /**
@@ -16,7 +16,7 @@ const cooperator = {
     /**
      * title:名称,字符串,可选
      */
-    title:'合作伙伴',
+    title:'服务品牌 / Service brand',
     /**
      * url:链接,字符串,可选
      *//**
@@ -58,6 +58,12 @@ const cooperator = {
 };
 /**
  * 主营业务
+ * 修理厂
+ * 配件中心仓
+ * 车社会平台
+ * 4S店
+ * 物流配送
+ * 汽配门店
  */
 const buss = {
     /**
@@ -75,44 +81,48 @@ const buss = {
     /**
      * title:名称,字符串,可选
      */
-    title:'主营业务',
+    title:'经营业务 / Business',
     /**
-     * url:链接,字符串,可选
-     *//**
      * url:链接,字符串,可选
      */
     url:{href:'javascript:;',target:''},
     data:[
         {
-            bg_img_src : '/public/upload/commen/122_300_225.jpg',
-            title:'配件仓储与配送',
-            detail:'提供高效的物流配送服务',
+            bg_img_src : '/public//upload/commen/yewu.png',
+            title:'配件中心仓',
+            detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
             url:'/yewu',
+            style:'background-position-y: -60px;'
         },{
-            bg_img_src : '/public/upload/commen/4-sg.png',
-            title:'4S店',
-            detail:'集汽车销售、维修、配件和信息服务为一体',
-            url:'/yewu',
-        },{
-            bg_img_src : '/public/upload/commen/xiulichang_300_225.jpg',
+            bg_img_src : '/public//upload/commen/yewu.png',
             title:'修理厂',
             detail:'先进的维修服务理念，满足维修企业和车主对于高水平汽车维修服务的要求',
             url:'/yewu',
+            style:'background-position-y: 0px;'
         },{
-            bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
-            title:'网络销售平台',
+            bg_img_src : '/public//upload/commen/yewu.png',
+            title:'车社会平台',
             detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
             url:'/yewu',
+            style:'background-position-y: -120px;'
         },{
-            bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
-            title:'网络销售平台',
+            bg_img_src : '/public//upload/commen/yewu.png',
+            title:'4S店',
+            detail:'集汽车销售、维修、配件和信息服务为一体,高端,大气,上档次;哈哈哈哈哈哈....',
+            url:'/yewu',
+            style:'background-position-y: -180px;'
+        },{
+            bg_img_src : '/public//upload/commen/yewu.png',
+            title:'物流配送',
             detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
             url:'/yewu',
+            style:'background-position-y: -240px;'
         },{
-            bg_img_src : '/public/upload/commen/wangluoyingxiao_300_225.jpg',
-            title:'网络销售平台',
-            detail:'我们依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
+            bg_img_src : '/public//upload/commen/yewu.png',
+            title:'汽配门店',
+            detail:'提供高效的物流配送服务,提供高效的物流配送服务,提供高效的物流配送服务,提供高效的物流配送服务,提供高效的物流配送服务',
             url:'/yewu',
+            style:'background-position-y: -300px;'
         },
         ]
 };
@@ -221,19 +231,30 @@ let carcousel = {
      */
     url:{href:'javascript:;',target:''},
     data:[
+        // {
+        //     itemImgSrc:'/public/upload/banner/20170330/2.jpg',
+        //     url:{href:'javascript:;',target:''},
+        //     // bannerTitle:'网络销售平台',
+        //     // bannerDetail:'诚信汽车零配件综合服务平台'
+        // },
+        // {
+        //     itemImgSrc:'/public/upload/banner/20170330/1.jpg',
+        //     url:'',
+        //     url:{href:'/aboutxc',target:'_blank'},
+        //     bannerTitle:'杭州协创实业有限公司',
+        //     bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
+        // },
         {
-            itemImgSrc:'/public/upload/banner/20170330/2.jpg',
-            url:{href:'javascript:;',target:''},
-            // bannerTitle:'网络销售平台',
-            // bannerDetail:'诚信汽车零配件综合服务平台'
-        },
-        {
-            itemImgSrc:'/public/upload/banner/20170330/1.jpg',
-            url:'',
+            itemImgSrc:'/public/upload/banner/20170330/cangchu.png',
             url:{href:'/aboutxc',target:'_blank'},
-            bannerTitle:'杭州协创实业有限公司',
-            bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
-        }    
+            // bannerTitle:'杭州协创实业有限公司',
+            // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
+        },{
+            itemImgSrc:'/public/upload/banner/20170330/cheshehui.png',
+            url:{href:'/aboutxc',target:'_blank'},
+            // bannerTitle:'杭州协创实业有限公司',
+            // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
+        }
     ],
 };
 
@@ -259,6 +280,7 @@ let navs = {
      */
     url:{href:'javascript:;',target:''},
     data:[
+        {id:0,name:'首页',url:{href:'/',target:''},},
         {
             id:1,name:'企业动态',url:{href:'javascript:;',target:''},children:[
                 {id:11,name:'最新动态',url:{href:'/news/1/1',target:''},},
@@ -268,15 +290,17 @@ let navs = {
         {
             id:2,name:'关于协创',url:{href:'javascript:;',target:''},children:[
                 {id:21,name:'公司简介',url:{href:'/aboutxc',target:''},},
-                {id:22,name:'员工风采',url:{href:'/staff/1',target:''},},
+                // {id:22,name:'员工风采',url:{href:'/staff/1',target:''},},
             ],
         },
         {
             id:3,name:'联系我们',url:{href:'javascript:;',target:''},children:[
                 {id:31,name:'联系协创',url:{href:'/contact',target:''}},
-                {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}}
+                // {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}}
             ]
         },
+        {id:5,name:'员工风采',url:{href:'/staff/1',target:''},},
+        {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}},
         {
             id:4,name:'官网商城',url:{href:'http://carsociety.cn/',target:'_blank'},
         }
@@ -308,8 +332,50 @@ let cangku = {
      */
     url:{href:'javascript:;',target:''},
     data:[
-        {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
-        phone:'联系电话：400-827-3666', email:'电子邮箱：hangzhouxcsy@126.com'},
+        // {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
+        // phone:'联系电话：400-827-3666', email:'电子邮箱：hangzhouxcsy@126.com'},
+        {
+            name:'天津仓配中心',
+            serviceArea:'服务区域:京津冀,内蒙古自治区,辽宁省,吉林省,黑龙江省',
+            address:'',
+            phone:'',
+            email:''
+        },
+        {
+            name:'山东仓配中心',
+            serviceArea:'服务区域:山东省,安徽省,江苏省,浙江省,上海市',
+            address:'',
+            phone:'',
+            email:''
+        },
+        {
+            name:'山西仓配中心',
+            address:'',
+            serviceArea:'服务区域:山西省',
+            phone:'',
+            email:''
+        },
+        {
+            name:'杭州仓配中心',
+            address:'',
+            serviceArea:'服务区域:上海市,山东省,江苏省,安徽省,江西省,浙江省,福建省',
+            phone:'',
+            email:''
+        },
+        {
+            name:'广州仓配中心',
+            address:'',
+            serviceArea:'服务区域:广东省,广西壮族自治区,海南省',
+            phone:'',
+            email:''
+        },
+        {
+            name:'石家庄仓配中心',
+            serviceArea:'服务区域:京津冀',
+            address:'',
+            phone:'',
+            email:''
+        },
         // {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
         // phone:'联系电话：400-827-3666', email:'电子邮箱：hangzhouxcsy@126.com'},
         // {name:'杭州协创实业有限公司', address:'地址：浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
@@ -342,7 +408,7 @@ let friendLink={
     url:{href:'javascript:;',target:''},
     data:[
         {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
-        {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
+        {name:'用车知识', url:{href:'http://yongche.16888.com/', target:'_blank'}},
         {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
         {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
         {name:'汽车之家', url:{href:'http://www.autohome.com.cn/hangzhou/', target:'_blank'}},
@@ -381,6 +447,36 @@ let qrCode = {
     }
 }
 
+let shopList = {
+    total:20,
+    attr:['title', 'url', 'src'],
+    title:'车社会 / Shopping',
+    data:[
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/1857.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/1863.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/2128.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/390.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/686.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/765.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/772.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/855.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/870.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/877.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/913.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/914.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/949.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/机油泵.jpg'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油1.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油2.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油3.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油5.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油6.JPG'},
+        {title:'车社会...',url:{href:'http://carsociety.cn/', target:'_blank'} ,src:'/public/upload/cheshehui/油7.JPG'},
+        
+    ]
+}
+
+
 /**
  * 
  */
@@ -388,6 +484,7 @@ let list = {
     cooperator:cooperator,
     friendLink:friendLink,
     carcousel:carcousel,
+    shopList:shopList,
     commonSense:news,
     otherNews:news,
     cangku:cangku,

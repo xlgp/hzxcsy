@@ -15,6 +15,8 @@ router.get('/', (req, res, next) => {
 		news: getOption('news'),
 		otherNews: getOption('otherNews'),
 		commonSense: getOption('commonSense'),
+		cooperator: getOption('cooperator'),
+		shopList:getOption('shopList'),
 	});
 });
 

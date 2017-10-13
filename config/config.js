@@ -10,7 +10,9 @@ module.exports = {
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
         //网站Logo
-        LOGO_IMG:'/public/upload/commen/logo.png',
+        // LOGO_IMG:'/public/upload/commen/logo.png',
+        LOGO_IMG:'/public/upload/commen/logoL.png',
+        TELL_IMG:'/public/upload/commen/logoR.png',
         //公司邮箱
         EMAIL:'hangzhouxcsy@126.com',
         //公司电话
@@ -44,8 +46,11 @@ module.exports = {
         cooperator:'./public/upload/cooperator',
         //新闻的图片路径
         news:'./public/upload/new',
+        //车社会商品图路径
+        cheshehui:'./public/upload/cheshehui',
         //其他的的图片路径
         other:'./public/upload/other',
+        
     },
 }
 

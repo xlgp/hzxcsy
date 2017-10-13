@@ -3,35 +3,26 @@
         let data = buss.data,
             len  = data.length;
             %>
-        <h1 class="site-big-title layui-word-aux"><span>经营业务 / Business</span></h1>
+        <h1 class="site-big-title layui-word-aux"><span><%=buss.title%></span></h1>
         <%
     for(let i = 0; i < len; i++){
+        let posx = '0px', posy = -60*i + 'px';
+        let pos = (-60*i)+'px';
 %>
-            <div class="layui-col-md4 layui-col-sm4">
-                <div class="xc-buss-box" style="height:auto">
-                    <a class="xc-link" style="font-size:20px;display:block" href="<%-data[i].url%>">
-                        <div class="layui-row layui-col-space8">
-                            <div class="layui-col-md6">
-                                <div class="xc-buss-bg " style="    position: relative;height:110px;background-image: url()">
-                                    <img src="<%=STATIC_HOST +  data[i].bg_img_src%>" style="width:100%;max-height:100%;" />
-                                </div>
-                            </div>
-                            <div class="layui-col-md6">
-                                <div class="" style="height:110px;">
-                                    <div style="display: table;height:100%">
-                                        <div class="layui-elip" style="    display: table-cell;vertical-align: middle;">
-                                            <%= data[i].title%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="xc-buss-content text-indent-2em" style="">
-                        <%= data[i].detail%>
-                    </div>
+<div class="layui-col-md4 layui-col-sm4">
+        <div class="xc-buss-box txtcenter">
+            <a class="xc-link" style="display:block" href="<%-data[i].url%>">
+            <div class="xc-buss-bg" style="background-image:url(<%=STATIC_HOST +  data[i].bg_img_src%>);<%=data[i].style%>">
                 </div>
+                <div class="layui-elip xc-buss-title">
+                        <%= data[i].title%>
+                    </div>
+            <div class="text-indent-2em xc-buss-content">
+                <%= data[i].detail%>
             </div>
+        </a>
+        </div>
+    </div>
             <% }}catch(err){
     console.error(err.message);
  }%>

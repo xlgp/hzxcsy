@@ -2,7 +2,7 @@
     <div class="layui-container">
         <div class="layui-row layui-show-md-block layui-hide-sm">
             <div class="layui-col-md4 layui-col-sm6">
-                    <h3 class="xc-item-title">联系我们</h3>
+                    <h3 class="xc-item-title">杭州协创实业有限公司</h3>
                     <% try{%>
                     <p><%= XC.CELL%></p>
                     <p><%= XC.EMAIL%></p>
@@ -55,4 +55,21 @@
 </body>
 <script src="<%=STATIC_HOST%>/public/layui/layui.js"></script>
 <script src="<%=STATIC_HOST%>/public/js/xc.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script>        
+        var mySwiper = new Swiper ('#xc-swiper-shopping', {
+          direction: 'horizontal',
+          loop: true,
+          autoplay:1,
+          speed:5000,
+        //   freeMode : true,
+          slidesPerView : 4,
+          spaceBetween : 10,
+          autoplayDisableOnInteraction : false,
+          
+          // 如果需要前进后退按钮
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev',
+        })        
+        </script>
 </html>
