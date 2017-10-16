@@ -88,37 +88,37 @@ const buss = {
     url:{href:'javascript:;',target:''},
     data:[
         {
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'配件中心仓',
             detail:'科学化设计,合理化布局,最大化地利用仓库面积,减少成本,大大提高运营效率',
             url:{href:'javascript:;', target:''},
             style:'background-position-y: -60px;'
         },{
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'修理厂',
             detail:'修理汽车,换装总成、组合件、零部件,合理可持续利用汽配资源',
             url:{href:'javascript:;', target:''},
             style:'background-position-y: 0px;'
         },{
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'车社会平台',
             detail:'依托丰富的行业服务经验和经营实力，实现传统优势与互联网技术的深度融合，打造“诚信汽车零配件综合服务平台”。',
             url:{href:'javascript:;', target:''},
             style:'background-position-y: -120px;'
         },{
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'4S店',
             detail:'集汽车销售、维修、配件和信息服务为一体,提供更加专业的技术支持和售后服务',
             url:{href:'javascript:;', target:''},
             style:'background-position-y: -180px;'
         },{
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'物流配送',
             detail:'合理化利用物流资源,提供专业、全面完善的物流配送服务',
             url:{href:'javascript:;', target:''},
             style:'background-position-y: -240px;'
         },{
-            bg_img_src : '/public//upload/commen/yewu.png',
+            bg_img_src : '/public/upload/commen/yewu.png',
             title:'汽配门店',
             detail:'以极高的热情,极强的责任心,科学化经营,非常广度的覆盖率',
             url:{href:'javascript:;', target:''},
