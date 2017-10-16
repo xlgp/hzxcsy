@@ -228,7 +228,7 @@ background-color: rgb(247,9,9);
 }
 
 footer{
-    padding: 10px 0;
+    padding: 40px 0;
     background: #bc2020;
     clear: both;
     position: relative;
@@ -258,6 +258,23 @@ footer a:hover{
 .xc-link:hover{
   color: rgb(247, 9, 9);
 }
+.xc-link-more{
+  font-size: 14px;
+  float: right;
+  color: rgb(247, 9, 9);
+  border-bottom: 0px solid;
+  transition: .3s all;
+  -o-transition: .3s all;
+  -webkit-transition: .3s all;
+  -moz-transition: .3s all;
+
+}
+
+.xc-link-more:hover{
+  border-bottom-width: 1px;
+  color: rgb(247, 9, 9);
+}
+
 footer .xc-link:hover{
   color: rgb(5, 4, 4);
 }
@@ -269,8 +286,8 @@ footer .xc-link:hover{
 	width: 100%;
 }
 .xc-firends-box{
-  height: 100px; 
-  padding: 10px; 
+  height: 120px; 
+  /* padding: 10px;  */
   background-color: transparent;
   box-shadow: 0 0 0px 0px rgba(12,10,10,0.09) inset;
   position: relative;
@@ -286,7 +303,7 @@ footer .xc-link:hover{
   }
   .xc-firends-text{
     font-size: 20px;
-    line-height: 92px;
+    line-height: 120px;
     background: rgba(247, 9, 9, 0.8);
     border: 1px dashed rgba(255,255,255,.5);
     color: #fff;
@@ -468,4 +485,11 @@ footer .xc-link:hover{
       color: #fff;
       font-size: 30px;
       margin: 20px 0;
+    }
+    .xc-swiper-container{
+      border: 1px solid #e9e9e9;
+    }
+    .xc-swiper-container .swiper-slide{
+      border-right: 1px solid #e9e9e9;
+      border-left: 1px solid #e9e9e9;
     }

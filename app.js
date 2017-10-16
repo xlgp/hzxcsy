@@ -74,6 +74,7 @@ app.use(function (req, res, next) {
 	next();
 });
 
+// app.use('/test', require('./test/test.js'));
 app.use('/', index);
 app.use(['/article','/news'], news);
 app.use('/staff', staff);

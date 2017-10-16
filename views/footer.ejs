@@ -57,12 +57,11 @@
 <script src="<%=STATIC_HOST%>/public/js/xc.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
 <script>        
-        var mySwiper = new Swiper ('#xc-swiper-shopping', {
+        let swiperOption = {
           direction: 'horizontal',
           loop: true,
           autoplay:1,
           speed:5000,
-        //   freeMode : true,
           slidesPerView : 4,
           spaceBetween : 10,
           autoplayDisableOnInteraction : false,
@@ -70,6 +69,8 @@
           // 如果需要前进后退按钮
           nextButton: '.swiper-button-next',
           prevButton: '.swiper-button-prev',
-        })        
+        };
+        new Swiper ('#xc-swiper-shopping', swiperOption);
+        new Swiper ('#xc-swiper-cooperator', swiperOption);        
         </script>
 </html>

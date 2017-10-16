@@ -11,8 +11,8 @@
 %>
 <div class="layui-col-md4 layui-col-sm4">
         <div class="xc-buss-box txtcenter">
-            <a class="xc-link" style="display:block" href="<%-data[i].url%>">
-            <div class="xc-buss-bg" style="background-image:url(<%=STATIC_HOST +  data[i].bg_img_src%>);<%=data[i].style%>">
+            <a class="xc-link" style="display:block" href="<%-data[i].url.href%>" target="<%-data[i].url.target%>">
+            <div class="xc-buss-bg" style="background-image:url(<%=STATIC_HOST + data[i].bg_img_src%>);<%=data[i].style%>">
                 </div>
                 <div class="layui-elip xc-buss-title">
                         <%= data[i].title%>

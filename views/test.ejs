@@ -1,29 +1,122 @@
 <%- include header %>
-<div class="layui-container xc-section">
-    <div class="txtcenter xc-panel">
-        <button type="button" class="layui-btn" id="test1">
-            <i class="layui-icon">&#xe67c;</i>上传图片
-          </button>
-    </div>
-    <div class="xc-panel">
-        <div class="layui-tab">
-            <ul class="layui-tab-title">
-              <li class="layui-this">网站设置</li>
-              <li>用户管理</li>
-              <li>权限分配</li>
-              <li>商品管理</li>
-              <li>订单管理</li>
+
+<header id="headertest" class="layui-header xc-header"style="height:500px;margin:200px 0">
+        <div class="layui-container layui-row" style="margin: 5px auto;">
+                <%try{%>
+            <a class="logo" href="/" style="">
+                
+                <img src="public/images/logoL.png" height="120px;"/>
+                
+            </a>
+            <img src="public/images/logoR.png" style="float:right;margin-top:40px"/>
+            <%}catch(err){
+                console.error(err.message);
+             }%>
+        </div>
+        <div class="layui-row" style="background-color: rgb(215, 5, 5);">    
+        <div class="layui-container" style="">
+            <ul class="layui-nav xc-nav" lay-filter="" style="">
+                <%try{
+                    for(let i = 0; i < navs.data.length; i++){
+                        let clazz = i === 0 ? 'layui-this':'';
+                %>
+                <li class="layui-nav-item <%=clazz%>">
+                    <a href="<%=navs.data[i].url.href%>" target="<%=navs.data[i].url.target%>"><%=navs.data[i].name%></a>
+                    <%if(navs.data[i].children && navs.data[i].children.length > 0){
+                        let subnavs = navs.data[i].children;
+                    %>
+                    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                        <%for(let j = 0; j < subnavs.length; j++){%>
+                        <dd><a href="<%=subnavs[j].url.href%>" target="<%=subnavs[j].url.target%>"><%=subnavs[j].name%></a></dd>
+                        <%}%>
+                    </dl>
+                    <%}%>
+                </li>
+                <%}}catch(err){
+                    console.error(err.message);
+                 }%>
             </ul>
-            <div class="layui-tab-content">
-              <div class="layui-tab-item layui-show">内容1</div>
-              <div class="layui-tab-item">内容2</div>
-              <div class="layui-tab-item">内容3</div>
-              <div class="layui-tab-item">内容4</div>
-              <div class="layui-tab-item">内容5</div>
-            </div>
-          </div>
+        </div>
     </div>
-</div>
+    </header>
+
+    <img src="/public/images/yewu.png"/>
+    <div style="background-image:url(/public/images/yewu.png)"></div>
+    <hr>
+    <style>
+        @keyframes lunbo{
+            from {left: 0px;background: red;}
+            to {left: 1170px;background: #80DF14;}
+        }
+        .lunbo-item{
+            animation: lunbo 2s infinite;
+            -moz-animation: lunbo 2s infinite;	/* Firefox */
+            -webkit-animation: lunbo 2s infinite;	/* Safari 和 Chrome */
+            -o-animation: lunbo 2s infinite;	/* Opera */
+        }
+    </style>
+    <div class="layui-container" style="outline:1px solid #DA5C5C;position:relative;height:300px;overflow:hidden">
+          <div class="layui-carousel" id="test1">
+                <div carousel-item>
+                        <div class="layui-row layui-col-space8 lunbo-item" style="height:300px;width:100%">
+                                <div class="layui-col-md3"><div style="height:300px;outline:1px solid #80EE37"></div></div>
+                                <div class="layui-col-md3"><div style="height:300px;outline:1px solid #80EE37"></div></div>
+                                <div class="layui-col-md3"><div style="height:300px;outline:1px solid #80EE37"></div></div>
+                                <div class="layui-col-md3"><div style="height:300px;outline:1px solid #80EE37"></div></div>
+                              </div>
+                              <div class="layui-row layui-col-space8 lunbo-item" style="height:300px;width:100%">
+                                    <div class="layui-col-md3"><div style="height:300px;outline:1px solid #E98F28"></div></div>
+                                    <div class="layui-col-md3"><div style="height:300px;outline:1px solid #E98F28"></div></div>
+                                    <div class="layui-col-md3"><div style="height:300px;outline:1px solid #E98F28"></div></div>
+                                    <div class="layui-col-md3"><div style="height:300px;outline:1px solid #E98F28"></div></div>
+                                  </div>
+                                  <div class="layui-row layui-col-space8 lunbo-item" style="height:300px;width:100%">
+                                        <div class="layui-col-md3"><div style="height:300px;outline:1px solid #390ED3"></div></div>
+                                        <div class="layui-col-md3"><div style="height:300px;outline:1px solid #390ED3"></div></div>
+                                        <div class="layui-col-md3"><div style="height:300px;outline:1px solid #390ED3"></div></div>
+                                        <div class="layui-col-md3"><div style="height:300px;outline:1px solid #390ED3"></div></div>
+                                      </div>
+                                      <div class="layui-row layui-col-space8 lunbo-item" style="height:300px;width:100%">
+                                            <div class="layui-col-md3"><div style="height:300px;outline:1px solid #970BE7"></div></div>
+                                            <div class="layui-col-md3"><div style="height:300px;outline:1px solid #970BE7"></div></div>
+                                            <div class="layui-col-md3"><div style="height:300px;outline:1px solid #970BE7"></div></div>
+                                            <div class="layui-col-md3"><div style="height:300px;outline:1px solid #970BE7"></div></div>
+                                          </div>
+                </div>
+              </div>
+    </div>
+    <hr>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <style>
+        .swiper-container {
+            height: 200px;
+        } 
+    </style>
+    
+    <div class="layui-container">
+    <div class="swiper-container">
+            <div class="swiper-wrapper" style="transition-timing-function:linear;-moz-transition-timing-function:linear;
+            -webkit-transition-timing-function:linear;-o-transition-timing-function:linear;">
+                <div class="swiper-slide" style="background-color:#970BE7">Slide 1</div>
+                <div class="swiper-slide" style="background-color:#0BE73B">Slide 2</div>
+                <div class="swiper-slide" style="background-color:#0F0BE7">Slide 3</div>
+                <div class="swiper-slide" style="background-color:#970BE7">Slide 1</div>
+                <div class="swiper-slide" style="background-color:#0BE73B">Slide 2</div>
+                <div class="swiper-slide" style="background-color:#0F0BE7">Slide 3</div>
+                <div class="swiper-slide" style="background-color:#970BE7">Slide 1</div>
+                <div class="swiper-slide" style="background-color:#0BE73B">Slide 2</div>
+                <div class="swiper-slide" style="background-color:#0F0BE7">Slide 3</div>
+                <div class="swiper-slide" style="background-color:#970BE7">Slide 1</div>
+                <div class="swiper-slide" style="background-color:#0BE73B">Slide 2</div>
+                <div class="swiper-slide" style="background-color:#0F0BE7">Slide 3</div>
+            </div>
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    
     <!-- <% 
             try{
                 let data = news.data;
@@ -60,3 +153,4 @@
                 console.error(err.message);
              }%> -->
 <%- include footer %>
+ 
