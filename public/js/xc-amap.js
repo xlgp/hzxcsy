@@ -4,6 +4,7 @@
 	//协创经纬度
  var position = [120.122819,30.32512];
  var config = {
+     'head':'杭州协创实业有限公司',
     'address':'浙江省杭州市拱墅区花园岗路113号金通国际大厦A座9F',
     'email':'hangzhouxcsy@126.com',
     'tel':'400-827-3666',
@@ -29,7 +30,7 @@ setConfig(paramter);
  content.push('<div class="InfoWindow-box">');
  content.push('<span id="info-close" class="info-close layui-icon" onclick="XCAMap.closeInfoWindow()">&#x1007;</span>');
  content.push('<div class="info-point"></div>');
- content.push('<div class="info-head">杭州协创实业有限公司</div>');
+ content.push('<div class="info-head">'+config['head']+'</div>');
  content.push('<div class="info-body">');
  content.push('<img src="'+config['img_path']+'" width="" height="64px">');
  content.push('<div>联系方式：'+config['tel']+'</div>');

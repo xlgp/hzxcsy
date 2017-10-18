@@ -62,7 +62,16 @@ html, body, h1, h2, h3{
   color: rgb(247,7,9);
 }
 .xc-nav .layui-this:after, .xc-nav .layui-nav-bar{
-  background-color: #383838;
+  background-color: transparent;
+}
+.xc-nav .layui-nav-item{
+  -webkit-transition:all .3s;
+  transition:all .3s;
+  -moz-transition:all .3s;
+  -o-transition:all .3s;
+}
+.xc-nav .layui-this, .xc-nav .layui-nav-item:hover{
+  background-color: rgba(255,0,0,0.5);
 }
 /* .xc-nav .layui-nav-more{
   border-color: rgb(247, 9, 9) transparent transparent;
@@ -228,7 +237,7 @@ background-color: rgb(247,9,9);
 }
 
 footer{
-    padding: 40px 0;
+    padding: 40px 0 20px 0;
     background: #bc2020;
     clear: both;
     position: relative;
@@ -287,7 +296,7 @@ footer .xc-link:hover{
 }
 .xc-firends-box{
   height: 120px; 
-  /* padding: 10px;  */
+  text-align: center;
   background-color: transparent;
   box-shadow: 0 0 0px 0px rgba(12,10,10,0.09) inset;
   position: relative;
@@ -426,7 +435,7 @@ footer .xc-link:hover{
     
     }
     .xc-news-i-content{
-      margin-left: 185px;
+      margin-left: 200px;
       overflow: hidden;
     }
     .InfoWindow-box{

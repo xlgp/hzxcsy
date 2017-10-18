@@ -30,7 +30,7 @@
             <script type="text/javascript" src="<%=STATIC_HOST%>/public/js/xc-amap.js"></script>
             <script type="text/javascript">
                 '<%try {%>'
-                    XCAMap.createAMap('amap-container',{email:'<%= XC.EMAIL%>', address:'<%= XC.ADDRESS%>', tel:'<%= XC.CELL%>',img_path:'<%= XC.LOGO_IMG%>'});
+                    XCAMap.createAMap('amap-container',{email:'<%= XC.EMAIL%>', address:'<%= XC.ADDRESS%>', tel:'<%= XC.CELL%>',img_path:'<%=STATIC_HOST + XC.LOGO_IMG%>'});
                 '<%}catch (error) {%>'
                     console.error(error.message);XCAMap.createAMap("amap-container");
                 '<%}%>'

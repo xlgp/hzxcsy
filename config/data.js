@@ -388,26 +388,23 @@ let carcousel = {
      */
     url:{href:'javascript:;',target:''},
     data:[
-        // {
-        //     itemImgSrc:'/public/upload/banner/20170330/2.jpg',
-        //     url:{href:'javascript:;',target:''},
-        //     // bannerTitle:'网络销售平台',
-        //     // bannerDetail:'诚信汽车零配件综合服务平台'
-        // },
-        // {
-        //     itemImgSrc:'/public/upload/banner/20170330/1.jpg',
-        //     url:'',
-        //     url:{href:'/aboutxc',target:'_blank'},
-        //     bannerTitle:'杭州协创实业有限公司',
-        //     bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
-        // },
         {
-            itemImgSrc:'/public/upload/banner/20170330/cangchu.png',
+            itemImgSrc:'/public/upload/banner/20170330/xiulic.png',
             url:{href:'/aboutxc',target:'_blank'},
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
         },{
             itemImgSrc:'/public/upload/banner/20170330/cheshehui.png',
+            url:{href:'/aboutxc',target:'_blank'},
+            // bannerTitle:'杭州协创实业有限公司',
+            // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
+        },{
+            itemImgSrc:'/public/upload/banner/20170330/cangchu.png',
+            url:{href:'/aboutxc',target:'_blank'},
+            // bannerTitle:'杭州协创实业有限公司',
+            // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
+        },{
+            itemImgSrc:'/public/upload/banner/20170330/haima.png',
             url:{href:'/aboutxc',target:'_blank'},
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'

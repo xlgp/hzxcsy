@@ -1,13 +1,12 @@
-<div class="layui-row layui-col-space20">
+
     <% try{
         let data = buss.data,
             len  = data.length;
             %>
         <h1 class="site-big-title layui-word-aux"><span><%=buss.title%></span></h1>
+        <div class="layui-row layui-col-space20">
         <%
     for(let i = 0; i < len; i++){
-        let posx = '0px', posy = -60*i + 'px';
-        let pos = (-60*i)+'px';
 %>
 <div class="layui-col-md4 layui-col-sm4">
         <div class="xc-buss-box txtcenter">
@@ -23,7 +22,8 @@
         </a>
         </div>
     </div>
-            <% }}catch(err){
+            <% }%>
+        </div>
+            <%}catch(err){
     console.error(err.message);
  }%>
-</div>

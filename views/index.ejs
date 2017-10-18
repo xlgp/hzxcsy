@@ -2,12 +2,12 @@
     <!-- 轮播模块 -->
     <%- include template/carousel %>
     <!-- 轮播模块 end-->
-        <div class="layui-container">
+        <div class="layui-container" style="margin-top:25px">
             <!-- 公司简介模块 -->
             <div class="layui-row xc-section">
                 <h1 class="site-big-title layui-word-aux"><span>公司简介 / About Us</span></h1>
                 <div class="layui-col-md8">
-                    <div style="width:20%;display:inline-block;vertical-align:top;float:left"><img src="<%=STATIC_HOST%>/public/upload/commen/logo.jpg" style="max-width:90%;width:auto"/></div>
+                    <div style="width:20%;display:inline-block;vertical-align:top;float:left;text-align: right;"><img src="<%=STATIC_HOST%>/public/upload/commen/logo.jpg" style="max-width:90%;width:auto"/></div>
                     <div style="width:80%;display:inline-block">
                         <div class="" style="padding:0 40px 0">
                             <div class="site-text">
@@ -58,7 +58,7 @@
                         for(let i = 0; i < data.length; i++){%>    
                         <div class="swiper-slide">
                             <div class="xc-firends-box">
-                                <img class="" alt="<%= data[i].name %>" style="width: 100%; height: 100%" src="<%=STATIC_HOST + data[i].img_src %>" data-holder-rendered="true">
+                                <img class="" alt="<%= data[i].name %>" style="" src="<%=STATIC_HOST + data[i].img_src %>" data-holder-rendered="true">
                                 <a class="xc-pos-abs txtcenter xc-firends-text" href="<%= data[i].url %>" target="_blank"><%= data[i].name %></a>
                             </div> 
                         </div>
@@ -87,7 +87,7 @@
                     let data = shopList.data;
                     for(let i = 0; i < data.length; i++){%>    
                     <div class="swiper-slide">
-                        <a href="<%=data[i].url.href%>" target="<%=data[i].url.target%>"><img src="<%=data[i].src%>" width="100%" height="250px"/></a>
+                        <a href="<%=data[i].url.href%>" target="<%=data[i].url.target%>"><img src="<%=STATIC_HOST + data[i].src%>" width="100%" height="250px"/></a>
                     </div>
                     <%}%>
                     </div>

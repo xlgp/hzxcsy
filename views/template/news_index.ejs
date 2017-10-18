@@ -9,13 +9,13 @@
     <div class="layui-row layui-col-space30">
         <div class="layui-col-md4">
             <div class="xc-news-img" style="height:300px;background-image: url(<%=STATIC_HOST + data[0].itemImgSrc%>);">
-                <a class="xc-buss-title" style="color:#fff;position: absolute;margin: 0;width: 100%;background-color: rgba(0, 0, 0, 0.38);padding: 15px 0;bottom: 0;" href="<%= data[0].url.href%>" target="<%= data[1].url.target%>">
+                <a class="xc-buss-title layui-elip" style="color:#fff;position: absolute;margin: 0;width: 100%;background-color: rgba(0, 0, 0, 0.38);padding: 15px 0;bottom: 0;" href="<%= data[0].url.href%>" target="<%= data[1].url.target%>">
                     <%=data[0].title%>
                 </a>
             </div>
         </div>
         <div class="layui-col-md8">
-            <div class="xc-news-i-box" style="">
+            <div class="xc-news-i-box">
                 <a href="<%= data[1].url.href%>" class="xc-news-i-img" target="<%= data[1].url.target%>" style="background-image: url(<%=STATIC_HOST + data[1].itemImgSrc%>);"></a>
                 <div class="xc-news-i-content">
                     <h3 class="xc-news-i-title layui-elip">
@@ -24,7 +24,7 @@
                     <p class="lead text-indent-2em" style="height:72px">
                         <%= data[1].summary%>
                     </p>
-                    <p style="float: right;">
+                    <p style="float: right;margin-top: 10px;">
                         <%= data[1].createTime.split(' ')[0] %>
                     </p>
                 </div>
@@ -40,7 +40,7 @@
                     <p class="lead text-indent-2em" style="height:72px">
                         <%= data[2].summary%>
                     </p>
-                    <p style="float: right;">
+                    <p style="float: right;margin-top: 10px;">
                         <%= data[2].createTime.split(' ')[0] %>
                     </p>
                 </div>
