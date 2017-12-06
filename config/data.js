@@ -147,7 +147,7 @@ let news = {
     url:{href:'javascript:;',target:''},
     data:[
         {
-            id:2,
+            id:1,
             pv:0,
             status:0,
             catoId:1,
@@ -163,7 +163,7 @@ let news = {
             content:'<p><img class="img-responsive" style="width: 100%;max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170726/201707261039494617.jpeg"></p><p><span style="line-height: 150%; text-indent: 24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金秋是收获的季节。在这样一个收获的美好季节里，杭州协创实业有限公司与海马汽车于2016年11月20日在郑州签署战略合作协议，正式建立在汽车配件仓储及物流配送等领域全面深化战略合作伙伴关系。</span></p><p style="margin-top:10px;margin-bottom:10px;text-indent:24px;line-height:150%">&nbsp;杭州协创实业有限公司是一家专业为各主机厂提供备件区域的仓储与物流供应保障服务的公司，目前在全国已形成4个项目基地，仓库面积近15万㎡，年备件配送出库量近10亿元，所辐射的省份已有17个，主要服务品牌包括一汽海马、奇瑞汽车、长安铃木、力帆汽车、天津一汽、福田、东风股份、北汽幻速等。公司拥有专业的仓储及物流团队近300余人，有着丰富的汽车备件仓储和物流管理经验。</p><p style="margin-top:10px;margin-bottom:10px;text-indent:24px;line-height:150%">海马汽车作为国内最早的汽车企业之一，2007年，海马布局中原，设立海马汽车销售有限公司。主要生产海马S5、海马M6、海马M3等车型。目前已建立起比较完善的配套体系、销售体系和物流体系。</p><p style="margin-top:10px;margin-bottom:10px;text-indent:24px;line-height:150%"><span style="line-height: 150%;"> &nbsp;两家公司开展全面合作，对于充分发挥双方的技术和资源优势，提高华南区域汽车配件配送服务水平，增强双方核心竞争力具有重要意义，最终实现协同发展、和谐共赢。</span><br></p>'
         },
         {
-            id:1,
+            id:2,
             pv:0,
             status:0,
             catoId:2,
@@ -189,21 +189,7 @@ let news = {
             title:'杭州神辇网络科技有限公司荣升新一届中国汽车维修工委会副主任单位',
             summary:'2016年秋，杭州神辇网络科技有限公司，成为新一届中国汽车维修行业协会配件工委会（下称“汽车维修工委会”）的副主任委员单位。我司打造的“车社会”一站式服务中心作为首家加入汽车维修工委会的从事汽车原厂配件垂直营销平台及一站式服务中心的公司，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。',
             content:'<p style="">车社会-汽车后市场服务平台 网址：www.carsociety.cn</p><p style="text-align: center;"><img class="img-responsive" style="width: 100%; max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/1.jpg"><br></p><p style=""><br></p><p style=" text-indent: 32px; line-height: 24px;"><span style="  line-height: 24px;">201</span><span style="  line-height: 24px;">6</span><span style="  line-height: 24px;">年</span><span style="  line-height: 24px;">秋</span><span style="  line-height: 24px;">，杭州神辇</span><span style="  line-height: 24px;">网络科技</span><span style="  line-height: 24px;">有限公司，成为</span><span style="  line-height: 24px;">新一届</span><span style=" line-height: 24px; ">中国汽车维修行业协会配件工委会</span><span style="  line-height: 24px;">（下称</span><span style="  line-height: 24px;">“汽车维修工委会”）的副主任委员单位。汽车工委会的副主任委员单位还有长春华众离合器有限公司、国美控股集团有限公司、华维泰（北京）汽车零部件有限公司、华汽投资控股有限公司等</span><span style=" line-height: 24px; font-family: Calibri;">10</span><span style="  line-height: 24px;">余家单位。</span></p><p style="line-height: 24px;text-align: center;"><span style="  line-height: 24px;"><img class="img-responsive" style="width: 100%;max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/640.jpeg"><br></span></p><p style=" text-indent: 29px; line-height: 24px;"><span style="  "><span style="">杭州神辇网络科技有限公司打造的</span>“车社会”一站式服务中心</span><span style=" "><span style=" ">作为</span></span><span style="  "><span style="">首</span></span><span style=" "><span style=" ">家加入</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">维修工委会的从事</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">及一站式服务中心</span></span><span style=" "><span style=" ">的</span></span><span style="  "><span style="">公司</span></span><span style=" "><span style=" ">，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。</span></span><span style="  ">“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">将各车型的信息精准地投入到</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">中</span></span><span style="  "><span style="">。汽车终端客户</span></span><span style="  "><span style="">根据自己的爱车，通过</span>“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">可以选择质优实价的原厂配件，同时还可以选择</span></span><span style="  ">“车社会”一站式服务中心</span><span style="  "><span style="">为</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">进行安装</span></span><span style="  "><span style="">、维修保养等</span></span><span style="  "><span style="">服务。</span></span></p><p style=""><br></p>'
-        },
-        {
-            id:4,
-            pv:0,
-            status:0,
-            catoId:2,
-            user:'admin',
-            url:{href:'/article/'+4,target:''},
-            createTime:'2017-07-26 10:32:41',
-            catoId:'59b780a518affa79112cd9f1',
-            itemImgSrc:'/public/upload/news/20170502/640.jpeg',
-            title:'杭州神辇网络科技有限公司荣升新一届中国汽车维修工委会副主任单位',
-            summary:'2016年秋，杭州神辇网络科技有限公司，成为新一届中国汽车维修行业协会配件工委会（下称“汽车维修工委会”）的副主任委员单位。我司打造的“车社会”一站式服务中心作为首家加入汽车维修工委会的从事汽车原厂配件垂直营销平台及一站式服务中心的公司，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。',
-            content:'<p style="">车社会-汽车后市场服务平台 网址：www.carsociety.cn</p><p style="text-align: center;"><img class="img-responsive" style="width: 100%; max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/1.jpg"><br></p><p style=""><br></p><p style=" text-indent: 32px; line-height: 24px;"><span style="  line-height: 24px;">201</span><span style="  line-height: 24px;">6</span><span style="  line-height: 24px;">年</span><span style="  line-height: 24px;">秋</span><span style="  line-height: 24px;">，杭州神辇</span><span style="  line-height: 24px;">网络科技</span><span style="  line-height: 24px;">有限公司，成为</span><span style="  line-height: 24px;">新一届</span><span style=" line-height: 24px; ">中国汽车维修行业协会配件工委会</span><span style="  line-height: 24px;">（下称</span><span style="  line-height: 24px;">“汽车维修工委会”）的副主任委员单位。汽车工委会的副主任委员单位还有长春华众离合器有限公司、国美控股集团有限公司、华维泰（北京）汽车零部件有限公司、华汽投资控股有限公司等</span><span style=" line-height: 24px; font-family: Calibri;">10</span><span style="  line-height: 24px;">余家单位。</span></p><p style="line-height: 24px;text-align: center;"><span style="  line-height: 24px;"><img class="img-responsive" style="width: 100%;max-height: 450px;" src="http://static.hzxcsy.com.cn/public/upload/news/20170502/640.jpeg"><br></span></p><p style=" text-indent: 29px; line-height: 24px;"><span style="  "><span style="">杭州神辇网络科技有限公司打造的</span>“车社会”一站式服务中心</span><span style=" "><span style=" ">作为</span></span><span style="  "><span style="">首</span></span><span style=" "><span style=" ">家加入</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">维修工委会的从事</span></span><span style="  "><span style="">汽车</span></span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">及一站式服务中心</span></span><span style=" "><span style=" ">的</span></span><span style="  "><span style="">公司</span></span><span style=" "><span style=" ">，拥有强大的后台管理、专业的咨询服务以及完善的业务流程。</span></span><span style="  ">“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">将各车型的信息精准地投入到</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">中</span></span><span style="  "><span style="">。汽车终端客户</span></span><span style="  "><span style="">根据自己的爱车，通过</span>“车社会”汽车</span><span style=" "><span style=" ">原厂配件垂直营销平台</span></span><span style="  "><span style="">可以选择质优实价的原厂配件，同时还可以选择</span></span><span style="  ">“车社会”一站式服务中心</span><span style="  "><span style="">为</span></span><span style="  "><span style="">汽车终端客户</span></span><span style="  "><span style="">进行安装</span></span><span style="  "><span style="">、维修保养等</span></span><span style="  "><span style="">服务。</span></span></p><p style=""><br></p>'
-        },
+        }
     ]
 };
 
@@ -389,7 +375,7 @@ let carcousel = {
     url:{href:'javascript:;',target:''},
     data:[
         {
-            itemImgSrc:'/public/upload/banner/20170330/xiulic.png',
+            itemImgSrc:'/public/upload/banner/20170330/cangchu.png',
             url:{href:'/aboutxc',target:'_blank'},
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
@@ -399,7 +385,7 @@ let carcousel = {
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
         },{
-            itemImgSrc:'/public/upload/banner/20170330/cangchu.png',
+            itemImgSrc:'/public/upload/banner/20170330/xiulic.png',
             url:{href:'/aboutxc',target:'_blank'},
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'

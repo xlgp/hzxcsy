@@ -2,7 +2,7 @@
     <div class="layui-container">
         <div class="layui-row layui-show-md-block layui-hide-sm">
             <div class="layui-col-md4 layui-col-sm6">
-                    <h3 class="xc-item-title">杭州协创实业有限公司</h3>
+                    <h3 class="xc-item-title"><%= XC.GLOBAL_TITLE||'杭州协创实业有限公司' %></h3>
                     <% try{%>
                     <p><%= XC.CELL%></p>
                     <p><%= XC.EMAIL%></p>
@@ -44,7 +44,7 @@
         </div>
         <div class="layui-row txtcenter">
             <% try{%>
-            <p>Copyright © 2017 杭州协创实业有限公司 All Rights Reserved.</p>
+            <p>Copyright © 2017 <%- XC.GLOBAL_TITLE%> All Rights Reserved.</p>
             <p><%- XC.ICP %></p>
             <%}catch(err){
                 console.error(err.message);

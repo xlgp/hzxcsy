@@ -1,21 +1,22 @@
 <%- include('../public/head') %>
+<h1 class="txtcenter" style="font-size:40px;margin:30px 0">杭州协创实业有限公司</h1>
 <div class="layui-container xc-section site-content">
-    <form class="layui-form" action="" style="width:400px;margin:0 auto">
+    <form class="layui-form" action="/user/login" method="post" style="width:400px;margin:0 auto">
         <div class="layui-form-item">
             <label class="layui-form-label">用户名:</label>
             <div class="layui-input-block">
-              <input type="text" name="" placeholder="请输入用户名" autocomplete="on" class="layui-input">
+              <input type="text" name="" placeholder="请输入用户名" autocomplete="on" class="layui-input" lay-verify="required">
             </div>
           </div>
           <div class="layui-form-item">
             <label class="layui-form-label">密   码:</label>
             <div class="layui-input-block">
-              <input type="password" name="" placeholder="请输入密码" autocomplete="on" class="layui-input">
+              <input type="password" name="" placeholder="请输入密码" autocomplete="on" class="layui-input" lay-verify="required">
             </div>
           </div>
           <div class="layui-form-item">
               <label class="layui-form-label"></label>
-            <button class="layui-btn" lay-filter="*" lay-submit="" style="">立即登录</button>
+            <button class="layui-btn" lay-filter="login" lay-submit="" style="">立即登录</button>
           </div>
     </form>
 </div>

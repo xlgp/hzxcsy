@@ -38,34 +38,3 @@
         </div>
     </div>
     </header>
-<!-- <header class="layui-header xc-header">
-    <div class="layui-container">
-        <a class="logo" href="/">
-            <%try{%>
-            <img src="<%= STATIC_HOST + XC.LOGO_IMG%>"/>
-            <%}catch(err){
-                console.error(err.message);
-             }%>
-        </a>
-        <ul class="layui-nav xc-nav" lay-filter="">
-            <%try{
-                for(let i = 0; i < navs.data.length; i++){
-            %>
-            <li class="layui-nav-item">
-                <a href="<%=navs.data[i].url.href%>" target="<%=navs.data[i].url.target%>"><%=navs.data[i].name%></a>
-                <%if(navs.data[i].children && navs.data[i].children.length > 0){
-                    let subnavs = navs.data[i].children;
-                %>
-                <dl class="layui-nav-child">
-                    <%for(let j = 0; j < subnavs.length; j++){%>
-                    <dd><a href="<%=subnavs[j].url.href%>" target="<%=subnavs[j].url.target%>"><%=subnavs[j].name%></a></dd>
-                    <%}%>
-                </dl>
-                <%}%>
-            </li>
-            <%}}catch(err){
-                console.error(err.message);
-             }%>
-        </ul>
-    </div>
-</header> -->
