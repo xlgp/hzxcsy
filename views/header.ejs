@@ -1,6 +1,15 @@
 <%- include('public/head') %>
-<header id="headertest" class="layui-header xc-header"style="height:auto">
-    <div class="layui-container layui-row" style="">
+<header id="headertest" class="layui-header xc-header"style="height:auto;">
+    <div style="
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 122px;
+    left: 0;
+    background-position: center 80%;
+    background-image: url(<%=STATIC_HOST%>/public/upload/banner/commen/dongzhi.jpg);
+"></div>
+        <div class="layui-container layui-row" style="">
                 <%try{%>
             <a class="logo" href="/" style="">
                 <img src="<%=STATIC_HOST + XC.LOGO_IMG%>" height="120px;"/>

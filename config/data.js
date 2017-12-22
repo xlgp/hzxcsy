@@ -154,7 +154,7 @@ let carcousel = {
     url:{href:'javascript:;',target:''},
     data:[
         {
-            itemImgSrc:'/public/upload/commen/dongzhi.jpg',
+            itemImgSrc:'/public/upload/banner/20170330/dongzhi1.jpg',
             url:{href:'/aboutxc',target:'_blank'},
             // bannerTitle:'杭州协创实业有限公司',
             // bannerDetail:'汽车备件仓储管理，物流配送服务，汽车备件信息技术服务'
