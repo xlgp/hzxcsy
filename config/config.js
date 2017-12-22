@@ -10,7 +10,6 @@ module.exports = {
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
         //网站Logo
-        // LOGO_IMG:'/public/upload/commen/logo.png',
         LOGO_IMG:'/public/upload/commen/logoL.png',
         TELL_IMG:'/public/upload/commen/logoR.png',
         //公司邮箱

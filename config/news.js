@@ -19,13 +19,12 @@ let newCato = {
     ],
 };
 
-
 /**
  * 资讯
  */
 let news = {
     /**
-     * total:资讯数量,number, 可选
+     * total:经营业务数量,number, 可选
      */
     total:4,
     attr:['id', 'title', 'summary', 'createTime' ,'itemImg', 'url'],
@@ -35,8 +34,10 @@ let news = {
     title:'资讯',
     /**
      * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
      */
-    url:{href:'/news/1',target:''},
+    url:{href:'javascript:;',target:''},
     data:[
         {
             id:1,
@@ -58,7 +59,7 @@ let news = {
             id:2,
             pv:0,
             status:0,
-            catoId:1,
+            catoId:2,
             user:'admin',
             url:{href:'/article/'+2,target:''},
             createTime:'2017-07-26 10:32:41',
@@ -85,6 +86,160 @@ let news = {
     ]
 };
 
+/**
+ * 行业资讯
+ */
+let otherNews = {
+    /**
+     * total:行业资讯数量,number, 可选
+     */
+    total:4,
+    attr:['id', 'title', 'summary', 'createTime' ,'itemImg', 'url'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'资讯',
+    /**
+     * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
+    data:[
+        {
+            id:2,
+            pv:0,
+            status:0,
+            catoId:1,
+            user:'admin',
+            url:{href:'http://auto.gasgoo.com/News/2017/10/16081644164470025042C105.shtml',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            // catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'http://imagecn.gasgoo.com/moblogo/News/UEditor/700-X/20171016/6364373847522378359431390.jpg',
+            title:'从死亡堆里走出来的汽车后市场，如今变了模样？',
+            summary:'',
+            content:''
+        },
+        {
+            id:1,
+            pv:0,
+            status:0,
+            catoId:2,
+            user:'admin',
+            url:{href:'http://auto.gasgoo.com/News/2017/10/1601360436470025092C501.shtml',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            // catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
+            title:'政策春风再起！新能源物流车也有“诗和远方”',
+            summary:'',
+            content:''
+        },
+        {
+            id:3,
+            pv:0,
+            status:0,
+            catoId:1,
+            user:'admin',
+            url:{href:'http://auto.gasgoo.com/News/2017/10/16095842584270025068C501.shtml',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20170502/640.jpeg',
+            title:'新能源汽车产业可借鉴高铁成功经验',
+            summary:'',
+            content:''
+        },
+        {
+            id:4,
+            pv:0,
+            status:0,
+            catoId:2,
+            user:'admin',
+            url:{href:'http://auto.gasgoo.com/News/2017/10/1608091791770025037C501.shtml',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20170502/640.jpeg',
+            title:'“双积分”政策出台 加快节能与新能源汽车发展步伐',
+            summary:'',
+            content:''
+        },
+    ]
+};
+
+let commonSense = {
+    /**
+     * total:用车常识数量,number, 可选
+     */
+    total:4,
+    attr:['id', 'title', 'summary', 'createTime' ,'itemImg', 'url'],
+    /**
+     * title:名称,字符串,可选
+     */
+    title:'资讯',
+    /**
+     * url:链接,字符串,可选
+     *//**
+     * url:链接,字符串,可选
+     */
+    url:{href:'javascript:;',target:''},
+    data:[
+        {
+            id:2,
+            pv:0,
+            status:0,
+            catoId:1,
+            user:'admin',
+            url:{href:'http://news.16888.com/a/2017/0424/8061929.html',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            // catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'http://imagecn.gasgoo.com/moblogo/News/UEditor/700-X/20171016/6364373847522378359431390.jpg',
+            title:'开了这么多年车窗 才发现打开方法不对！？',
+            summary:'',
+            content:''
+        },
+        {
+            id:1,
+            pv:0,
+            status:0,
+            catoId:2,
+            user:'admin',
+            url:{href:'http://news.16888.com/a/2017/0306/7934114.html',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            // catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20160216/20160216105034_6.jpg',
+            title:'不知不觉又在毁车！？细数日常用车毁车坏习惯',
+            summary:'',
+            content:''
+        },
+        {
+            id:3,
+            pv:0,
+            status:0,
+            catoId:1,
+            user:'admin',
+            url:{href:'http://news.16888.com/a/2017/0530/8230589.html',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20170502/640.jpeg',
+            title:'居然这么五花八门？ 关于车门的那些事',
+            summary:'',
+            content:''
+        },
+        {
+            id:4,
+            pv:0,
+            status:0,
+            catoId:2,
+            user:'admin',
+            url:{href:'http://news.16888.com/a/2017/0306/7934114.html',target:'_blank'},
+            createTime:'2017-07-26 10:32:41',
+            catoId:'59b780a518affa79112cd9f1',
+            itemImgSrc:'/public/upload/news/20170502/640.jpeg',
+            title:'不知不觉又在毁车！？细数日常用车毁车坏习惯',
+            summary:'',
+            content:''
+        },
+    ]
+};
 let gather = {
     groups:(options) => {
         let attr=['title','coverImgPath'],
@@ -107,6 +262,7 @@ let gather = {
         }
         return groups;
     },
+
     item:(options) => {
         let attr = ['title', 'data'],
             config = {id:-1};
@@ -120,6 +276,12 @@ let gather = {
     }
 };
 
-module.exports = (type, option) => { 
-    return gather[type](option);
+let list = {
+    commonSense:commonSense,
+    otherNews:otherNews,
+    news:news,
+};
+
+module.exports = (cato, option) => { 
+    return list[cato] || {};
 };

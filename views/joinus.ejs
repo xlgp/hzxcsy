@@ -3,36 +3,34 @@
 	<h1 class="txtcenter"><span>诚聘精英 / Join US</span></h1>
 </div>
 <div class="layui-container">
-    <h1 class="txtcenter site-big-title">虚位以待</h1>
+    <h1 class="site-big-title layui-word-aux"><span>协同并进,共创未来</span></h1>
     <div class="xc-section">
         <p></p>
     </div>
     <div class="xc-section">
-            <!-- <table class="layui-table">
-            <thead>
-                <tr>
-                    <th>职位名称</th>
-                    <th>工作地点</th>
-                    <th>招聘人数</th>
-                    <th>发布时间</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Java工程师</td>
-                    <td>杭州</td>
-                    <td>3</td>
-                    <td>2017-09-08 10:57:09</td>
-                </tr>
-                <tr>
-                        <td>Java工程师</td>
-                        <td>杭州</td>
-                        <td>3</td>
-                        <td>2017-09-08 10:57:09</td>
-                </tr>
-            </tbody>
-            </table> -->
-            <blockquote class="layui-elem-quote layui-quote-nm">虚位以待</blockquote>
+            <%try{
+                let data=jobs.data;
+                
+                %>
+            <div class="layui-collapse" style="border-color: rgb(215, 5, 5);">
+                <%for(let i = 0; i < data.length; i++){
+                    <!-- let clazz = i == 0 ? 'layui-show':''; -->
+                    let = clazz = 'layui-show';%>
+                <div class="layui-colla-item">
+                  <h2 class="layui-colla-title" style="    background-color: rgb(215, 5, 5);color:#fbfbfb"><%= data[i].name %>(<%= data[i].jobAddr%>)</h2>
+                  <div class="layui-colla-content <%=clazz%>">
+                    <h3 class="" style="font-size:20px"><%-data[i].zhineng.title%></h3>
+                    <%- data[i].zhineng.desc%>
+                    <h3 style="font-size:20px"><%-data[i].yaoqiu.title%></h3>
+                    <%- data[i].yaoqiu.desc%>
+                    <h1 class="site-big-title" style="font-size:20px"><%-data[i].email%></h1>
+                  </div>
+                </div>
+                <%}%>
+              </div>
+              <% }catch(err){
+                console.error(err.message);
+             }%>
     </div>
 </div>
 <%- include footer %>

@@ -1,6 +1,8 @@
 let express = require('express'),
 	getOption = require('../config/data'),
+	newsData = require('../config/news'),
 	gConfig = require('../config/config'),
+	jobsConf = require('../config/job'),
 	router = express.Router(),
 	xcmodule = require('../module/xc.module.js'),
 	logger = require('../middlename/xclog.js').logger('index');
@@ -12,9 +14,9 @@ router.get('/', (req, res, next) => {
 	res.render('index', {
 		carcousel: getOption('carcousel'),
 		buss: getOption('buss'),
-		news: getOption('news'),
-		otherNews: getOption('otherNews'),
-		commonSense: getOption('commonSense'),
+		news: newsData('news'),
+		otherNews: newsData('otherNews'),
+		commonSense: newsData('commonSense'),
 		cooperator: getOption('cooperator'),
 		shopList:getOption('shopList'),
 	});
@@ -43,6 +45,7 @@ router.get('/contact', (req, res, next) => {
  */
 router.get('/joinus', (req, res, next) => {
 	res.render('joinus', {
+		jobs:jobsConf(),
 	});
 });
 

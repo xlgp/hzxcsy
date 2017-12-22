@@ -1,11 +1,9 @@
 <%- include('public/head') %>
 <header id="headertest" class="layui-header xc-header"style="height:auto">
-        <div class="layui-container layui-row" style="margin: 5px auto;">
+    <div class="layui-container layui-row" style="">
                 <%try{%>
             <a class="logo" href="/" style="">
-                
                 <img src="<%=STATIC_HOST + XC.LOGO_IMG%>" height="120px;"/>
-                
             </a>
             <img class="layui-show-md-inline-block layui-hide-sm" src="<%=STATIC_HOST + XC.TELL_IMG%>" style="float:right;margin-top:40px"/>
             <%}catch(err){
