@@ -3,37 +3,37 @@
     let data = news.data,
         len = data.length;
 %>
-<h1 class="site-big-title layui-word-aux" style="position:relative"><span>协创资讯 / News</span>
-    <a class="xc-link-more" href="/news/1/1">更多</a>
+<h1 class="site-big-title layui-word-aux" style="position:relative"><span><%=news.title%></span>
+    <a class="xc-link-more" href="<%=news.url.href%>">更多</a>
 </h1>
     <div class="layui-row layui-col-space30">
         <div class="layui-col-md4">
             <div class="xc-news-img" style="height:300px;background-image: url(<%=STATIC_HOST + data[0].itemImgSrc%>);">
-                <a class="xc-buss-title layui-elip" style="color:#fff;position: absolute;margin: 0;width: 100%;background-color: rgba(0, 0, 0, 0.38);padding: 15px 0;bottom: 0;" href="<%= data[0].url.href%>" target="<%= data[1].url.target%>">
+                <a class="xc-buss-title layui-elip" style="color:#fff;position: absolute;margin: 0;width: 100%;background-color: rgba(0, 0, 0, 0.38);padding: 15px 0;bottom: 0;" href="<%= data[0].url.href + data[0]._id%>" target="<%= data[0].url.target%>">
                     <%=data[0].title%>
                 </a>
             </div>
         </div>
         <div class="layui-col-md8">
             <div class="xc-news-i-box">
-                <a href="<%= data[1].url.href%>" class="xc-news-i-img" target="<%= data[1].url.target%>" style="background-image: url(<%=STATIC_HOST + data[1].itemImgSrc%>);"></a>
+                <a href="<%= data[1].url.href + data[1]._id%>" class="xc-news-i-img" target="<%= data[1].url.target%>" style="background-image: url(<%=STATIC_HOST + data[1].itemImgSrc%>);"></a>
                 <div class="xc-news-i-content">
                     <h3 class="xc-news-i-title layui-elip">
-                        <a class="xc-link" href="<%= data[1].url.href%>" target="<%= data[1].url.target%>"><%=data[1].title%></a>
+                        <a class="xc-link" href="<%= data[1].url.href + data[1]._id%>" target="<%= data[1].url.target%>"><%=data[1].title%></a>
                     </h3>
                     <p class="lead text-indent-2em" style="height:72px">
                         <%= data[1].summary%>
                     </p>
                     <p style="float: right;margin-top: 10px;">
-                        <%= data[1].createTime.split(' ')[0] %>
+                        <%= data[1].create_at_ago(1) %>
                     </p>
                 </div>
             </div>
             <div class="xc-news-i-box" style="padding-top:10px">
-                <a href="<%= data[2].url.href%>" target="<%= data[2].url.target%>" class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);"></a>
+                <a href="<%= data[2].url.href + data[2]._id%>" target="<%= data[2].url.target%>" class="xc-news-i-img" style="background-image: url(<%=STATIC_HOST + data[2].itemImgSrc%>);"></a>
                 <div class="xc-news-i-content">
                     <h3 class="xc-news-i-title layui-elip">
-                        <a class="xc-link" href="<%= data[2].url.href%>" target="<%= data[2].url.target%>">
+                        <a class="xc-link" href="<%= data[2].url.href + data[2]._id%>" target="<%= data[2].url.target%>">
                             <%=data[2].title%>
                         </a>
                     </h3>
@@ -41,7 +41,7 @@
                         <%= data[2].summary%>
                     </p>
                     <p style="float: right;margin-top: 10px;">
-                        <%= data[2].createTime.split(' ')[0] %>
+                        <%= data[2].create_at_ago(1) %>
                     </p>
                 </div>
             </div>
@@ -55,8 +55,8 @@ console.error(err.message);
         <div class="layui-row layui-col-space30">
             <!-- 行业资讯 -->
             <div class="layui-col-md6">
-                <h1 class="site-big-title layui-word-aux" style="position:relative"><span>行业资讯 / News</span>
-                    <a class="xc-link-more" href="/news/2/1">更多</a>
+                <h1 class="site-big-title layui-word-aux" style="position:relative"><span><%=otherNews.title%></span>
+                    <a class="xc-link-more" href="<%=otherNews.url.href%>">更多</a>
                 </h1>
                 <ul>
                     <% try{ 
@@ -66,10 +66,10 @@ console.error(err.message);
         %>
                         <li>
                             <h3 class="" style="margin:10px 0;">
-                                <a class="layui-inline layui-elip xc-link" href="<%= data[i].url.href%>" target="<%= data[i].url.target%>" style="width:80%;">
+                                <a class="layui-inline layui-elip xc-link" href="<%= data[i].url.href + data[i]._id%>" target="<%= data[i].url.target%>" style="width:80%;">
                                     <%=data[i].title%>
                                 </a>
-                                <span style="float: right;"><%= data[i].createTime.split(' ')[0] %></span></h3>
+                                <span style="float: right;"><%= data[i].create_at_ago(1) %></span></h3>
                         </li>
                         <%}}catch(err){
                     console.error(err.message);
@@ -79,8 +79,8 @@ console.error(err.message);
             <!-- 行业资讯 end-->
             <!-- 用车常识 -->
             <div class="layui-col-md6">
-                <h1 class="site-big-title layui-word-aux" style="position:relative"><span>用车常识 / Common sense</span>
-                    <a class="xc-link-more" href="/news/1/1">更多</a>
+                <h1 class="site-big-title layui-word-aux" style="position:relative"><span><%=commonSense.title%></span>
+                    <a class="xc-link-more" href="<%=commonSense.url.href%>">更多</a>
                 </h1>
                 <ul>
                     <% try{ 
@@ -90,10 +90,10 @@ console.error(err.message);
             %>
                         <li>
                             <h3 class="" style="margin:10px 0;">
-                                <a class="layui-inline layui-elip xc-link" href="<%= data[i].url.href%>" target="<%= data[i].url.target%>" style="width:80%;">
+                                <a class="layui-inline layui-elip xc-link" href="<%= data[i].url.href + data[i]._id%>" target="<%= data[i].url.target%>" style="width:80%;">
                                     <%=data[i].title%>
                                 </a>
-                                <span style="float: right;"><%= data[i].createTime.split(' ')[0] %></span></h3>
+                                <span style="float: right;"><%= data[i].create_at_ago(1) %></span></h3>
                         </li>
                         <%}}catch(err){
                         console.error(err.message);

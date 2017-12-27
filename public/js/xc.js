@@ -83,6 +83,7 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       elem: 'news-page' //注意，这里的 test1 是 ID，不用加 # 号
       ,count: $('#news-page').data('total') //数据总数，从服务端得到
       ,theme:'#f70909'
+      ,limit:8
       ,curr:(function() {
           var params = window.location.pathname.split('/');
           return params[params.length-1];

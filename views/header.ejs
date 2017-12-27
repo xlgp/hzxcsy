@@ -1,14 +1,12 @@
 <%- include('public/head') %>
+<!-- 网页全局背景div -->
+<div style="background-size: cover;background-color: #fefefe;position: fixed;left: 0;top: 0;width: 100%;height: 100%;background-image: url(<%=STATIC_HOST +g.globalBgImg%>)"></div>
+<!-- 网页全局背景div end-->
 <header id="headertest" class="layui-header xc-header"style="height:auto;">
-    <div style="
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 122px;
-    left: 0;
-    background-position: center 80%;
-    background-image: url(<%=STATIC_HOST%>/public/upload/banner/commen/dongzhi.jpg);
-"></div>
+    <!-- 头部背景图 -->
+    <div style="top: 0;position: absolute;width: 100%;height: 122px;left: 0;background-position: center 80%;
+    background-image: url(<%=STATIC_HOST + g.headBgImg%>);"></div>
+    <!-- 头部背景图 end-->
         <div class="layui-container layui-row" style="">
                 <%try{%>
             <a class="logo" href="/" style="">

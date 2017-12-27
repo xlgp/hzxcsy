@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
  */
 mongoose.connect(mongodbConfig.url, {
     useMongoClient: true,
+    poolSize: 20
 },(err) => {
     if (err) {
         logger.error('connect to database '+mongodbConfig.url+'error', err.message);

@@ -11,13 +11,16 @@
             <h1 id="article-title" class="site-big-title article-title"><%=article.title%></h1>
             <div class="text-center layui-word-aux">
                 <input id="article_id" type="hidden" value="1">
-                <span><i class="layui-icon">&#xe637;</i> 时间：<%=article.createTime%></span>
-                <span><i class="layui-icon">&#xe612;</i> 作者：<%=article.user%></span>
-                <span><i class="layui-icon">&#xe63c;</i> 浏览量：<span id="pv" data-pv="25"><%=article.pv%></span></span>
+                <span><i class="layui-icon">&#xe637;</i> 时间：<%=article.create_at_ago(0)%></span>
+                <span><i class="layui-icon">&#xe612;</i> 作者：<%=article.author%></span>
+                <span><i class="layui-icon">&#xe63c;</i> 浏览量：<span id="pv" data-pv="0"><%=article.pv%></span></span>
             </div>
         </div>
         <hr class="layui-bg-gray">
-        <div class="article-content"><%-article.content%></div>
+        <div class="article-content">
+            <%-article.content%>
+            <div style="margin-top:20px"><%=article.origin.title%>:<%=article.origin.url%></div>
+        </div>
         <hr class="layui-bg-gray">
         <div class="bdsharebuttonbox xc-share-box" data-tag="share_1">
                 <div class="bdsharebuttonbox" data-tag="share_1">

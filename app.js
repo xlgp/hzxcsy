@@ -5,17 +5,13 @@ let express = require('express'),
 		mlogger = require('morgan'),
 		logger = require('./middlename/xclog').logger('app'),
 
-
 		cookieParser = require('cookie-parser'),
 		bodyParser = require('body-parser'),
 
 		config = require('./config/config'),
 		getOption = require('./config/data'),
-		index = require('./routes/index'),
-		news = require('./routes/news'),
-		user = require('./routes/user'),
-		staff = require('./routes/staff'),
-		upload = require('./routes/upload');
+		
+		webRouter = require('./webRouter');
 
 var app = express();
 
@@ -60,6 +56,7 @@ navs:导航菜单
 app.use(function (req, res, next) {
 	// res.locals.user = req.session.user; 
 	res.locals.navs = getOption('navs');
+	res.locals.g = getOption('globalList');
 	if(req.app.get('env') != 'development'){
 		res.cookie('isload', 'yes');
 	}else if (req.cookies.isload) {
@@ -74,12 +71,7 @@ app.use(function (req, res, next) {
 	next();
 });
 
-// app.use('/test', require('./test/test.js'));
-app.use('/', index);
-app.use(['/article','/news'], news);
-app.use('/staff', staff);
-app.use('/upload', upload);
-app.use('/user', user);
+app.use('/', webRouter);
 
 
 app.use('/404', (req, res, next) => {
@@ -87,7 +79,7 @@ app.use('/404', (req, res, next) => {
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	let err = new Error('Not Found');
+	let err = new Error('页面或数据去了火星了...');
 	err.status = 404;
 	next(err);
 });
@@ -99,8 +91,6 @@ app.use(function(err, req, res, next) {
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 	let status = err.status || 500;
 	logger.error(status, req.originalUrl, err.message);
-	// console.log(err);
-	// render the error page
 	res.status(status);
 	res.render('error');
 });

@@ -10,13 +10,13 @@
     %>
     <div class="layui-row xc-section">
         <div class="layui-col-md5 xc-news-img" style="background-image: url(<%=STATIC_HOST + data[i].itemImgSrc%>);">
-            <a href="<%= data[i].url.href%>" class="xc-news-date" target="<%= data[i].url.target%>">
-                <span><%= data[i].createTime %></span>
+            <a href="<%= data[i].url.href + data[i]._id%>" class="xc-news-date" target="<%= data[i].url.target%>">
+                <span><%= data[i].create_at_ago(0) %></span>
             </a>
         </div>
         <div class="layui-col-md7">
             <div class="xc-panel site-text">
-                <h3 class="xc-news-heading layui-elip"><a href="<%= data[i].url.href%>" target=""><%= data[i].title%></a></h3>
+                <h3 class="xc-news-heading layui-elip"><a href="<%= data[i].url.href + data[i]._id%>" target="<%=data[i].url.target%>"><%= data[i].title%></a></h3>
                 <p class="lead text-indent-2em"><%= data[i].summary%></p>
             </div>
         </div>
@@ -25,6 +25,6 @@
    <% }}catch(err){
        console.error(err.message);
     }%>
-    <div id="news-page" class="txtcenter" data-total='1'></div>
+    <div id="news-page" class="txtcenter" data-total='<%=news.total%>'></div>
 </div>
 <%- include footer %>

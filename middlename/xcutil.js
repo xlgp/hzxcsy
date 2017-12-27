@@ -1,5 +1,9 @@
 const	path = require('path'),
-		fs = require('fs');
+		fs = require('fs'),
+		moment = require('moment');
+
+
+moment.locale('zh-cn'); // 使用中文
 
 function zero(num) {
 	return num > 9 ? num : '0'+num;
@@ -26,16 +30,35 @@ module.exports = {
 			callback(err, dirpath);	
 		});
 	},
+	/**
+	 * 返回形式为 'YYYYMMDDHHmmss' 的当前时间(若位数不足,前补0)
+	 */
 	getYmdhms:()=>{
 		let date = new Date();
 		return ''+date.getFullYear() + zero(date.getMonth()+1) + zero(date.getDate())
 				+zero(date.getHours()) + zero(date.getMinutes()) + zero(date.getSeconds());
 	},
+	/**
+	 * 返回num位随机数
+	 */
 	getRandom:(num)=>{
 		num = num || 4;
 		return Math.floor(Math.random()*Math.pow(10,num));
 	},
+	/**
+	 * 判断callback是否是函数
+	 */
 	isfunction:(callback)=>{
 		return callback && typeof callback === 'function';
+	},
+	
+	// 格式化时间
+	formatDate : function (date, flag) {
+		date = moment(date);
+		if (flag == 0) {
+			return date.format('YYYY-MM-DD HH:mm');		
+		}else if(flag == 1){
+			return date.format('YYYY-MM-DD');
+		}
 	},
 };

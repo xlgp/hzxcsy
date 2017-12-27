@@ -2,6 +2,7 @@ html, body, h1, h2, h3{
   font-size: 16px;
   color: #333;
   line-height: 24px;
+  position: relative;
 }
 @media screen and (max-width: 750px) {
   .site-content img{max-width: 100%;}
@@ -127,6 +128,7 @@ html, body, h1, h2, h3{
 .xc-section{
   margin-bottom:25px; 
   overflow: hidden;
+  background-color: #fff;
 }
 .xc-panel{
   padding: 20px;
@@ -141,6 +143,7 @@ html, body, h1, h2, h3{
 }
 .site-content {
   padding: 20px 0;
+  background-color: #fff;
 }
 
 .site-text p{

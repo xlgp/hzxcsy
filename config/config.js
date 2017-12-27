@@ -31,6 +31,10 @@ module.exports = {
     mongodb:{
         url:'mongodb://localhost:27017/hzxcsytest',
     },
+    redis:{
+        port:6379,
+        host:'127.0.0.1',
+    },
     /**
      * 图片上传路径
      */
@@ -51,6 +55,11 @@ module.exports = {
         other:'./public/upload/other',
         
     },
+
+    limitArticlePageSize:8,
+    limitArticleSmallPageSize:3,
+    limitStaffPageSize:9,
+
 }
 
 

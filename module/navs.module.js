@@ -1,6 +1,7 @@
 const mongoose = require('./db.module.js'),
 		logger = require('../middlename/xclog.js').logger('navs.module'),
 		xcutil = require('../middlename/xcutil.js'),
+		BaseModel = require('./base.module'),
 		Schema = mongoose.Schema;
 		
 let NavsSchema = new Schema({
@@ -20,6 +21,8 @@ let NavsSchema = new Schema({
 	}],
 	
   });
+
+NavsSchema.plugin(BaseModel);
 
 let NavsModel = mongoose.model('Navs', NavsSchema);
 

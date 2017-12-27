@@ -183,6 +183,15 @@ let carcousel = {
 };
 
 /**
+ * 文章分类模块
+ */
+let catos = [
+    ['news', '最新动态'],
+    ['otherNews', '行业动态'],
+    ['commonSence', '汽车知识']
+];
+
+/**
  * 导航模块
  */
 let navs = {
@@ -204,29 +213,27 @@ let navs = {
      */
     url:{href:'javascript:;',target:''},
     data:[
-        {id:0,name:'首页',url:{href:'/',target:''},},
+        {name:'首页',url:{href:'/',target:''},},
         {
-            id:1,name:'企业动态',url:{href:'javascript:;',target:''},children:[
-                {id:11,name:'最新动态',url:{href:'/news/1/1',target:''},},
-                {id:12,name:'行业动态',url:{href:'/news/2/1',target:''},},
+            name:'企业动态',url:{href:'javascript:;',target:''},children:[
+                {name:catos[0][1],url:{href:'/news/'+catos[0][0]+'/1',target:''},},
+                {name:catos[1][1],url:{href:'/news/'+catos[1][0]+'/1',target:''},},
             ],
         },
         {
-            id:2,name:'关于协创',url:{href:'javascript:;',target:''},children:[
-                {id:21,name:'公司简介',url:{href:'/aboutxc',target:''},},
-                // {id:22,name:'员工风采',url:{href:'/staff/1',target:''},},
+            name:'关于协创',url:{href:'javascript:;',target:''},children:[
+                {name:'公司简介',url:{href:'/aboutxc',target:''},},
             ],
         },
         {
-            id:3,name:'联系我们',url:{href:'javascript:;',target:''},children:[
-                {id:31,name:'联系协创',url:{href:'/contact',target:''}},
-                // {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}}
+            name:'联系我们',url:{href:'javascript:;',target:''},children:[
+                {name:'联系协创',url:{href:'/contact',target:''}},
             ]
         },
-        {id:5,name:'员工风采',url:{href:'/staff/1',target:''},},
-        {id:32,name:'诚聘英才',url:{href:'/joinus',target:''}},
+        {name:'员工风采',url:{href:'/staff/1',target:''},},
+        {name:'诚聘英才',url:{href:'/joinus',target:''}},
         {
-            id:4,name:'官网商城',url:{href:'http://carsociety.cn/',target:'_blank'},
+            name:'官网商城',url:{href:'http://carsociety.cn/',target:'_blank'},
         }
     ],
 };
@@ -401,19 +408,27 @@ let shopList = {
     ]
 }
 
+const globalList = {
+    //头部背景图
+    headBgImg : '/public/upload/banner/commen/dongzhi.jpg',
+    //全局背景图
+    globalBgImg :'',
+}
 
 /**
  * 
  */
 let list = {
-    cooperator:cooperator,
-    friendLink:friendLink,
-    carcousel:carcousel,
-    shopList:shopList,
-    cangku:cangku,
-    qrCode:qrCode,
     buss:buss,
     navs:navs,
+    catos:catos,
+    cangku:cangku,
+    qrCode:qrCode,
+    shopList:shopList,
+    carcousel:carcousel,
+    cooperator:cooperator,
+    friendLink:friendLink,
+    globalList:globalList,
 };
 
 module.exports = (item) => {
