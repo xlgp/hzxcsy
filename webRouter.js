@@ -30,6 +30,6 @@ router.post('/login', user.login);
 //upload
 router.post('/upload/:type(\\w+)', upload);
 
-router.get('/test', require('./test/test').index);
+// router.get('/test', require('./test/test').index);
 
 module.exports = router;

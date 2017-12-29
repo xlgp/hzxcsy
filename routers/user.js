@@ -3,6 +3,7 @@ let logger = require('../middlename/xclog.js').logger('user'),
 
 
 let user = config.user;
+// let user = {username:'1', password:'1'};
 
 module.exports.showLogin = function (req, res, next) {
     res.render('admin/login');

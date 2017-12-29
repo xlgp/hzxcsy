@@ -4,7 +4,7 @@ module.exports = {
      * 静态资源服务器
      * 
      */
-    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][index],
+    STATIC_HOST:['http://node.hzxcsy.xlgp.me', 'http://static.hzxcsy.com.cn'][index],
     //环境
     env:['development', 'production'][index],
     XC:{
