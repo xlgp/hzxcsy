@@ -54,7 +54,6 @@ app.use(session({
 navs:导航菜单
 */ 
 app.use(function (req, res, next) {
-	// res.locals.user = req.session.user; 
 	res.locals.navs = getOption('navs');
 	res.locals.g = getOption('globalList');
 	if(req.app.get('env') != 'development'){

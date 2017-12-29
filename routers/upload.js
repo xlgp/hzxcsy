@@ -1,22 +1,14 @@
-var express = require('express'),
-    router = express.Router(),
-    logger = require('../middlename/xclog.js').logger('upload'),
+var logger = require('../middlename/xclog.js').logger('upload'),
     util = require('util'),
     fs = require('fs'),
     path = require('path'),
     xcutil = require('../middlename/xcutil.js'),
-    uploadDirList =require('../config/config.js').uploadDirList;
+    uploadDirList =require('../config/config.js').uploadDirList,
+    gConfig = require('../config/config').STATIC_HOST,
     formidable = require('formidable');
 
-router.get('/test', (req, res, next) => {
-    res.render('test');
-}); 
-router.get('/', (req,res, next) => {
-    res.status(403);
-    next();
-});
 
-router.post('/:type(\\w+)', (req, res, next) => {
+module.exports = function(req, res, next) {
     xcutil.getDir(uploadDirList[req.params.type], (err, dirpath) => {
         if (err) { 
             logger.error(err.message);
@@ -40,18 +32,16 @@ router.post('/:type(\\w+)', (req, res, next) => {
                         return;
                     }
                     data = {
-                        src:filepath,
+                        src:'/' + filepath,
                         originName:files.file.name,
                         type:files.file.type,
                         size:files.file.size
                     };
                     //将数据存入数据库
                     // function save();
-                    res.status(200).json({code:0, msg:'', data:data});
+                    res.status(200).json({code:0, msg:'', data:data, link:'/' + filepath});
                 });
             
         });
     });    
-});
-
-module.exports = router;
+};

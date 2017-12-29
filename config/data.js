@@ -190,7 +190,10 @@ let catos = [
     ['otherNews', '行业动态'],
     ['commonSence', '汽车知识']
 ];
-
+let newsOrigin = [
+    [0, '原创', ''],
+    [1, '转载', ''],
+];
 /**
  * 导航模块
  */
@@ -218,6 +221,7 @@ let navs = {
             name:'企业动态',url:{href:'javascript:;',target:''},children:[
                 {name:catos[0][1],url:{href:'/news/'+catos[0][0]+'/1',target:''},},
                 {name:catos[1][1],url:{href:'/news/'+catos[1][0]+'/1',target:''},},
+                {name:catos[2][1],url:{href:'/news/'+catos[2][0]+'/1',target:''},},
             ],
         },
         {
@@ -426,6 +430,7 @@ let list = {
     qrCode:qrCode,
     shopList:shopList,
     carcousel:carcousel,
+    newsOrigin:newsOrigin,
     cooperator:cooperator,
     friendLink:friendLink,
     globalList:globalList,

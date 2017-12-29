@@ -6,7 +6,7 @@
 
 'use strict';
 
-layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'upload', 'form'], function(exports){
+layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], function(exports){
     
     var $ = layui.jquery,
       layer = layui.layer,
@@ -14,8 +14,6 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       device = layui.device(),
       laypage = layui.laypage,
       util = layui.util,
-      form = layui.form,
-      upload = layui.upload,
       carousel = layui.carousel;
     
     //阻止IE8以下访问
@@ -46,29 +44,6 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
       $('footer').before('<div style="height:'+pageheight+'px"></div>');
     }
     //footer固定在底部 end
-
-    var xc = {
-      json: function(url, data, success, options){
-        var that = this;
-        options = options || {};
-        data = data || {};
-        return $.ajax({
-          type: options.type || 'post',
-          dataType: options.dataType || 'json',
-          data: data,
-          url: url,
-          success: function(res){
-            if(res.status === 0) {
-              success && success(res);
-            } else {
-              layer.msg(res.msg||res.code, {shift: 6});
-            }
-          }, error: function(e){
-            options.error || layer.msg('请求异常，请重试', {shift: 6});
-          }
-        });
-      }
-    }
 
     //建造实例
     carousel.render({
@@ -109,24 +84,11 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage', 'uplo
           if(first){return;}
           var pathname = window.location.pathname;
           pathname = pathname.substring(0, pathname.lastIndexOf('/')+1);
-          window.location.href = pathname + obj.curr;r
+          window.location.href = pathname + obj.curr;
           return;
       }
   });
   util.fixbar({showHeight:100}); 
-  //文件上传
-  var Upload = upload.render({
-    elem: '#test1'
-    ,url: '/upload/other'
-    ,multiple: true
-    ,done: function(res, index, upload){ //上传后的回调
-      //如果上传失败
-      if(res.code > 0){
-        return layer.msg('上传失败');
-      }
-      console.log(res, index);
-    }
-  })
   });
   
   

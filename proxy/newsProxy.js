@@ -46,3 +46,8 @@ module.exports.getArticlesByCato = function(catoname, options, callback){
         
     ArticleModel.find(conditions, {}, options,callback);
 }
+
+module.exports.save = function(article, callback){
+    let articleEntiy = new ArticleModel(article);
+    articleEntiy.save(callback);
+}

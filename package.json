@@ -21,6 +21,7 @@
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.11",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "validator": "^9.2.0"
   }
 }

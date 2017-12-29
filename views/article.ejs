@@ -19,7 +19,7 @@
         <hr class="layui-bg-gray">
         <div class="article-content">
             <%-article.content%>
-            <div style="margin-top:20px"><%=article.origin.title%>:<%=article.origin.url%></div>
+            <div class="layui-elip" style="margin-top:20px;outline: 1px dashed #c6c6c6;"><%=article.origin.title%><a style="margin-left: 10px;" href="<%=article.origin.url%>" target="_blank"><%=article.origin.url%></a></div>
         </div>
         <hr class="layui-bg-gray">
         <div class="bdsharebuttonbox xc-share-box" data-tag="share_1">

@@ -34,7 +34,7 @@ let ArticleSchema = new Schema({
     origin:{
         originid:{type:Number, default:0},
         title:{type:String, default:'原创'},
-        url:{type:String, default:'javascript:;'},
+        url:{type:String},
     },
     itemImgSrc:{type:String, default:'/public/upload/news/defualt-news-logo.jpg'},
     summary:{type:String, default:'', required:true},
