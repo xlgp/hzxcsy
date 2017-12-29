@@ -1,11 +1,12 @@
+let index = 1;
 module.exports = { 
     /**
      * 静态资源服务器
      * 
      */
-    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][2],
+    STATIC_HOST:['http://static.xlgp.xc', 'http://static.hzxcsy.com.cn', ''][index],
     //环境
-    env:['development', 'production'][0],
+    env:['development', 'production'][index],
     XC:{
         //网站名称
         GLOBAL_TITLE : '杭州协创实业有限公司',
