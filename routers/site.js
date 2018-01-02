@@ -2,23 +2,51 @@ let getOption = require('../config/data'),
 	jobsConf = require('../config/job'),
 	EventProxy = require('eventproxy'),
 	_ = require('lodash'),
-	newsProxy = require('../proxy/newsProxy');
+	cache = require('../middlename/cache'),
+	newsProxy = require('../proxy/newsProxy'),
+	XCProxy = require('../proxy/xcProxy');
 
 let catos = getOption('catos');
 
 module.exports.index = function(req, res, next) {
 		let proxy = new EventProxy();
-		proxy.all([catos[0][0], catos[1][0], catos[2][0]], (news, otherNews, commonSense) => {
-			res.render('index', {
-				carcousel: getOption('carcousel'),
-				buss: getOption('buss'),
-				news: news,
-				otherNews: otherNews,
-				commonSense: commonSense,
-				cooperator: getOption('cooperator'),
-				shopList:getOption('shopList'),
-			});
+		proxy.all(['carousel', catos[0][0], catos[1][0], catos[2][0]],
+			(carousel, news, otherNews, commonSense) => {
+				res.render('index', {
+					carousel: {data:carousel},
+					buss: getOption('buss'),
+					news: news,
+					otherNews: otherNews,
+					commonSense: commonSense,
+					cooperator: getOption('cooperator'),
+					shopList:getOption('shopList'),
+				});
 		}).fail(next);
+		//首页轮播图
+		cache.get('carousel', (err, value) => {
+			if(err){
+				proxy.emit('carousel', []);
+				return
+			}
+			try {
+				value = JSON.parse(value);
+				if (!value || value.length == 0) {
+					XCProxy.getCarousel((err, carousel) => {
+						if(err){
+							proxy.emit('carousel', []);
+							return
+						}
+						cache.set('carousel', JSON.stringify(carousel));
+						proxy.emit('carousel', carousel);
+					});
+					return
+				}
+				proxy.emit('carousel', value);
+			} catch (error) {
+				
+			}
+		});
+		
 		newsProxy.getArticlesByCato(catos[0][0], {pageSize:3,pageNo:1}, proxy.done(catos[0][0], (news) => {
 			return {title:'协创资讯 / News',url:{href:'/news/'+catos[0][0]+'/1',target:''},data:news};
 		}));

@@ -31,6 +31,7 @@ module.exports = function(req, res, next) {
                         res.status(500).json({code:2, msg:err.message});
                         return;
                     }
+                    filepath = filepath.replace(/\\/g,"/");
                     data = {
                         src:'/' + filepath,
                         originName:files.file.name,

@@ -62,7 +62,7 @@ module.exports.cato = function(req, res, next) {
                 return;
             }
             proxy.emit('articles', article);
-            cache.get(catoname, (err, total) => { console.log(err, total)
+            cache.get(catoname, (err, total) => { 
                 if(total){
                     proxy.emit('total', total);
                 }else{

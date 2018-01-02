@@ -1,7 +1,9 @@
 'use strict';
 
-layui.define(['form', 'layer'], function(){
+layui.define(['form', 'layer', 'element'], function(){
     let form = layui.form,
+        table = layui.table,
+        element = layui.element,
     xc = {
         json: function(url, data, success, options){
           var that = this;
@@ -16,27 +18,36 @@ layui.define(['form', 'layer'], function(){
               if(res.code === 0) {
                 success && success(res);
               } else {
-                layer.msg(res.msg||res.code, {shift: 6});
+                layer.msg(res.msg||res.code, {anim: 6,icon:1});
               }
             }, error: function(e){
-              options.error || layer.msg('请求异常，请重试', {shift: 6});
+              options.error || layer.msg('请求异常，请重试', {anim: 6,icon:2});
             }
           });
         }
       };
       
-        form.on('submit(*)', function(data){
+        form.on('submit(news)', function(data){
             let action = $(data.form).attr('action'), button = $(data.elem);
-            if(action == '/news/add'){
-                data.field.content = $('#newsTextarea').froalaEditor('html.get');
-            }
+            data.field.content = $('#newsTextarea').froalaEditor('html.get');
             xc.json(action, data.field, function (res) {
-                layer.msg(res.msg);
-                res.data && res.data.url&&(window.location.href = res.data.url);
+                layer.msg(res.msg), {anim: 6,icon:1};
             });
             return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
           });
-
+        form.on('submit(carousel)', function(data){
+          let action = $(data.form).attr('action');
+          xc.json(action, data.field, function(res){
+            layer.msg(res.msg), {anim: 6,icon:1};
+          })
+          return false;
+        });
+        form.on('submit(login)', function(data){
+          xc.json('/login', data,field, function(res){
+            window.location.href = res.data.redirectUrl;
+          });
+          return false;
+        });
         form.verify({
           origin:function(value, obj){
             if($('[name="origin.id"]:checked').val() == 1){
@@ -46,4 +57,6 @@ layui.define(['form', 'layer'], function(){
             }
           }
         });
+
+
 });

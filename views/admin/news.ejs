@@ -2,8 +2,7 @@
 <div class="layui-container">
 		<div class="fly-panel" pad20="" style="padding: 20px;">
 				<div class="layui-form layui-form-pane">
-						<div class="layui-form" id="LAY_ucm" style="padding: 20px 0;">
-								<form action="/news/add" method="post">
+								<form class="layui-form" action="/news/add" method="post">
 									<div class="layui-row layui-col-space15 layui-form-item">
 										<div class="layui-col-md3">
 											<label class="layui-form-label">文章类型</label>
@@ -52,22 +51,19 @@
 											</div>
 										</div>
 									<div class="layui-form-item">
-										<button class="layui-btn" lay-filter="*" lay-submit="">立即增加</button>
+										<button class="layui-btn" lay-filter="news" lay-submit="">立即增加</button>
 									</div>
-								</form>
-						</div>
-					
+								</form>					
 				</div>
 			</div>
 </div>
-<div id="box"></div>
 <%- include('footer') %>
 
 <script>
 $(function() { 
 	$('#newsTextarea').froalaEditor({
-		height: 500,
-		imageUploadURL:'<%=STATIC_HOST%>',
+		height: 600,
+		imageUploadURL:'<%=STATIC_HOST%>/upload/news',
 	}).on('froalaEditor.image.error', function (e, editor, error, response) {
 		console.error(error, response);
 	}).on('froalaEditor.image.uploaded', function (e, editor, response) {

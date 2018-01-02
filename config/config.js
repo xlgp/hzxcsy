@@ -31,15 +31,21 @@ module.exports = {
     },
     mongodb:{
         url:'mongodb://localhost:27017/hzxcsydb',
+        options:{
+            user:'hzxc',
+            pass:'hzxc',
+            useMongoClient: true,
+            poolSize: 20
+        }
     },
     redis:{
         port:6379,
         host:'127.0.0.1',
     },
-    user:{
-        username:'hzxcsy',
-        password:'h2xc59'
-    },
+    user:[
+        {username:'1', password:'1'},
+        {username:'hzxcsy',password:'h2xc59'},
+    ][index],
     /**
      * 图片上传路径
      */
