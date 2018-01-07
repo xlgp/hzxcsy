@@ -6,6 +6,14 @@
 
 'use strict';
 
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+
+        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+
 layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], function(exports){
     
     var $ = layui.jquery,
@@ -21,13 +29,6 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
       layer.alert('如果您非得使用ie浏览本网站，那么请使用ie9+');
     }
     
-    function setCookie(c_name,value,expiredays)
-    {
-        var exdate=new Date();
-            exdate.setDate(exdate.getDate()+expiredays);
-            document.cookie=c_name+ "=" +escape(value)+
-            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
-    }
     //设置第一次访问提示框
     if (document.cookie==null || document.cookie==""){
       var _host = 'http://hzxcsy.com.cn/';
@@ -43,7 +44,8 @@ layui.define(['layer', 'laytpl', 'carousel', 'element', 'util', 'laypage'], func
     if(pageheight > 0){
       $('footer').before('<div style="height:'+pageheight+'px"></div>');
     }
-    //footer固定在底部 end
+
+
 
     //建造实例
     carousel.render({

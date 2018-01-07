@@ -43,7 +43,7 @@ layui.define(['form', 'layer', 'element'], function(){
           return false;
         });
         form.on('submit(login)', function(data){
-          xc.json('/login', data,field, function(res){
+          xc.json('/login', data.field, function(res){
             window.location.href = res.data.redirectUrl;
           });
           return false;

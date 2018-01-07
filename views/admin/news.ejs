@@ -63,7 +63,7 @@
 $(function() { 
 	$('#newsTextarea').froalaEditor({
 		height: 600,
-		imageUploadURL:'<%=STATIC_HOST%>/upload/news',
+		imageUploadURL:'/upload/news',
 	}).on('froalaEditor.image.error', function (e, editor, error, response) {
 		console.error(error, response);
 	}).on('froalaEditor.image.uploaded', function (e, editor, response) {
@@ -73,6 +73,12 @@ $(function() {
 		}
 	}).on('froalaEditor.imageManager.error', function (e, editor, error, response) {
 		console.log(response);
-	});
+	}).on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+		$img.css({
+			'width':'100%',
+			'height':'auto',
+			'max-height':'450px'
+		});
+	});;
 });
 </script>
