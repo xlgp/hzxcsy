@@ -1,0 +1,153 @@
+<%- include('head') %>
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>图片列表</legend>
+        <div class="layui-field-box">
+            <table id="carouselTab" lay-filter="carouselTab"></table>
+            <style>.itemImgSrc{cursor: pointer}</style>
+        </div>
+        </fieldset>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>图片编辑</legend>
+            <div class="layui-field-box">
+    <div class="layui-row">
+            <button class="layui-btn selCarouselBtn" style="width:100%" lay-data="{url: '/upload/banner', accept: 'images', size:768, auto:false}">选择图片</button>
+            <div class="xc-img-box">
+                <img id="carouselImg" src=""/>
+              </div>
+        </div>
+        <form class="layui-form layui-form-pane" action="/xc/carousel/save" method="post">
+          <div class="layui-form-item" pane>
+            <label class="layui-form-label">图片路径<span class="layui-badge-dot" style="margin-left:5px"></span></label>
+            <div class="layui-input-block">
+                <input type="hidden" name="id" value="">
+                <input type="text" id="imgSrcInput" name="itemImgSrc" lay-verType="tips" placeholder="图片路径..." required="" lay-verify="required" autocomplete="off" class="layui-input" style="border:none;border-left: 1px solid #e6e6e6;">  
+            </div>
+          </div>
+          <div class="layui-form-item" pane>
+            <label class="layui-form-label">相关链接</label>
+            <div class="layui-input-block">
+              <div class="layui-col-md3">
+                <input type="radio" name="url.target" value="javascript:;" title="_self" checked>
+                <input type="radio" name="url.target" value="_blank" title="_blank">
+              </div>
+              <div class="layui-col-md9">
+              <input type="text" id="url.href" name="url.href" lay-verType="tips" placeholder="跳转链接(可选)..." autocomplete="off" class="layui-input" style="border:none;    border-left: 1px solid #e6e6e6;">
+            </div>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-block">
+              <input type="text" name="bannerTitle"  placeholder="请输入标题(可选)..." autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">简介</label>
+            <div class="layui-input-block">
+              <input type="text" name="bannerDetail"  placeholder="请输入简介(可选)..." autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            
+            <div class="layui-btn-group">
+              <button class="layui-btn" lay-filter="carousel" lay-submit>立即保存</button>
+              <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </fieldset>
+</div>
+<%- include('footer') %>
+<script>
+  layui.extend({'xc':'/public/js/global'}).use(['table','laytpl', 'upload', 'xc'], function(){
+    var table = layui.table,
+        form = layui.form,
+        $ = layui.$,
+        xc = layui.xc,
+        upload = layui.upload,
+        layer = layui.layer;
+    
+    //第一个实例
+    let carouselTabIns = table.render({
+      elem: '#carouselTab'
+      ,height: 312
+      ,limit:6
+      ,limits:[6,12]
+      ,url: '/xc/carousel/list' //数据接口
+      ,page: true //开启分页
+      ,cols: [[ //表头
+        {field: '_id', title: 'ID', sort: true, fixed: 'left', width:110}
+        ,{field: 'itemImgSrc', title: '缩略图(点击可预览)', templet:'#itemImgSrcTpl', event:'showImg'}
+        ,{field: 'bannerTitle', title: '简介标题(可选)'}
+        ,{field: 'bannerDetail', title: '简介详情(可选)'} 
+        ,{field: 'url', title: '链接', templet:'<div><a href="{{d.url.href}}" target="{{d.url.target}}">{{d.url.href}}</a></div>'}
+        ,{field: 'status', title: '状态', templet:'#statusTpl'}
+        ,{fixed: 'right', title:'操作', width:150, align:'center', toolbar: '#barCarouselTab',} 
+      ]]
+    });
+    table.on('tool(carouselTab)', function(obj){
+      let layEvent = obj.event;
+      if(layEvent == 'showImg'){
+        $('#carouselImg').attr('src', obj.data.itemImgSrc);
+      }else if(layEvent == 'edit') {
+        $('#carouselImg').attr('src', obj.data.itemImgSrc);
+        $('input[name=itemImgSrc]').val(obj.data.itemImgSrc);
+        $('input[name=bannerTitle]').val(obj.data.bannerTitle);
+        $('input[name=bannerDetail]').val(obj.data.bannerDetail);
+        $('input[name="url.href"]').val(obj.data.url.href);
+        $('input[name=id]').val(obj.data._id);
+        
+        let targets = $('input[name="url.target"]');
+        let isChecked = obj.data.url.target == '_blank' ? true : false;
+        targets.get(0).checked = !isChecked;
+        targets.get(1).checked = isChecked;
+        form.render('radio');
+      }
+    });
+    form.on('switch(status)', function(data){
+      let status = data.elem.checked ? 0:1;
+      xc.json('/xc/carousel/delete', {id:data.value, status:status}, function(res){
+				if (res.code != 0) {
+					
+				}
+			});
+    });
+    form.on('submit(carousel)', function(data){
+      let action = $(data.form).attr('action');
+      xc.json(action, data.field, function(res){
+        if(res.code == 0){carouselTabIns.reload();}
+      })
+      return false;
+    });
+
+    upload.render({
+      elem:'.selCarouselBtn',
+      error:function(){
+        layer.closeAll('loading'); //关闭loading
+      },
+      before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+        layer.load(); //上传loading
+      },
+      done:function(res, index, upload){
+        
+        layer.msg(res.data.originName + ' ' + res.msg);
+        layer.closeAll('loading'); //关闭loading
+        if (res.code == 0) {
+          $('#imgSrcInput').val(res.data.src);
+          $('#carouselImg').attr('src', res.data.src);
+        }
+      }
+    });
+  });
+  </script>
+  <script type="text/html" id="itemImgSrcTpl">
+    <img class="itemImgSrc" src="{{d.itemImgSrc}}" />
+  </script>
+  <script type="text/html" id="barCarouselTab">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  </script>
+  <script type="text/html" id="statusTpl">
+    <input type="checkbox" name="status" lay-skin="switch" lay-text="显示|隐藏" value="{{d._id}}" lay-filter="status" {{ d.status ? '' : 'checked'}}>
+  </script>

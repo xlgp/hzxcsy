@@ -3,7 +3,7 @@ let News = require('../module/news.module'),
 
 let ArticleModel = News.ArticleModel;
 
-module.exports.getArticleById = function(id, callback){
+module.exports.getArticlesById = function(id, callback){
     let proxy = new EventProxy();
     
     proxy.assign(['article','prenews', 'nextnews'], (article, prenews, nextnews) => {
@@ -27,24 +27,59 @@ module.exports.getArticleById = function(id, callback){
     });
 }
 
+module.exports.getArticleById = function(id, callback){
+    ArticleModel.findById(id, (err, res) => {
+        callback(err, res);
+    });
+}
+
 module.exports.newsCount = function(catoname, options, callback){
     ArticleModel.count({'category.name':catoname, 'status':0}, callback);
 }
 
+module.exports.allCount = function(conditions, callback){
+    ArticleModel.count(conditions, callback);
+}
+
 module.exports.getArticlesByCato = function(catoname, options, callback){
     let pageSize = options  && options.pageSize || 8,
-        pageNo = options && options.pageNo || 0;
+        pageNo = options && options.pageNo || 0,
         conditions = {
             'category.name':catoname,
             'status':0,
         };
         options = {
             limit:pageSize,
-            sort:{_id:-1},
+            sort:{_id:-1, isTop:-1},
             skip:pageSize*(pageNo-1)
         }
         
     ArticleModel.find(conditions, {}, options,callback);
+}
+
+module.exports.getAllArticles = function (options, callback) {
+    let pageSize = options  && options.pageSize || 20,
+        pageNo = options && options.pageNo || 0;
+        options = {
+            limit:pageSize,
+            sort:{_id:-1},
+            skip:pageSize*(pageNo-1)
+        };
+        ArticleModel.find({},{},options, callback);
+}
+
+module.exports.update = function (id, u, callback) {
+    if(!u){
+        callback(new Error('条件不足'), null);
+        return
+    }
+
+    let update = {};
+    u.status && (update.status = u.status);
+    if (u.isTop) {
+        u.isTop.toString() && (update.isTop = u.isTop);    
+    }
+    ArticleModel.findByIdAndUpdate(id, update, {new:true}, callback);
 }
 
 module.exports.save = function(article, callback){

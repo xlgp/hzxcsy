@@ -1,0 +1,28 @@
+.xc-img-box{
+    font-size:0;
+    border: 1px dashed #e6e6e6;
+    margin-bottom: 15px;
+    height:200px;
+    line-height: 200px;
+    background-color: rgba(253, 253, 253, 0.6);
+    padding:10px;
+    text-align: center;
+    position: relative;
+
+}
+.xc-img-box::after{
+    position: absolute;
+    line-height: 200px;
+    content: '图片显示区域';
+    text-align: center;
+    font-size: 16px;
+    color: #cccccc;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.xc-img-box img{
+    max-height:100%;
+    max-width: 100%;
+}

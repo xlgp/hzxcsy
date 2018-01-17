@@ -11,17 +11,34 @@ module.exports.getCarousel = function (callback) {
 }
 
 //后台
-module.exports.getAllCarousel = function (callback) {
-    CarouselModel.find({},(err, res) => {
+module.exports.getAllCarousel = function (options,callback) {
+    let pageSize = options  && options.pageSize || 20,
+    pageNo = options && options.pageNo || 0;
+    options = {
+        limit:pageSize,
+        sort:{_id:-1},
+        skip:pageSize*(pageNo-1)
+    };
+    CarouselModel.find({}, {}, options, (err, res) => {
         callback(err ,res);
     });
 }
 
+module.exports.allCarouselCount = function(conditions, callback){
+    CarouselModel.count(conditions, callback);
+}
+
 /**
- * 更新或保存carousel save and update
+ * 保存carousel
  */
-module.exports.SUCarousel = function name(obj, callback) {
+module.exports.saveCarousel = function (obj, callback) {
     let CarouselEnity = new CarouselModel(obj);
     CarouselEnity.save(callback);
 };
 
+/**
+ * 更新carousel
+ */
+module.exports.upCarousel = function (id, status, callback){
+    CarouselModel.findByIdAndUpdate(id, {status:status}, {new:true}, callback);
+}

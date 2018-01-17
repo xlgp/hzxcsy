@@ -17,15 +17,20 @@ router.get('/joinus', site.joinus);
 // 文章
 router.get('/article/:id(\\w{24})', news.get);
 router.get('/news/:catoname(\\w+)/:page(\\d+)', news.cato);
-router.get('/news/add', auth.adminRequired, news.showAdd);
-router.post('/news/add',auth.adminRequired, news.add);
+router.get('/xc/news/list', auth.adminRequired, news.articleList);
+router.get('/xc/news/showlist', auth.adminRequired, news.newsPage);
+router.post('/xc/news/save',auth.adminRequired, news.save);
+router.post('/xc/news/update',auth.adminRequired, news.update);
+router.post('/xc/news/delete', auth.adminRequired, news.delete);
+router.post('/xc/news/top', auth.adminRequired, news.isTop);
 
 
 //banner
 router.get('/xc/index', auth.adminRequired, xc.site);
-router.get('/carousel/list', auth.adminRequired, xc.carousel);
-router.post('/carousel/add', auth.adminRequired, xc.carouselSave);
-
+router.get('/xc/carousel/list', auth.adminRequired, xc.carousel);
+router.get('/xc/carousel/showlist', auth.adminRequired, xc.showCarousel);
+router.post('/xc/carousel/save', auth.adminRequired, xc.carouselSave);
+router.post('/xc/carousel/delete', auth.adminRequired, xc.carouselDel);
 // staff
 router.get('/staff/:page(\\d+)', staff.list);
 router.get('/staff/item/:id(\\d+)', staff.item);
@@ -37,6 +42,6 @@ router.get('/logout', user.logout);
 //upload
 router.post('/upload/:type(\\w+)', upload);
 
-// router.get('/test', require('./test/test').index);
+router.get('/test', require('./test/test').index);
 
 module.exports = router;

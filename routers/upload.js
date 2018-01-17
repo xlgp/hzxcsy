@@ -38,9 +38,7 @@ module.exports = function(req, res, next) {
                         type:files.file.type,
                         size:files.file.size
                     };
-                    //将数据存入数据库
-                    // function save();
-                    res.status(200).json({code:0, msg:'', data:data, link:'/' + filepath});
+                    res.status(200).json({code:0, msg:'success', data:data, link:'/' + filepath});
                 });
             
         });

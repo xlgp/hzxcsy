@@ -1,84 +1,230 @@
 <%- include('head') %>
-<div class="layui-container">
-		<div class="fly-panel" pad20="" style="padding: 20px;">
-				<div class="layui-form layui-form-pane">
-								<form class="layui-form" action="/news/add" method="post">
-									<div class="layui-row layui-col-space15 layui-form-item">
-										<div class="layui-col-md3">
-											<label class="layui-form-label">文章类型</label>
-											<div class="layui-input-block">
-												<select lay-verify="required" name="cato" lay-filter="cato"> 
-													<%try{ %>
-														<option value="">选择类型</option> 
-														<%for(let i = 0; i < catos.length; i++){%>
-													<option value="<%=catos[i][0]%>"><%=catos[i][1]%></option>
-													<%}}catch(err){}%>
-												</select>
-										</div>
-										</div>
-										<div class="layui-col-md9">
-											<label for="XC_title" class="layui-form-label">标题</label>
-											<div class="layui-input-block">
-												<input type="text" id="XC_title" name="title" placeholder="文章标题..." required="" lay-verify="required" autocomplete="off" class="layui-input">
-											</div>
-										</div>
-									</div>
-									<div class="layui-form-item">
-												<textarea id="newsTextarea"></textarea>
-									</div>
-									<div class="layui-form-item layui-form-text">
-											<label class="layui-form-label">文章摘要</label>
-											<div class="layui-input-block">
-												<textarea name="summary" placeholder="文章摘要(必填)" required="" lay-verify="required" class="layui-textarea" style="height:120px"></textarea>
-											</div>
-										</div>
-									<div class="layui-form-item" pane>
-										<label class="layui-form-label">来源</label>
-										<div class="layui-input-block">
-											<div class="layui-col-md3">
-												<input type="radio" name="origin.id" value="0" title="原创">
-												<input type="radio" name="origin.id" value="1" title="转载" checked>
-											</div>
-											<div class="layui-col-md9">
-											<input type="text" id="origin.url" name="origin.url" lay-verType="tips" placeholder="若文章为转载,请输入文章来源链接..." lay-verify="origin" autocomplete="off" class="layui-input" style="border:none;    border-left: 1px solid #e6e6e6;">
-										</div>
-										</div>
-									</div>
-									<div class="layui-form-item">
-											<label for="XC_itemImgSrc" class="layui-form-label">封面图链接</label>
-											<div class="layui-input-block">
-												<input type="text" id="XC_itemImgSrc" name="itemImgSrc" placeholder="封面图链接(选填)..." autocomplete="off" class="layui-input">
-											</div>
-										</div>
-									<div class="layui-form-item">
-										<button class="layui-btn" lay-filter="news" lay-submit="">立即增加</button>
-									</div>
-								</form>					
-				</div>
+	<div class="layui-container">
+			<blockquote class="layui-elem-quote layui-quote-nm">
+					<button id="addNewsBtn" class="layui-btn">新增文章</button>
+				</blockquote>	
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend>文章列表</legend>
+			<div class="layui-field-box">
+				<table id="newsTab" lay-filter="newsTab"></table>
 			</div>
-</div>
+		  </fieldset>
+		  	
+	</div>
 <%- include('footer') %>
-
 <script>
-$(function() { 
+
+function initFroalaEditor(){
 	$('#newsTextarea').froalaEditor({
-		height: 600,
-		imageUploadURL:'/upload/news',
+		height: 400,
+		imageUploadURL: '/upload/news',
 	}).on('froalaEditor.image.error', function (e, editor, error, response) {
 		console.error(error, response);
 	}).on('froalaEditor.image.uploaded', function (e, editor, response) {
 		try {
-		$('#XC_itemImgSrc').val().trim() || $('#XC_itemImgSrc').val(JSON.parse(response).link);
+			$('#XC_itemImgSrc').val().trim() || $('#XC_itemImgSrc').val(JSON.parse(response).link);
 		} catch (error) {
 		}
 	}).on('froalaEditor.imageManager.error', function (e, editor, error, response) {
 		console.log(response);
 	}).on('froalaEditor.image.inserted', function (e, editor, $img, response) {
 		$img.css({
-			'width':'100%',
-			'height':'auto',
-			'max-height':'450px'
+			'width': '100%',
+			'height': 'auto',
+			'max-height': '450px'
 		});
-	});;
+	});
+}
+
+layui.config({
+  base: '/public/js/' //假设这是你存放拓展模块的根目录
+}).extend({'xc':'global'}).use(['layer','element', 'table', 'laytpl','xc'], function(){
+	var laytpl = layui.laytpl,
+		layer = layui.layer,
+		$ = layui.$,
+		xc = layui.xc,
+		form = layui.form,
+		table = layui.table;
+
+		function openNewContent(article, callback){
+			if (xc.isfunction(article)) {
+				callback = article;
+				article = null;
+			}
+			article = article || {
+				category:{name:'otherNews'},
+				origin:{originid:1},
+			};
+			var getTpl = newsContent.innerHTML;
+				laytpl(getTpl).render(article, function(html){
+					layer.open({
+						title:'文章信息',
+						type:1,
+						content:html,
+						area:['100%', '100%'],
+						success:function(layero, layerindex){
+							layui.form.render();
+							initFroalaEditor();
+							$('#newsTextarea').froalaEditor('html.set', article.content);
+							form.on('submit(news)', function(data){
+								let action = $(data.form).attr('action');
+								data.field.content = $('#newsTextarea').froalaEditor('html.get');
+								if(data.field.content && data.field.content.trim()){
+									xc.json(action, data.field, function (res) { 
+											try {
+												if (res.code == 0) { 
+													layer.close(layerindex);
+													xc.isfunction(callback) && callback(res.data);
+												}
+											} catch (error) {
+												layer.msg(res.msg || '不知道哪里错了....', {anim: 6,icon:2});
+											}
+											
+									});
+								}else{
+									layer.msg('请输入文章内容...', {anim: 6,icon:2});
+								}
+								return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+							});
+						}
+					});
+					
+				});
+		}
+
+	let newsTableIns = table.render({
+      elem: '#newsTab'
+      ,height: 465
+      ,url: '/xc/news/list' //数据接口
+	  ,page: true //开启分页
+	  ,limits:[10,20]
+      ,cols: [[ //表头
+        {field: '_id', title: 'ID', sort: true, fixed: 'left', width:110}
+		,{field: 'title', title: '标题', templet:'<div><a href="{{d.url.href + d._id}}" target="_blank">{{d.title}}</a></div>'}
+		,{field:'summary', title:'摘要'}
+		,{field: 'itemImgSrc', title: '预览', templet:'#itemImgSrcTpl'}
+        ,{field: 'category', title:'类型', templet:'<div>{{d.category.zhname}}</div>', width:100}
+		,{field: 'status', title: '状态', templet:'#statusTpl', width:80}
+		,{field: 'isTop', title: '置顶', templet:'#isTopTpl', width:80}
+		,{field: 'pv', title: '访问量', width:80}
+        ,{fixed: 'right', title:'操作', width:115, align:'center', toolbar: '#barNewsTab'} 
+      ]]
+	});
+	table.on('tool(newsTab)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+		var data = obj.data; //获得当前行数据
+		var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+		
+		if(layEvent === 'edit'){ //编辑
+			data['action'] = 'update';
+			openNewContent(data, function(data){
+				obj.update({
+					title:data.title,
+					summary:data.summary,
+					itemImgSrc:data.itemImgSrc,
+					category:data.category,
+					pv:data.pv,
+				});
+			});
+		}
+	});
+	form.on('switch(status)', function(data){
+		let status = data.elem.checked ? 0:1;
+		xc.json('/xc/news/delete', {id:data.value, status:status}, function(res){
+				
+				if (res.code != 0) {
+					
+				}
+			});
+	});  
+	form.on('switch(isTop)', function(data){
+		xc.json('/xc/news/top', {id:data.value, istop:data.elem.checked}, function(res){
+				
+				if (res.code != 0) {
+					
+				}
+			});
+	});  
+	$('#addNewsBtn').on('click', function () {
+		openNewContent(function(){
+			newsTableIns.reload();
+		});
+	});
+
 });
+</script>
+  <script type="text/html" id="itemImgSrcTpl">
+    <img src="{{d.itemImgSrc}}" />
+  </script>
+  <script type="text/html" id="barNewsTab">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  </script>
+  <script type="text/html" id="statusTpl">
+    <input type="checkbox" name="status" lay-skin="switch" lay-text="显示|隐藏" value="{{d._id}}" lay-filter="status" {{ d.status ? '' : 'checked'}}>
+  </script>
+  <script type="text/html" id="isTopTpl">
+    <input type="checkbox" name="isTop" lay-skin="switch" lay-text="是|否" value="{{d._id}}" lay-filter="isTop" {{ d.isTop ? 'checked' : ''}}>
+  </script>
+<script type="text/html" id="newsContent">
+	<div class="layui-container layui-form layui-form-pane" style="width:80%;margin-top:25px">
+	<form class="layui-form" action="/xc/news/{{d.action||'save'}}" method="post">
+		<div class="layui-row layui-col-space15 layui-form-item">
+			<div class="layui-col-md3">
+				<label class="layui-form-label">文章类型</label>
+				<div class="layui-input-block">
+					<input type="hidden" name="id" value="{{=d._id}}" />
+					<select lay-verify="required" name="cato" lay-filter="cato">
+						<%try{ %>
+							<option value="">选择类型</option>
+							<%for(let i = 0; i < catos.length; i++){%>
+								<option value="<%=catos[i][0]%>" {{d.category.name == "<%=catos[i][0]%>" ? 'selected' : ''}}><%=catos[i][1]%></option>
+							<%}}catch(err){}%>
+					</select>
+				</div>
+			</div>
+			<div class="layui-col-md9">
+				<label for="XC_title" class="layui-form-label">标题</label>
+				<div class="layui-input-block">
+					<input type="text" id="XC_title" name="title" placeholder="文章标题..." required="" lay-verify="required" autocomplete="off"
+					 class="layui-input" value="{{=d.title}}">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<textarea id="newsTextarea"></textarea>
+		</div>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">文章摘要</label>
+			<div class="layui-input-block">
+				<textarea name="summary" placeholder="文章摘要(必填)" required="" lay-verify="required" class="layui-textarea" style="height:120px">{{=d.summary}}</textarea>
+			</div>
+		</div>
+		<div class="layui-form-item" pane>
+			<label class="layui-form-label">来源</label>
+			<div class="layui-input-block">
+				<div class="layui-col-md3">
+					<%let origin = [{originid:0,title:'原创'},{originid:1,title:'转载'}];
+						for(let i = 0; i < origin.length; i++){%>
+						<input type="radio" name="origin.id" value="<%=origin[i].originid%>" title="<%=origin[i].title%>" {{d.origin.originid == '<%=origin[i].originid%>' ? 'checked':''}}>
+					<%}%>
+				</div>
+				<div class="layui-col-md9">
+					<input type="text" id="origin.url" name="origin.url" lay-verType="tips" placeholder="若文章为转载,请输入文章来源链接..." lay-verify="origin"
+					 autocomplete="off" class="layui-input" value="{{=d.origin.url}}"  style="border:none;    border-left: 1px solid #e6e6e6;">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label for="XC_itemImgSrc" class="layui-form-label">封面图链接</label>
+			<div class="layui-input-block">
+				<input type="text" id="XC_itemImgSrc" name="itemImgSrc" value="{{=d.itemImgSrc}}" placeholder="封面图链接(选填)..." autocomplete="off" class="layui-input">
+			</div>
+			<div class='xc-img-box' style="">
+				<img src="{{=d.itemImgSrc}}" style="max-height:100%;max-width:100%"/>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<button class="layui-btn" lay-filter="news" lay-submit="">立即增加</button>
+		</div>
+	</form>
+</div>
 </script>

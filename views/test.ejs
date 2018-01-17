@@ -2,38 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
- 
-    <!-- Include external CSS. -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
- 
-    <!-- Include Editor style. -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_style.min.css" rel="stylesheet" type="text/css" />
-  </head>
+ </head>
  
   <body>
     <!-- Create a tag that we will use as the editable area. -->
     <!-- You can use a div tag as well. -->
     <button id="btn">点击</button>
-    <textarea></textarea>
+    <textarea name="content" id="editor"></textarea>
     <div id="box" style="width:60%;margin:auto"></div>
-    <!-- Include external JS libs. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
- 
-    <!-- Include Editor JS files. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/js/froala_editor.pkgd.min.js"></script>
- 
-    <!-- Initialize the editor. -->
-    <script> $(function() { 
-      $('textarea').froalaEditor({
-        height: 500
-      });
-      $('#btn').on('click', function(){
-        $('#box').append($('textarea').froalaEditor('html.get'));
-      });
-    }); </script>
+   
   </body>
+  <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+          image:{
+            toolbar: [ 'imageTextAlternative', '|', 'imageStyleAlignLeft', 'imageStyleFull', 'imageStyleAlignRight' ],
+            styles: [
+                // This option is equal to a situation where no style is applied.
+                'imageStyleFull',
+
+                // This represents an image aligned to left.
+                'imageStyleAlignLeft',
+
+                // This represents an image aligned to right.
+                'imageStyleAlignRight'
+            ]
+          }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </html>

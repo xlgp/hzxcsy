@@ -1,127 +1,32 @@
 <%- include('head') %>
 <div class="layui-container">
-    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-        <ul class="layui-tab-title">
-          <li class="layui-this">网站设置</li>
-          <li>首页轮播图设置</li>
-          <li>权限分配</li>
-          <li>商品管理</li>
-          <li>订单管理</li>
-        </ul>
-        <div class="layui-tab-content">
-          <div class="layui-tab-item layui-show">内容1</div>
-          <div class="layui-tab-item">
-            <button id="addCarouselBtn" class="layui-btn layui-btn-primary">新增</button>
-            <table id="carouselTab" lay-filter="carouselTab"></table>
-          </div>
-          
-          <div class="layui-tab-item">内容3</div>
-          <div class="layui-tab-item">内容4</div>
-          <div class="layui-tab-item">内容5</div>
+    <div class="layui-row" style="margin-top:20px">
+        <div class="layui-col-md4">
+            <fieldset class="layui-elem-field">
+                <legend>导航</legend>
+                <div class="layui-field-box layui-col-space8">
+                    <div class="layui-col-md4">
+                        <a href="/xc/carousel/showlist" style="text-align: center;">
+                            <i class="layui-icon" style="height:60px;line-height:60px;display: inline-block;font-size: 40px;width: 100%;    background-color: #f7f7f7;">&#xe634;</i>
+                            <cite style="display:block;margin-top:10px">Carousel</cite></a>
+                    </div>
+                    <div class="layui-col-md4">
+                        <a href="/xc/news/showlist" style="text-align: center;">
+                            <i class="layui-icon" style="height:60px;line-height:60px;display: inline-block;font-size: 40px;width: 100%;    background-color: #f7f7f7;">&#xe630;</i>
+                            <cite style="display:block;margin-top:10px">News</cite></a>
+                    </div>
+                    <div class="layui-col-md4"></div>
+                </div>
+              </fieldset>
+            
         </div>
-      </div>
-      <hr>
-      <div>
-        <div class="layui-row">
-            <button class="layui-btn selCarouselBtn" style="width:100%" lay-data="{url: '/upload/banner', accept: 'images', size:768, auto:false}">选择图片</button>
-            <div style="font-size:0;border: 1px solid #e6e6e6;margin-bottom: 15px;height:200px;background-color: #fbfbfb;padding:10px;text-align: center;">
-                <img id="carouselImg" src="" style="max-height:100%"/>
-              </div>
+        <div class="layui-col-md4">
+          <!-- 你的内容 3/12 -->
         </div>
-        <form class="layui-form layui-form-pane" action="/carousel/add" method="post">
-          <div class="layui-form-item" pane>
-            <label class="layui-form-label">图片路径<span class="layui-badge-dot" style="margin-left:5px"></span></label>
-            <div class="layui-input-block">
-                <input type="text" id="imgSrcInput" name="itemImgSrc" lay-verType="tips" placeholder="图片路径..." required="" lay-verify="required" autocomplete="off" class="layui-input" style="border:none;border-left: 1px solid #e6e6e6;">  
-            </div>
-          </div>
-          <div class="layui-form-item" pane>
-            <label class="layui-form-label">相关链接</label>
-            <div class="layui-input-block">
-              <div class="layui-col-md3">
-                <input type="radio" name="url.target" value="" title="_self">
-                <input type="radio" name="url.target" value="_blank" title="_blank" checked>
-              </div>
-              <div class="layui-col-md9">
-              <input type="text" id="url.href" name="url.href" lay-verType="tips" placeholder="跳转链接(可选)..." autocomplete="off" class="layui-input" style="border:none;    border-left: 1px solid #e6e6e6;">
-            </div>
-            </div>
-          </div>
-          <div class="layui-form-item">
-            <label class="layui-form-label">标题</label>
-            <div class="layui-input-block">
-              <input type="text" name="bannerTitle"  placeholder="请输入标题(可选)..." autocomplete="off" class="layui-input">
-            </div>
-          </div>
-          <div class="layui-form-item">
-            <label class="layui-form-label">简介</label>
-            <div class="layui-input-block">
-              <input type="text" name="bannerDetail"  placeholder="请输入简介(可选)..." autocomplete="off" class="layui-input">
-            </div>
-          </div>
-          <div class="layui-form-item">
-            <button class="layui-btn" lay-filter="carousel" lay-submit="">立即保存</button>
-          </div>
-        </form>
-        
-      </div>
+        <div class="layui-col-md4">
+            <!-- 你的内容 3/12 -->
+          </div>  
+    </div>
+    
 </div>
 <%- include('footer') %>
-<script>
-  layui.use(['table','laytpl', 'upload'], function(){
-    var table = layui.table,
-        form = layui.form,
-        $ = layui.$,
-        upload = layui.upload,
-        layer = layui.layer;
-    
-    //第一个实例
-    table.render({
-      elem: '#carouselTab'
-      ,height: 315
-      ,url: '/carousel/list' //数据接口
-      ,page: true //开启分页
-      ,cols: [[ //表头
-        {field: '_id', title: 'ID', sort: true, fixed: 'left', width:110}
-        ,{field: 'itemImgSrc', title: '预览', templet:'#itemImgSrcTpl'}
-        ,{field: 'bannerTitle', title: '简介标题(可选)'}
-        ,{field: 'bannerDetail', title: '简介详情(可选)'} 
-        ,{field: 'url', title: '链接', templet:'<div><a href="{{d.url.href}}" target="{{d.url.target}}">{{d.url.href}}</a></div>'}
-        ,{field: 'status', title: '状态', templet:'#statusTpl'}
-        ,{fixed: 'right', width:150, align:'center', toolbar: '#barCarouselTab'} 
-      ]]
-    });
-    form.on('switch(status)', function(obj){
-      console.log(this.value);
-    
-      console.log(obj); //当前是否选中状态
-      // console.log(obj.data); //选中行的相关数据
-      // console.log(obj.type); //如果触发的是全选，则为：all，如果触发的是单选，则为：one
-    });
-    upload.render({
-      elem:'.selCarouselBtn',
-      error:function(){
-        layer.msg('error');
-      },
-      done:function(res, index, upload){
-        $('#imgSrcInput').val(res.data.src);
-        $('#carouselImg').attr('src', res.data.src);
-        layer.msg(res.data.originName + ' 上传成功');
-      }
-    });
-  });
-  </script>
-  <script type="text/html" id="itemImgSrcTpl">
-    <img src="{{d.itemImgSrc}}" />
-  </script>
-  <script type="text/html" id="dddd">
-    <p id="ppppp">fasdfasdf</p>
-  </script>
-  <script type="text/html" id="barCarouselTab">
-    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-  </script>
-  <script type="text/html" id="statusTpl">
-    <input type="checkbox" name="status" lay-skin="switch" lay-text="显示|隐藏" value="{{d.status}}" lay-filter="status" {{ d.status ? '' : 'checked'}}>
-  </script>

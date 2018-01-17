@@ -1,6 +1,6 @@
 'use strict';
 
-layui.define(['form', 'layer', 'element'], function(){
+layui.define(['form', 'layer', 'element'], function(exports){
     let form = layui.form,
         table = layui.table,
         element = layui.element,
@@ -15,36 +15,26 @@ layui.define(['form', 'layer', 'element'], function(){
             data: data,
             url: url,
             success: function(res){
-              if(res.code === 0) {
-                success && success(res);
-              } else {
-                layer.msg(res.msg||res.code, {anim: 6,icon:1});
-              }
+              layer.msg(res.msg||res.code, {icon:(res.code === 0 ? 1:2)});
+              success && success(res);
             }, error: function(e){
               options.error || layer.msg('请求异常，请重试', {anim: 6,icon:2});
             }
           });
+        },
+        isfunction:function (callback) {
+          return callback && typeof callback === 'function'
         }
       };
       
-        form.on('submit(news)', function(data){
-            let action = $(data.form).attr('action'), button = $(data.elem);
-            data.field.content = $('#newsTextarea').froalaEditor('html.get');
-            xc.json(action, data.field, function (res) {
-                layer.msg(res.msg), {anim: 6,icon:1};
-            });
-            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-          });
-        form.on('submit(carousel)', function(data){
-          let action = $(data.form).attr('action');
-          xc.json(action, data.field, function(res){
-            layer.msg(res.msg), {anim: 6,icon:1};
-          })
-          return false;
-        });
+        
+        
         form.on('submit(login)', function(data){
           xc.json('/login', data.field, function(res){
-            window.location.href = res.data.redirectUrl;
+            if (res.code == 0) {
+              window.location.href = res.data.redirectUrl;  
+            }
+            
           });
           return false;
         });
@@ -58,5 +48,6 @@ layui.define(['form', 'layer', 'element'], function(){
           }
         });
 
+        exports('xc', xc);
 
 });

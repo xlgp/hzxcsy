@@ -31,6 +31,7 @@ let ArticleSchema = new Schema({
         target:{type:String,default:''}
     },
     createTime: { type: Date, default: Date.now },
+    updateTime: { type: Date, default: Date.now },
     origin:{
         originid:{type:Number, default:0},
         title:{type:String, default:'原创'},

@@ -1,7 +1,7 @@
 <%- include('../public/head') %>
 <h1 class="txtcenter" style="font-size:40px;margin:30px 0">杭州协创实业有限公司</h1>
 <div class="layui-container xc-section site-content">
-    <form class="layui-form" action="/login" method="post" style="width:400px;margin:0 auto">
+    <form class="layui-form" action="" method="post" style="width:400px;margin:0 auto">
         <div class="layui-form-item">
             <label class="layui-form-label">用户名:</label>
             <div class="layui-input-block">
@@ -21,3 +21,6 @@
     </form>
 </div>
 <%- include('footer') %>
+<script>
+  layui.extend({'xc':'/public/js/global'}).use('xc', function(){let xc = layui.xc});
+</script>
