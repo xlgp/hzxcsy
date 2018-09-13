@@ -30,21 +30,21 @@ module.exports = {
         maxAge:1000*1800,
     },
     mongodb:{
-        url:'mongodb://localhost:27017/hzxcsydb',
+        url:'mongodb://localhost:27017/db',
         options:{
-            user:'hzxc',
-            pass:'hzxc',
+            user:'user',
+            pass:'pass',
             useMongoClient: true,
             poolSize: 20
         }
     },
     redis:{
-        port:6379,
+        port:10000,
         host:'127.0.0.1',
     },
     user:[
         {username:'1', password:'1'},
-        {username:'hzxcsy',password:'h2xc59'},
+        {username:'2',password:'2'},
     ][index],
     /**
      * 图片上传路径
